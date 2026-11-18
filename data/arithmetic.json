@@ -1,0 +1,203 @@
+[
+  {
+    "id": "adding-fractions",
+    "name": "Adding Fractions",
+    "category": "arithmetic",
+    "topic": "fractions",
+    "latex": "\\frac{a}{b} + \\frac{c}{d} = \\frac{ad + bc}{bd}",
+    "plain": "a/b + c/d = (ad + bc) / (bd)",
+    "description": "Adds two fractions using a common denominator; simplify the result afterwards.",
+    "variables": [
+      { "key": "a", "symbol": "a", "name": "numerator of first fraction" },
+      { "key": "b", "symbol": "b", "name": "denominator of first fraction" },
+      { "key": "c", "symbol": "c", "name": "numerator of second fraction" },
+      { "key": "d", "symbol": "d", "name": "denominator of second fraction" }
+    ],
+    "output": { "key": "s", "symbol": "s", "name": "sum (decimal value)" },
+    "compute": "(a*d + b*c) / (b*d)",
+    "conditions": ["b ≠ 0, d ≠ 0"],
+    "examples": [
+      { "inputs": { "a": 1, "b": 2, "c": 1, "d": 3 }, "output": 0.8333333333333334, "display": "5/6" }
+    ],
+    "tags": ["fractions", "addition"],
+    "links": {
+      "learn": "https://mathovia.com/guides/adding-fractions/",
+      "calculate": "https://mathovia.com/calculators/adding-fractions-calculator/",
+      "practice": "https://mathovia.com/practice/fraction-problem-generator/"
+    }
+  },
+  {
+    "id": "subtracting-fractions",
+    "name": "Subtracting Fractions",
+    "category": "arithmetic",
+    "topic": "fractions",
+    "latex": "\\frac{a}{b} - \\frac{c}{d} = \\frac{ad - bc}{bd}",
+    "plain": "a/b − c/d = (ad − bc) / (bd)",
+    "description": "Subtracts two fractions using a common denominator; simplify the result afterwards.",
+    "variables": [
+      { "key": "a", "symbol": "a", "name": "numerator of first fraction" },
+      { "key": "b", "symbol": "b", "name": "denominator of first fraction" },
+      { "key": "c", "symbol": "c", "name": "numerator of second fraction" },
+      { "key": "d", "symbol": "d", "name": "denominator of second fraction" }
+    ],
+    "output": { "key": "s", "symbol": "s", "name": "difference (decimal value)" },
+    "compute": "(a*d - b*c) / (b*d)",
+    "conditions": ["b ≠ 0, d ≠ 0"],
+    "examples": [
+      { "inputs": { "a": 3, "b": 4, "c": 1, "d": 6 }, "output": 0.5833333333333334, "display": "7/12" }
+    ],
+    "tags": ["fractions", "subtraction"],
+    "links": {
+      "calculate": "https://mathovia.com/calculators/subtracting-fractions-calculator/",
+      "practice": "https://mathovia.com/practice/fraction-problem-generator/"
+    }
+  },
+  {
+    "id": "multiplying-fractions",
+    "name": "Multiplying Fractions",
+    "category": "arithmetic",
+    "topic": "fractions",
+    "latex": "\\frac{a}{b} \\cdot \\frac{c}{d} = \\frac{ac}{bd}",
+    "plain": "a/b × c/d = ac / bd",
+    "description": "Multiply numerators together and denominators together.",
+    "variables": [
+      { "key": "a", "symbol": "a", "name": "numerator of first fraction" },
+      { "key": "b", "symbol": "b", "name": "denominator of first fraction" },
+      { "key": "c", "symbol": "c", "name": "numerator of second fraction" },
+      { "key": "d", "symbol": "d", "name": "denominator of second fraction" }
+    ],
+    "output": { "key": "p", "symbol": "p", "name": "product (decimal value)" },
+    "compute": "(a*c) / (b*d)",
+    "conditions": ["b ≠ 0, d ≠ 0"],
+    "examples": [
+      { "inputs": { "a": 2, "b": 3, "c": 3, "d": 5 }, "output": 0.4, "display": "2/5" }
+    ],
+    "tags": ["fractions", "multiplication"],
+    "links": {
+      "calculate": "https://mathovia.com/calculators/multiplying-fractions-calculator/",
+      "practice": "https://mathovia.com/practice/fraction-problem-generator/"
+    }
+  },
+  {
+    "id": "dividing-fractions",
+    "name": "Dividing Fractions",
+    "category": "arithmetic",
+    "topic": "fractions",
+    "latex": "\\frac{a}{b} \\div \\frac{c}{d} = \\frac{ad}{bc}",
+    "plain": "a/b ÷ c/d = ad / bc",
+    "description": "Multiply the first fraction by the reciprocal of the second.",
+    "variables": [
+      { "key": "a", "symbol": "a", "name": "numerator of first fraction" },
+      { "key": "b", "symbol": "b", "name": "denominator of first fraction" },
+      { "key": "c", "symbol": "c", "name": "numerator of second fraction" },
+      { "key": "d", "symbol": "d", "name": "denominator of second fraction" }
+    ],
+    "output": { "key": "q", "symbol": "q", "name": "quotient (decimal value)" },
+    "compute": "(a*d) / (b*c)",
+    "conditions": ["b ≠ 0, c ≠ 0, d ≠ 0"],
+    "examples": [
+      { "inputs": { "a": 3, "b": 4, "c": 1, "d": 2 }, "output": 1.5, "display": "3/2" }
+    ],
+    "tags": ["fractions", "division", "reciprocal"],
+    "links": {
+      "calculate": "https://mathovia.com/calculators/dividing-fractions-calculator/",
+      "practice": "https://mathovia.com/practice/fraction-problem-generator/"
+    }
+  },
+  {
+    "id": "mixed-number-to-improper-fraction",
+    "name": "Mixed Number to Improper Fraction",
+    "category": "arithmetic",
+    "topic": "fractions",
+    "latex": "w\\frac{n}{d} = \\frac{wd + n}{d}",
+    "plain": "w n/d = (w·d + n) / d",
+    "description": "Converts a mixed number to an improper fraction. The value computed is the new numerator; the denominator stays d.",
+    "variables": [
+      { "key": "w", "symbol": "w", "name": "whole number part" },
+      { "key": "n", "symbol": "n", "name": "numerator" },
+      { "key": "d", "symbol": "d", "name": "denominator" }
+    ],
+    "output": { "key": "N", "symbol": "wd + n", "name": "improper numerator" },
+    "compute": "w*d + n",
+    "conditions": ["d ≠ 0", "w ≥ 0 (for negative mixed numbers apply the sign to the whole result)"],
+    "examples": [
+      { "inputs": { "w": 2, "n": 3, "d": 4 }, "output": 11, "display": "11/4" }
+    ],
+    "tags": ["fractions", "mixed-numbers"],
+    "links": {
+      "calculate": "https://mathovia.com/calculators/mixed-number-to-improper-fraction-calculator/",
+      "practice": "https://mathovia.com/practice/fraction-problem-generator/"
+    }
+  },
+  {
+    "id": "fraction-to-decimal",
+    "name": "Fraction to Decimal",
+    "category": "arithmetic",
+    "topic": "fractions",
+    "latex": "\\frac{n}{d} = n \\div d",
+    "plain": "n/d = n ÷ d",
+    "description": "Divide the numerator by the denominator.",
+    "variables": [
+      { "key": "n", "symbol": "n", "name": "numerator" },
+      { "key": "d", "symbol": "d", "name": "denominator" }
+    ],
+    "output": { "key": "x", "symbol": "x", "name": "decimal value" },
+    "compute": "n / d",
+    "conditions": ["d ≠ 0"],
+    "examples": [
+      { "inputs": { "n": 7, "d": 8 }, "output": 0.875 }
+    ],
+    "tags": ["fractions", "decimals", "conversion"],
+    "links": {
+      "learn": "https://mathovia.com/guides/common-fractions-decimal-equivalents/",
+      "calculate": "https://mathovia.com/calculators/fraction-to-decimal-calculator/"
+    }
+  },
+  {
+    "id": "fraction-to-percent",
+    "name": "Fraction to Percent",
+    "category": "arithmetic",
+    "topic": "percentages",
+    "latex": "\\frac{n}{d} \\times 100\\%",
+    "plain": "(n/d) × 100%",
+    "description": "Divide, then multiply by 100 to express a fraction as a percentage.",
+    "variables": [
+      { "key": "n", "symbol": "n", "name": "numerator" },
+      { "key": "d", "symbol": "d", "name": "denominator" }
+    ],
+    "output": { "key": "p", "symbol": "p", "name": "percentage" },
+    "compute": "n / d * 100",
+    "conditions": ["d ≠ 0"],
+    "examples": [
+      { "inputs": { "n": 3, "d": 8 }, "output": 37.5, "display": "37.5%" }
+    ],
+    "tags": ["fractions", "percentages", "conversion"],
+    "links": {
+      "learn": "https://mathovia.com/guides/common-fraction-percent-equivalents/",
+      "calculate": "https://mathovia.com/calculators/fraction-to-percent-calculator/"
+    }
+  },
+  {
+    "id": "percent-of-a-number",
+    "name": "Percent of a Number",
+    "category": "arithmetic",
+    "topic": "percentages",
+    "latex": "p\\% \\text{ of } x = \\frac{p}{100} \\cdot x",
+    "plain": "p% of x = (p / 100) · x",
+    "description": "Convert the percent to a decimal and multiply.",
+    "variables": [
+      { "key": "p", "symbol": "p", "name": "percent" },
+      { "key": "x", "symbol": "x", "name": "whole amount" }
+    ],
+    "output": { "key": "y", "symbol": "y", "name": "part" },
+    "compute": "p / 100 * x",
+    "conditions": [],
+    "examples": [
+      { "inputs": { "p": 15, "x": 80 }, "output": 12 }
+    ],
+    "tags": ["percentages"],
+    "links": {
+      "practice": "https://mathovia.com/practice/percentage-problem-generator/"
+    }
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "title": "Math Formulas Dataset",
+  "upload_type": "dataset",
+  "description": "An open, machine-readable dataset of math formulas covering algebra, calculus, trigonometry, statistics and fractions. Each formula includes LaTeX, a plain-text form, variable definitions, a computable expression, automatically verified worked examples, and links to full lessons, calculators and practice problems on Mathovia (https://mathovia.com/).",
+  "creators": [{ "name": "Mathovia" }],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "keywords": ["mathematics", "formulas", "LaTeX", "education", "algebra", "calculus", "trigonometry", "statistics"],
+  "related_identifiers": [
+    { "identifier": "https://mathovia.com/", "relation": "isSupplementTo", "scheme": "url" },
+    { "identifier": "https://zohaib99k.github.io/math-formulas-dataset/", "relation": "isDocumentedBy", "scheme": "url" }
+  ]
+}

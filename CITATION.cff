@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+type: dataset
+title: "Math Formulas Dataset"
+abstract: >-
+  An open, machine-readable dataset of math formulas covering algebra, calculus,
+  trigonometry, statistics and fractions, each with LaTeX, variable definitions,
+  a computable expression, verified worked examples and links to full lessons on Mathovia.
+authors:
+  - name: "Mathovia"
+    website: "https://mathovia.com/"
+version: 1.0.0
+date-released: 2026-11-18
+license: CC-BY-4.0
+url: "https://zohaib99k.github.io/math-formulas-dataset/"
+repository-code: "https://github.com/zohaib99k/math-formulas-dataset"
+keywords:
+  - mathematics
+  - formulas
+  - latex
+  - education
+  - dataset
+  - algebra
+  - calculus

@@ -1,0 +1,2851 @@
+{
+  "meta": {
+    "name": "Math Formulas Dataset",
+    "version": "1.0.0",
+    "description": "Machine-readable math formulas with LaTeX, variables, computable expressions and verified worked examples.",
+    "source": "https://mathovia.com/",
+    "repository": "https://github.com/zohaib99k/math-formulas-dataset",
+    "license": "CC-BY-4.0",
+    "attribution": "Formula data from Mathovia (https://mathovia.com)",
+    "count": 52,
+    "category": "algebra"
+  },
+  "formulas": [
+    {
+      "id": "binomial-coefficient",
+      "name": "Binomial Coefficient",
+      "category": "algebra",
+      "topic": "binomial-theorem",
+      "latex": "\\binom{n}{k} = \\frac{n!}{k!(n - k)!}",
+      "plain": "C(n, k) = n! / (k!(n − k)!)",
+      "description": "Number of ways to choose k items from n; also the coefficients in a binomial expansion.",
+      "variables": [
+        {
+          "key": "n",
+          "symbol": "n",
+          "name": "total items"
+        },
+        {
+          "key": "k",
+          "symbol": "k",
+          "name": "items chosen"
+        }
+      ],
+      "output": {
+        "key": "C",
+        "symbol": "\\binom{n}{k}",
+        "name": "binomial coefficient"
+      },
+      "compute": "fact(n) / (fact(k) * fact(n - k))",
+      "conditions": [
+        "0 ≤ k ≤ n, integers"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "n": 5,
+            "k": 2
+          },
+          "output": 10
+        },
+        {
+          "inputs": {
+            "n": 10,
+            "k": 3
+          },
+          "output": 120
+        }
+      ],
+      "tags": [
+        "combinatorics",
+        "binomial",
+        "combinations"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/binomial-theorem/",
+        "calculate": "https://mathovia.com/calculators/binomial-expansion-calculator/",
+        "practice": "https://mathovia.com/practice/binomial-theorem-practice-problems/"
+      }
+    },
+    {
+      "id": "binomial-theorem-general-term",
+      "name": "Binomial Theorem (General Term)",
+      "category": "algebra",
+      "topic": "binomial-theorem",
+      "latex": "(a + b)^n = \\sum_{k=0}^{n} \\binom{n}{k} a^{n-k} b^k",
+      "plain": "(a + b)ⁿ = Σ C(n, k)·aⁿ⁻ᵏ·bᵏ",
+      "description": "Expands a binomial power; the term with index k is C(n, k)·aⁿ⁻ᵏ·bᵏ.",
+      "variables": [
+        {
+          "key": "n",
+          "symbol": "n",
+          "name": "power"
+        },
+        {
+          "key": "k",
+          "symbol": "k",
+          "name": "term index (starting at 0)"
+        },
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "first term of binomial"
+        },
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "second term of binomial"
+        }
+      ],
+      "output": {
+        "key": "T",
+        "symbol": "T_{k+1}",
+        "name": "value of the (k+1)th term"
+      },
+      "compute": "comb(n, k) * a**(n - k) * b**k",
+      "conditions": [
+        "n ≥ 0 integer",
+        "0 ≤ k ≤ n"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "n": 5,
+            "k": 2,
+            "a": 2,
+            "b": 3
+          },
+          "output": 720,
+          "note": "C(5,2)·2³·3² = 10·8·9."
+        }
+      ],
+      "tags": [
+        "binomial",
+        "expansion",
+        "polynomial"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/binomial-theorem/",
+        "calculate": "https://mathovia.com/calculators/binomial-expansion-calculator/",
+        "practice": "https://mathovia.com/practice/binomial-theorem-practice-problems/"
+      }
+    },
+    {
+      "id": "complex-number-modulus",
+      "name": "Modulus of a Complex Number",
+      "category": "algebra",
+      "topic": "complex-numbers",
+      "latex": "|a + bi| = \\sqrt{a^2 + b^2}",
+      "plain": "|a + bi| = √(a² + b²)",
+      "description": "Distance of a + bi from the origin in the complex plane.",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "real part"
+        },
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "imaginary part"
+        }
+      ],
+      "output": {
+        "key": "z",
+        "symbol": "|z|",
+        "name": "modulus"
+      },
+      "compute": "sqrt(a**2 + b**2)",
+      "conditions": [],
+      "examples": [
+        {
+          "inputs": {
+            "a": 3,
+            "b": 4
+          },
+          "output": 5
+        }
+      ],
+      "tags": [
+        "complex-numbers",
+        "modulus"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/complex-numbers/",
+        "practice": "https://mathovia.com/practice/complex-number-generator/"
+      }
+    },
+    {
+      "id": "hyperbola-focal-distance",
+      "name": "Focal Distance of a Hyperbola",
+      "category": "algebra",
+      "topic": "conic-sections",
+      "latex": "c^2 = a^2 + b^2",
+      "plain": "c² = a² + b²",
+      "description": "Distance c from the center to each focus of a hyperbola.",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "distance from center to vertex"
+        },
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "conjugate semi-axis"
+        }
+      ],
+      "output": {
+        "key": "c",
+        "symbol": "c",
+        "name": "center-to-focus distance"
+      },
+      "compute": "sqrt(a**2 + b**2)",
+      "conditions": [
+        "a > 0, b > 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a": 3,
+            "b": 4
+          },
+          "output": 5
+        }
+      ],
+      "tags": [
+        "hyperbola",
+        "conic",
+        "foci"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/hyperbolas/"
+      }
+    },
+    {
+      "id": "ellipse-focal-distance",
+      "name": "Focal Distance of an Ellipse",
+      "category": "algebra",
+      "topic": "conic-sections",
+      "latex": "c^2 = a^2 - b^2",
+      "plain": "c² = a² − b²",
+      "description": "Distance c from the center to each focus of an ellipse with semi-major axis a and semi-minor axis b.",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "semi-major axis"
+        },
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "semi-minor axis"
+        }
+      ],
+      "output": {
+        "key": "c",
+        "symbol": "c",
+        "name": "center-to-focus distance"
+      },
+      "compute": "sqrt(a**2 - b**2)",
+      "conditions": [
+        "a ≥ b > 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a": 5,
+            "b": 3
+          },
+          "output": 4
+        }
+      ],
+      "tags": [
+        "ellipse",
+        "conic",
+        "foci"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/ellipses/"
+      }
+    },
+    {
+      "id": "equation-of-a-circle",
+      "name": "Standard Equation of a Circle",
+      "category": "algebra",
+      "topic": "conic-sections",
+      "latex": "(x - h)^2 + (y - k)^2 = r^2",
+      "plain": "(x − h)² + (y − k)² = r²",
+      "description": "All points (x, y) at distance r from the center (h, k). Given a point on the circle, r = √((x − h)² + (y − k)²).",
+      "variables": [
+        {
+          "key": "h",
+          "symbol": "h",
+          "name": "center x"
+        },
+        {
+          "key": "k",
+          "symbol": "k",
+          "name": "center y"
+        },
+        {
+          "key": "x",
+          "symbol": "x",
+          "name": "x of a point on the circle"
+        },
+        {
+          "key": "y",
+          "symbol": "y",
+          "name": "y of a point on the circle"
+        }
+      ],
+      "output": {
+        "key": "r",
+        "symbol": "r",
+        "name": "radius"
+      },
+      "compute": "sqrt((x - h)**2 + (y - k)**2)",
+      "conditions": [
+        "r > 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "h": 1,
+            "k": -2,
+            "x": 4,
+            "y": 2
+          },
+          "output": 5
+        }
+      ],
+      "tags": [
+        "circle",
+        "conic",
+        "coordinate-geometry"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/circles/",
+        "practice": "https://mathovia.com/practice/equation-of-a-circle-practice-problems/"
+      }
+    },
+    {
+      "id": "distance-formula",
+      "name": "Distance Formula",
+      "category": "algebra",
+      "topic": "coordinate-geometry",
+      "latex": "d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}",
+      "plain": "d = √((x₂ − x₁)² + (y₂ − y₁)²)",
+      "description": "Straight-line distance between two points in the plane.",
+      "variables": [
+        {
+          "key": "x1",
+          "symbol": "x_1",
+          "name": "x of first point"
+        },
+        {
+          "key": "y1",
+          "symbol": "y_1",
+          "name": "y of first point"
+        },
+        {
+          "key": "x2",
+          "symbol": "x_2",
+          "name": "x of second point"
+        },
+        {
+          "key": "y2",
+          "symbol": "y_2",
+          "name": "y of second point"
+        }
+      ],
+      "output": {
+        "key": "d",
+        "symbol": "d",
+        "name": "distance"
+      },
+      "compute": "sqrt((x2 - x1)**2 + (y2 - y1)**2)",
+      "conditions": [],
+      "examples": [
+        {
+          "inputs": {
+            "x1": 1,
+            "y1": 2,
+            "x2": 4,
+            "y2": 6
+          },
+          "output": 5
+        }
+      ],
+      "tags": [
+        "distance",
+        "coordinate-geometry",
+        "pythagorean"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/cartesian-coordinate-system/"
+      }
+    },
+    {
+      "id": "midpoint-formula",
+      "name": "Midpoint Formula",
+      "category": "algebra",
+      "topic": "coordinate-geometry",
+      "latex": "M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)",
+      "plain": "M = ((x₁ + x₂)/2, (y₁ + y₂)/2)",
+      "description": "The point exactly halfway between two points.",
+      "variables": [
+        {
+          "key": "x1",
+          "symbol": "x_1",
+          "name": "x of first point"
+        },
+        {
+          "key": "y1",
+          "symbol": "y_1",
+          "name": "y of first point"
+        },
+        {
+          "key": "x2",
+          "symbol": "x_2",
+          "name": "x of second point"
+        },
+        {
+          "key": "y2",
+          "symbol": "y_2",
+          "name": "y of second point"
+        }
+      ],
+      "output": {
+        "key": "M",
+        "symbol": "M",
+        "name": "[x, y] of midpoint"
+      },
+      "compute": "[(x1 + x2) / 2, (y1 + y2) / 2]",
+      "conditions": [],
+      "examples": [
+        {
+          "inputs": {
+            "x1": 2,
+            "y1": 3,
+            "x2": 8,
+            "y2": -5
+          },
+          "output": [
+            5,
+            -1
+          ]
+        }
+      ],
+      "tags": [
+        "midpoint",
+        "coordinate-geometry"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/cartesian-coordinate-system/"
+      }
+    },
+    {
+      "id": "compound-interest",
+      "name": "Compound Interest",
+      "category": "algebra",
+      "topic": "exponential-functions",
+      "latex": "A = P\\left(1 + \\frac{r}{n}\\right)^{nt}",
+      "plain": "A = P(1 + r/n)^(nt)",
+      "description": "Balance after t years when interest at annual rate r is compounded n times per year.",
+      "variables": [
+        {
+          "key": "P",
+          "symbol": "P",
+          "name": "principal"
+        },
+        {
+          "key": "r",
+          "symbol": "r",
+          "name": "annual interest rate (decimal)"
+        },
+        {
+          "key": "n",
+          "symbol": "n",
+          "name": "compounding periods per year"
+        },
+        {
+          "key": "t",
+          "symbol": "t",
+          "name": "time in years"
+        }
+      ],
+      "output": {
+        "key": "A",
+        "symbol": "A",
+        "name": "final balance"
+      },
+      "compute": "P * (1 + r/n)**(n*t)",
+      "conditions": [
+        "n > 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "P": 1000,
+            "r": 0.06,
+            "n": 12,
+            "t": 1
+          },
+          "output": 1061.6778,
+          "tolerance": 0.0001
+        }
+      ],
+      "tags": [
+        "exponential",
+        "finance",
+        "interest"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/continuous-compound-interest/"
+      }
+    },
+    {
+      "id": "continuous-compound-interest",
+      "name": "Continuous Compound Interest",
+      "category": "algebra",
+      "topic": "exponential-functions",
+      "latex": "A = Pe^{rt}",
+      "plain": "A = P·e^(rt)",
+      "description": "Balance when interest is compounded continuously, the limit of compound interest as n → ∞.",
+      "variables": [
+        {
+          "key": "P",
+          "symbol": "P",
+          "name": "principal"
+        },
+        {
+          "key": "r",
+          "symbol": "r",
+          "name": "annual interest rate (decimal)"
+        },
+        {
+          "key": "t",
+          "symbol": "t",
+          "name": "time in years"
+        }
+      ],
+      "output": {
+        "key": "A",
+        "symbol": "A",
+        "name": "final balance"
+      },
+      "compute": "P * exp(r*t)",
+      "conditions": [],
+      "examples": [
+        {
+          "inputs": {
+            "P": 1000,
+            "r": 0.05,
+            "t": 10
+          },
+          "output": 1648.7212707,
+          "tolerance": 0.000001
+        }
+      ],
+      "tags": [
+        "exponential",
+        "finance",
+        "interest",
+        "euler"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/continuous-compound-interest/",
+        "practice": "https://mathovia.com/practice/continuous-compound-interest-practice-problems/"
+      }
+    },
+    {
+      "id": "exponential-growth-and-decay",
+      "name": "Exponential Growth and Decay",
+      "category": "algebra",
+      "topic": "exponential-functions",
+      "latex": "y = a(1 + r)^t",
+      "plain": "y = a(1 + r)ᵗ",
+      "description": "Amount after t periods when a quantity changes by a fixed percentage r each period (r < 0 for decay).",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "initial amount"
+        },
+        {
+          "key": "r",
+          "symbol": "r",
+          "name": "growth rate per period (decimal)"
+        },
+        {
+          "key": "t",
+          "symbol": "t",
+          "name": "number of periods"
+        }
+      ],
+      "output": {
+        "key": "y",
+        "symbol": "y",
+        "name": "final amount"
+      },
+      "compute": "a * (1 + r)**t",
+      "conditions": [
+        "r > −1"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a": 1000,
+            "r": 0.05,
+            "t": 2
+          },
+          "output": 1102.5
+        },
+        {
+          "inputs": {
+            "a": 500,
+            "r": -0.2,
+            "t": 2
+          },
+          "output": 320,
+          "note": "20% decay per period."
+        }
+      ],
+      "tags": [
+        "exponential",
+        "growth",
+        "decay"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/exponential-growth-and-decay/",
+        "calculate": "https://mathovia.com/calculators/exponential-growth-calculator/",
+        "practice": "https://mathovia.com/practice/exponential-growth-and-decay-practice-problems/"
+      }
+    },
+    {
+      "id": "half-life-decay",
+      "name": "Half-Life Decay",
+      "category": "algebra",
+      "topic": "exponential-functions",
+      "latex": "N = N_0 \\left(\\frac{1}{2}\\right)^{t/T}",
+      "plain": "N = N₀ · (1/2)^(t/T)",
+      "description": "Amount remaining after time t for a substance with half-life T.",
+      "variables": [
+        {
+          "key": "N0",
+          "symbol": "N_0",
+          "name": "initial amount"
+        },
+        {
+          "key": "t",
+          "symbol": "t",
+          "name": "elapsed time"
+        },
+        {
+          "key": "T",
+          "symbol": "T",
+          "name": "half-life (same units as t)"
+        }
+      ],
+      "output": {
+        "key": "N",
+        "symbol": "N",
+        "name": "remaining amount"
+      },
+      "compute": "N0 * 0.5**(t / T)",
+      "conditions": [
+        "T > 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "N0": 80,
+            "t": 10,
+            "T": 5
+          },
+          "output": 20
+        }
+      ],
+      "tags": [
+        "exponential",
+        "decay",
+        "half-life"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/exponential-growth-and-decay/",
+        "practice": "https://mathovia.com/practice/exponential-growth-and-decay-practice-problems/"
+      }
+    },
+    {
+      "id": "logistic-growth",
+      "name": "Logistic Growth Model",
+      "category": "algebra",
+      "topic": "exponential-functions",
+      "latex": "P(t) = \\frac{K}{1 + \\left(\\frac{K - P_0}{P_0}\\right)e^{-rt}}",
+      "plain": "P(t) = K / (1 + ((K − P₀)/P₀)·e^(−rt))",
+      "description": "Growth that starts out exponential and levels off at the carrying capacity K.",
+      "variables": [
+        {
+          "key": "K",
+          "symbol": "K",
+          "name": "carrying capacity"
+        },
+        {
+          "key": "P0",
+          "symbol": "P_0",
+          "name": "initial population"
+        },
+        {
+          "key": "r",
+          "symbol": "r",
+          "name": "growth rate"
+        },
+        {
+          "key": "t",
+          "symbol": "t",
+          "name": "time"
+        }
+      ],
+      "output": {
+        "key": "P",
+        "symbol": "P(t)",
+        "name": "population at time t"
+      },
+      "compute": "K / (1 + ((K - P0) / P0) * exp(-r*t))",
+      "conditions": [
+        "K > 0, P₀ > 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "K": 1000,
+            "P0": 100,
+            "r": 0.5,
+            "t": 0
+          },
+          "output": 100
+        },
+        {
+          "inputs": {
+            "K": 1000,
+            "P0": 100,
+            "r": 0.5,
+            "t": 4.394449154672439
+          },
+          "output": 500,
+          "tolerance": 0.000001,
+          "note": "At t = ln(9)/r the population reaches K/2."
+        }
+      ],
+      "tags": [
+        "logistic",
+        "growth",
+        "exponential"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/exponential-vs-logistic-growth/",
+        "practice": "https://mathovia.com/practice/exponential-vs-logistic-growth-practice-problems/"
+      }
+    },
+    {
+      "id": "negative-exponent-rule",
+      "name": "Negative Exponent Rule",
+      "category": "algebra",
+      "topic": "exponents",
+      "latex": "a^{-n} = \\frac{1}{a^n}",
+      "plain": "a⁻ⁿ = 1 / aⁿ",
+      "description": "A negative exponent means the reciprocal of the positive power.",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "base"
+        },
+        {
+          "key": "n",
+          "symbol": "n",
+          "name": "exponent"
+        }
+      ],
+      "output": {
+        "key": "R",
+        "symbol": "a^{-n}",
+        "name": "result"
+      },
+      "compute": "1 / a**n",
+      "conditions": [
+        "a ≠ 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a": 2,
+            "n": 3
+          },
+          "output": 0.125,
+          "display": "1/8"
+        }
+      ],
+      "tags": [
+        "exponents",
+        "negative-exponents"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/negative-exponents/",
+        "practice": "https://mathovia.com/practice/negative-exponent-generator/"
+      }
+    },
+    {
+      "id": "power-of-a-power-rule",
+      "name": "Power of a Power Rule",
+      "category": "algebra",
+      "topic": "exponents",
+      "latex": "(a^m)^n = a^{mn}",
+      "plain": "(aᵐ)ⁿ = aᵐⁿ",
+      "description": "Raising a power to a power multiplies the exponents.",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "base"
+        },
+        {
+          "key": "m",
+          "symbol": "m",
+          "name": "inner exponent"
+        },
+        {
+          "key": "n",
+          "symbol": "n",
+          "name": "outer exponent"
+        }
+      ],
+      "output": {
+        "key": "P",
+        "symbol": "a^{mn}",
+        "name": "result"
+      },
+      "compute": "a**(m * n)",
+      "conditions": [],
+      "examples": [
+        {
+          "inputs": {
+            "a": 3,
+            "m": 2,
+            "n": 3
+          },
+          "output": 729
+        }
+      ],
+      "tags": [
+        "exponents",
+        "exponent-rules"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/exponent-rules/",
+        "practice": "https://mathovia.com/practice/exponent-rules-generator/"
+      }
+    },
+    {
+      "id": "exponent-product-rule",
+      "name": "Product Rule for Exponents",
+      "category": "algebra",
+      "topic": "exponents",
+      "latex": "a^m \\cdot a^n = a^{m+n}",
+      "plain": "aᵐ · aⁿ = aᵐ⁺ⁿ",
+      "description": "When multiplying powers with the same base, add the exponents.",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "base"
+        },
+        {
+          "key": "m",
+          "symbol": "m",
+          "name": "first exponent"
+        },
+        {
+          "key": "n",
+          "symbol": "n",
+          "name": "second exponent"
+        }
+      ],
+      "output": {
+        "key": "P",
+        "symbol": "a^{m+n}",
+        "name": "result"
+      },
+      "compute": "a**(m + n)",
+      "conditions": [],
+      "examples": [
+        {
+          "inputs": {
+            "a": 2,
+            "m": 3,
+            "n": 4
+          },
+          "output": 128
+        }
+      ],
+      "tags": [
+        "exponents",
+        "exponent-rules"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/exponent-rules/",
+        "practice": "https://mathovia.com/practice/exponent-rules-generator/"
+      }
+    },
+    {
+      "id": "exponent-quotient-rule",
+      "name": "Quotient Rule for Exponents",
+      "category": "algebra",
+      "topic": "exponents",
+      "latex": "\\frac{a^m}{a^n} = a^{m-n}",
+      "plain": "aᵐ / aⁿ = aᵐ⁻ⁿ",
+      "description": "When dividing powers with the same base, subtract the exponents.",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "base"
+        },
+        {
+          "key": "m",
+          "symbol": "m",
+          "name": "numerator exponent"
+        },
+        {
+          "key": "n",
+          "symbol": "n",
+          "name": "denominator exponent"
+        }
+      ],
+      "output": {
+        "key": "Q",
+        "symbol": "a^{m-n}",
+        "name": "result"
+      },
+      "compute": "a**(m - n)",
+      "conditions": [
+        "a ≠ 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a": 5,
+            "m": 6,
+            "n": 4
+          },
+          "output": 25
+        }
+      ],
+      "tags": [
+        "exponents",
+        "exponent-rules"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/exponent-rules/",
+        "practice": "https://mathovia.com/practice/exponent-rules-generator/"
+      }
+    },
+    {
+      "id": "rational-exponent-rule",
+      "name": "Rational Exponent Rule",
+      "category": "algebra",
+      "topic": "exponents",
+      "latex": "a^{m/n} = \\left(\\sqrt[n]{a}\\right)^m",
+      "plain": "a^(m/n) = (ⁿ√a)ᵐ",
+      "description": "The denominator of a fractional exponent is a root; the numerator is a power.",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "base"
+        },
+        {
+          "key": "m",
+          "symbol": "m",
+          "name": "power (numerator)"
+        },
+        {
+          "key": "n",
+          "symbol": "n",
+          "name": "root index (denominator)"
+        }
+      ],
+      "output": {
+        "key": "R",
+        "symbol": "a^{m/n}",
+        "name": "result"
+      },
+      "compute": "a**(m / n)",
+      "conditions": [
+        "n ≠ 0",
+        "a ≥ 0 when n is even"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a": 8,
+            "m": 2,
+            "n": 3
+          },
+          "output": 4
+        },
+        {
+          "inputs": {
+            "a": 16,
+            "m": 3,
+            "n": 4
+          },
+          "output": 8
+        }
+      ],
+      "tags": [
+        "exponents",
+        "radicals",
+        "roots"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/rational-exponents/",
+        "practice": "https://mathovia.com/practice/rational-exponent-generator/"
+      }
+    },
+    {
+      "id": "average-rate-of-change",
+      "name": "Average Rate of Change",
+      "category": "algebra",
+      "topic": "functions",
+      "latex": "\\frac{f(b) - f(a)}{b - a}",
+      "plain": "(f(b) − f(a)) / (b − a)",
+      "description": "Slope of the secant line of f between x = a and x = b.",
+      "variables": [
+        {
+          "key": "fa",
+          "symbol": "f(a)",
+          "name": "function value at a"
+        },
+        {
+          "key": "fb",
+          "symbol": "f(b)",
+          "name": "function value at b"
+        },
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "start of interval"
+        },
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "end of interval"
+        }
+      ],
+      "output": {
+        "key": "R",
+        "symbol": "\\frac{\\Delta y}{\\Delta x}",
+        "name": "average rate of change"
+      },
+      "compute": "(fb - fa) / (b - a)",
+      "conditions": [
+        "a ≠ b"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "fa": 1,
+            "fb": 9,
+            "a": 1,
+            "b": 3
+          },
+          "output": 4,
+          "note": "f(x) = x² on [1, 3]."
+        }
+      ],
+      "tags": [
+        "functions",
+        "rate-of-change",
+        "secant"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/average-rate-of-change/",
+        "calculate": "https://mathovia.com/calculators/average-rate-of-change-calculator/",
+        "practice": "https://mathovia.com/practice/average-rate-of-change-practice-problems/"
+      }
+    },
+    {
+      "id": "difference-quotient",
+      "name": "Difference Quotient",
+      "category": "algebra",
+      "topic": "functions",
+      "latex": "\\frac{f(x + h) - f(x)}{h}",
+      "plain": "(f(x + h) − f(x)) / h",
+      "description": "Average rate of change over [x, x + h]; its limit as h → 0 is the derivative.",
+      "variables": [
+        {
+          "key": "fxh",
+          "symbol": "f(x+h)",
+          "name": "function value at x + h"
+        },
+        {
+          "key": "fx",
+          "symbol": "f(x)",
+          "name": "function value at x"
+        },
+        {
+          "key": "h",
+          "symbol": "h",
+          "name": "step size"
+        }
+      ],
+      "output": {
+        "key": "Q",
+        "symbol": "Q",
+        "name": "difference quotient"
+      },
+      "compute": "(fxh - fx) / h",
+      "conditions": [
+        "h ≠ 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "fxh": 6.25,
+            "fx": 4,
+            "h": 0.5
+          },
+          "output": 4.5,
+          "note": "f(x) = x² at x = 2, h = 0.5."
+        }
+      ],
+      "tags": [
+        "functions",
+        "derivative",
+        "rate-of-change"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/difference-quotient/",
+        "calculate": "https://mathovia.com/calculators/difference-quotient-calculator/",
+        "practice": "https://mathovia.com/practice/difference-quotient-practice-problems/"
+      }
+    },
+    {
+      "id": "point-slope-form",
+      "name": "Point-Slope Form",
+      "category": "algebra",
+      "topic": "lines",
+      "latex": "y - y_1 = m(x - x_1)",
+      "plain": "y − y₁ = m(x − x₁)",
+      "description": "Equation of a line through the point (x₁, y₁) with slope m.",
+      "variables": [
+        {
+          "key": "m",
+          "symbol": "m",
+          "name": "slope"
+        },
+        {
+          "key": "x1",
+          "symbol": "x_1",
+          "name": "x of known point"
+        },
+        {
+          "key": "y1",
+          "symbol": "y_1",
+          "name": "y of known point"
+        },
+        {
+          "key": "x",
+          "symbol": "x",
+          "name": "input value"
+        }
+      ],
+      "output": {
+        "key": "y",
+        "symbol": "y",
+        "name": "output value"
+      },
+      "compute": "m*(x - x1) + y1",
+      "conditions": [],
+      "examples": [
+        {
+          "inputs": {
+            "m": 3,
+            "x1": 2,
+            "y1": 5,
+            "x": 4
+          },
+          "output": 11
+        }
+      ],
+      "tags": [
+        "linear",
+        "line-equation"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/point-slope-form/",
+        "practice": "https://mathovia.com/practice/point-slope-form-practice-problems/"
+      }
+    },
+    {
+      "id": "slope-formula",
+      "name": "Slope Formula",
+      "category": "algebra",
+      "topic": "lines",
+      "latex": "m = \\frac{y_2 - y_1}{x_2 - x_1}",
+      "plain": "m = (y₂ − y₁) / (x₂ − x₁)",
+      "description": "Rise over run between two points on a line.",
+      "variables": [
+        {
+          "key": "x1",
+          "symbol": "x_1",
+          "name": "x of first point"
+        },
+        {
+          "key": "y1",
+          "symbol": "y_1",
+          "name": "y of first point"
+        },
+        {
+          "key": "x2",
+          "symbol": "x_2",
+          "name": "x of second point"
+        },
+        {
+          "key": "y2",
+          "symbol": "y_2",
+          "name": "y of second point"
+        }
+      ],
+      "output": {
+        "key": "m",
+        "symbol": "m",
+        "name": "slope"
+      },
+      "compute": "(y2 - y1) / (x2 - x1)",
+      "conditions": [
+        "x₁ ≠ x₂ (vertical lines have undefined slope)"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "x1": 1,
+            "y1": 2,
+            "x2": 4,
+            "y2": 11
+          },
+          "output": 3
+        }
+      ],
+      "tags": [
+        "slope",
+        "linear",
+        "coordinate-geometry"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/slope/",
+        "practice": "https://mathovia.com/practice/slope-practice-problems/"
+      }
+    },
+    {
+      "id": "perpendicular-slope",
+      "name": "Slope of a Perpendicular Line",
+      "category": "algebra",
+      "topic": "lines",
+      "latex": "m_2 = -\\frac{1}{m_1}",
+      "plain": "m₂ = −1 / m₁",
+      "description": "Perpendicular lines have slopes that are negative reciprocals (m₁·m₂ = −1).",
+      "variables": [
+        {
+          "key": "m1",
+          "symbol": "m_1",
+          "name": "slope of original line"
+        }
+      ],
+      "output": {
+        "key": "m2",
+        "symbol": "m_2",
+        "name": "perpendicular slope"
+      },
+      "compute": "-1 / m1",
+      "conditions": [
+        "m₁ ≠ 0 (perpendicular to a horizontal line is vertical)"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "m1": 4
+          },
+          "output": -0.25
+        }
+      ],
+      "tags": [
+        "slope",
+        "perpendicular"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/perpendicular-lines/",
+        "practice": "https://mathovia.com/practice/parallel-and-perpendicular-lines-practice-problems/"
+      }
+    },
+    {
+      "id": "slope-intercept-form",
+      "name": "Slope-Intercept Form",
+      "category": "algebra",
+      "topic": "lines",
+      "latex": "y = mx + b",
+      "plain": "y = mx + b",
+      "description": "Equation of a line with slope m and y-intercept b.",
+      "variables": [
+        {
+          "key": "m",
+          "symbol": "m",
+          "name": "slope"
+        },
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "y-intercept"
+        },
+        {
+          "key": "x",
+          "symbol": "x",
+          "name": "input value"
+        }
+      ],
+      "output": {
+        "key": "y",
+        "symbol": "y",
+        "name": "output value"
+      },
+      "compute": "m*x + b",
+      "conditions": [],
+      "examples": [
+        {
+          "inputs": {
+            "m": 2,
+            "b": -1,
+            "x": 4
+          },
+          "output": 7
+        }
+      ],
+      "tags": [
+        "linear",
+        "line-equation"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/slope-intercept-form/",
+        "practice": "https://mathovia.com/practice/slope-intercept-form-practice-problems/"
+      }
+    },
+    {
+      "id": "standard-form-of-a-line",
+      "name": "Standard Form of a Line",
+      "category": "algebra",
+      "topic": "lines",
+      "latex": "Ax + By = C",
+      "plain": "Ax + By = C",
+      "description": "General linear equation; solving for y gives y = (C − Ax) / B.",
+      "variables": [
+        {
+          "key": "A",
+          "symbol": "A",
+          "name": "coefficient of x"
+        },
+        {
+          "key": "B",
+          "symbol": "B",
+          "name": "coefficient of y"
+        },
+        {
+          "key": "C",
+          "symbol": "C",
+          "name": "constant"
+        },
+        {
+          "key": "x",
+          "symbol": "x",
+          "name": "input value"
+        }
+      ],
+      "output": {
+        "key": "y",
+        "symbol": "y",
+        "name": "output value"
+      },
+      "compute": "(C - A*x) / B",
+      "conditions": [
+        "B ≠ 0 to solve for y"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "A": 2,
+            "B": 3,
+            "C": 12,
+            "x": 3
+          },
+          "output": 2
+        }
+      ],
+      "tags": [
+        "linear",
+        "line-equation"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/standard-form/",
+        "practice": "https://mathovia.com/practice/standard-form-practice-problems/"
+      }
+    },
+    {
+      "id": "change-of-base-formula",
+      "name": "Change of Base Formula",
+      "category": "algebra",
+      "topic": "logarithms",
+      "latex": "\\log_b x = \\frac{\\log_c x}{\\log_c b}",
+      "plain": "log_b(x) = log_c(x) / log_c(b)",
+      "description": "Rewrites a logarithm in any base using a base your calculator has (usually 10 or e).",
+      "variables": [
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "original base"
+        },
+        {
+          "key": "x",
+          "symbol": "x",
+          "name": "argument"
+        }
+      ],
+      "output": {
+        "key": "y",
+        "symbol": "\\log_b x",
+        "name": "logarithm"
+      },
+      "compute": "log10(x) / log10(b)",
+      "conditions": [
+        "b > 0, b ≠ 1",
+        "x > 0",
+        "c > 0, c ≠ 1"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "b": 3,
+            "x": 81
+          },
+          "output": 4
+        }
+      ],
+      "tags": [
+        "logarithms",
+        "change-of-base"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/change-of-base-formula/",
+        "practice": "https://mathovia.com/practice/change-of-base-practice-problems/"
+      }
+    },
+    {
+      "id": "logarithm-definition",
+      "name": "Definition of a Logarithm",
+      "category": "algebra",
+      "topic": "logarithms",
+      "latex": "\\log_b x = y \\iff b^y = x",
+      "plain": "log_b(x) = y  ⇔  bʸ = x",
+      "description": "A logarithm is the exponent you raise the base b to in order to get x.",
+      "variables": [
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "base"
+        },
+        {
+          "key": "x",
+          "symbol": "x",
+          "name": "argument"
+        }
+      ],
+      "output": {
+        "key": "y",
+        "symbol": "y",
+        "name": "logarithm"
+      },
+      "compute": "ln(x) / ln(b)",
+      "conditions": [
+        "b > 0, b ≠ 1",
+        "x > 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "b": 2,
+            "x": 32
+          },
+          "output": 5
+        },
+        {
+          "inputs": {
+            "b": 10,
+            "x": 0.01
+          },
+          "output": -2
+        }
+      ],
+      "tags": [
+        "logarithms",
+        "exponents"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/logarithms/",
+        "practice": "https://mathovia.com/practice/logarithm-practice-problems/"
+      }
+    },
+    {
+      "id": "logarithm-power-rule",
+      "name": "Power Rule for Logarithms",
+      "category": "algebra",
+      "topic": "logarithms",
+      "latex": "\\log_b(M^p) = p \\log_b M",
+      "plain": "log_b(Mᵖ) = p · log_b(M)",
+      "description": "An exponent inside a log can be moved out front as a multiplier.",
+      "variables": [
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "base"
+        },
+        {
+          "key": "M",
+          "symbol": "M",
+          "name": "argument"
+        },
+        {
+          "key": "p",
+          "symbol": "p",
+          "name": "exponent"
+        }
+      ],
+      "output": {
+        "key": "L",
+        "symbol": "\\log_b(M^p)",
+        "name": "result"
+      },
+      "compute": "p * ln(M) / ln(b)",
+      "conditions": [
+        "b > 0, b ≠ 1",
+        "M > 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "b": 2,
+            "M": 8,
+            "p": 3
+          },
+          "output": 9
+        }
+      ],
+      "tags": [
+        "logarithms",
+        "logarithm-rules"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/logarithm-rules/",
+        "practice": "https://mathovia.com/practice/logarithm-rules-practice-problems/"
+      }
+    },
+    {
+      "id": "logarithm-product-rule",
+      "name": "Product Rule for Logarithms",
+      "category": "algebra",
+      "topic": "logarithms",
+      "latex": "\\log_b(MN) = \\log_b M + \\log_b N",
+      "plain": "log_b(MN) = log_b(M) + log_b(N)",
+      "description": "The log of a product is the sum of the logs.",
+      "variables": [
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "base"
+        },
+        {
+          "key": "M",
+          "symbol": "M",
+          "name": "first factor"
+        },
+        {
+          "key": "N",
+          "symbol": "N",
+          "name": "second factor"
+        }
+      ],
+      "output": {
+        "key": "L",
+        "symbol": "\\log_b(MN)",
+        "name": "result"
+      },
+      "compute": "(ln(M) + ln(N)) / ln(b)",
+      "conditions": [
+        "b > 0, b ≠ 1",
+        "M > 0, N > 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "b": 2,
+            "M": 8,
+            "N": 4
+          },
+          "output": 5
+        }
+      ],
+      "tags": [
+        "logarithms",
+        "logarithm-rules"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/logarithm-rules/",
+        "practice": "https://mathovia.com/practice/logarithm-rules-practice-problems/"
+      }
+    },
+    {
+      "id": "logarithm-quotient-rule",
+      "name": "Quotient Rule for Logarithms",
+      "category": "algebra",
+      "topic": "logarithms",
+      "latex": "\\log_b\\left(\\frac{M}{N}\\right) = \\log_b M - \\log_b N",
+      "plain": "log_b(M/N) = log_b(M) − log_b(N)",
+      "description": "The log of a quotient is the difference of the logs.",
+      "variables": [
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "base"
+        },
+        {
+          "key": "M",
+          "symbol": "M",
+          "name": "numerator"
+        },
+        {
+          "key": "N",
+          "symbol": "N",
+          "name": "denominator"
+        }
+      ],
+      "output": {
+        "key": "L",
+        "symbol": "\\log_b(M/N)",
+        "name": "result"
+      },
+      "compute": "(ln(M) - ln(N)) / ln(b)",
+      "conditions": [
+        "b > 0, b ≠ 1",
+        "M > 0, N > 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "b": 10,
+            "M": 1000,
+            "N": 10
+          },
+          "output": 2
+        }
+      ],
+      "tags": [
+        "logarithms",
+        "logarithm-rules"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/logarithm-rules/",
+        "practice": "https://mathovia.com/practice/logarithm-rules-practice-problems/"
+      }
+    },
+    {
+      "id": "richter-scale-magnitude",
+      "name": "Richter Scale Magnitude",
+      "category": "algebra",
+      "topic": "logarithms",
+      "latex": "M = \\log_{10}\\left(\\frac{A}{A_0}\\right)",
+      "plain": "M = log₁₀(A / A₀)",
+      "description": "Earthquake magnitude from the measured amplitude A compared with a reference amplitude A₀.",
+      "variables": [
+        {
+          "key": "A",
+          "symbol": "A",
+          "name": "measured amplitude"
+        },
+        {
+          "key": "A0",
+          "symbol": "A_0",
+          "name": "reference amplitude"
+        }
+      ],
+      "output": {
+        "key": "M",
+        "symbol": "M",
+        "name": "magnitude"
+      },
+      "compute": "log10(A / A0)",
+      "conditions": [
+        "A > 0, A₀ > 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "A": 10000,
+            "A0": 1
+          },
+          "output": 4
+        }
+      ],
+      "tags": [
+        "logarithms",
+        "applications",
+        "richter"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/richter-scale/",
+        "practice": "https://mathovia.com/practice/richter-scale-practice-problems/"
+      }
+    },
+    {
+      "id": "determinant-2x2",
+      "name": "Determinant of a 2×2 Matrix",
+      "category": "algebra",
+      "topic": "matrices",
+      "latex": "\\det\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = ad - bc",
+      "plain": "det [[a, b], [c, d]] = ad − bc",
+      "description": "A 2×2 matrix is invertible exactly when its determinant is non-zero.",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "top-left"
+        },
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "top-right"
+        },
+        {
+          "key": "c",
+          "symbol": "c",
+          "name": "bottom-left"
+        },
+        {
+          "key": "d",
+          "symbol": "d",
+          "name": "bottom-right"
+        }
+      ],
+      "output": {
+        "key": "D",
+        "symbol": "\\det",
+        "name": "determinant"
+      },
+      "compute": "a*d - b*c",
+      "conditions": [],
+      "examples": [
+        {
+          "inputs": {
+            "a": 4,
+            "b": 7,
+            "c": 2,
+            "d": 6
+          },
+          "output": 10
+        }
+      ],
+      "tags": [
+        "matrices",
+        "determinant",
+        "linear-algebra"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/inverse-of-a-matrix/",
+        "practice": "https://mathovia.com/practice/inverse-of-a-matrix-practice-problems/"
+      }
+    },
+    {
+      "id": "vertex-x-coordinate",
+      "name": "Vertex / Axis of Symmetry of a Parabola",
+      "category": "algebra",
+      "topic": "parabolas",
+      "latex": "h = -\\frac{b}{2a}",
+      "plain": "h = −b / (2a)",
+      "description": "The x-coordinate of the vertex of y = ax² + bx + c, which is also the axis of symmetry x = h.",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "coefficient of x²"
+        },
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "coefficient of x"
+        }
+      ],
+      "output": {
+        "key": "h",
+        "symbol": "h",
+        "name": "x-coordinate of vertex"
+      },
+      "compute": "-b / (2*a)",
+      "conditions": [
+        "a ≠ 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a": 2,
+            "b": -8
+          },
+          "output": 2,
+          "note": "y = 2x² − 8x + 1 has axis of symmetry x = 2."
+        }
+      ],
+      "tags": [
+        "parabola",
+        "vertex",
+        "quadratic"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/vertex-and-axis-of-symmetry/",
+        "calculate": "https://mathovia.com/calculators/vertex-form-calculator/"
+      }
+    },
+    {
+      "id": "vertex-form",
+      "name": "Vertex Form of a Quadratic",
+      "category": "algebra",
+      "topic": "parabolas",
+      "latex": "y = a(x - h)^2 + k",
+      "plain": "y = a(x − h)² + k",
+      "description": "Writes a quadratic so the vertex (h, k) can be read off directly.",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "stretch / direction"
+        },
+        {
+          "key": "h",
+          "symbol": "h",
+          "name": "vertex x-coordinate"
+        },
+        {
+          "key": "k",
+          "symbol": "k",
+          "name": "vertex y-coordinate"
+        },
+        {
+          "key": "x",
+          "symbol": "x",
+          "name": "input value"
+        }
+      ],
+      "output": {
+        "key": "y",
+        "symbol": "y",
+        "name": "function value"
+      },
+      "compute": "a * (x - h)**2 + k",
+      "conditions": [
+        "a ≠ 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a": 2,
+            "h": 1,
+            "k": -3,
+            "x": 3
+          },
+          "output": 5
+        }
+      ],
+      "tags": [
+        "parabola",
+        "vertex",
+        "quadratic"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/parabolas/",
+        "calculate": "https://mathovia.com/calculators/vertex-form-calculator/"
+      }
+    },
+    {
+      "id": "completing-the-square",
+      "name": "Completing the Square",
+      "category": "algebra",
+      "topic": "quadratic-equations",
+      "latex": "x^2 + bx + \\left(\\frac{b}{2}\\right)^2 = \\left(x + \\frac{b}{2}\\right)^2",
+      "plain": "x² + bx + (b/2)² = (x + b/2)²",
+      "description": "The constant (b/2)² turns x² + bx into a perfect square trinomial.",
+      "variables": [
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "coefficient of x (leading coefficient 1)"
+        }
+      ],
+      "output": {
+        "key": "k",
+        "symbol": "\\left(\\frac{b}{2}\\right)^2",
+        "name": "constant to add"
+      },
+      "compute": "(b / 2)**2",
+      "conditions": [
+        "Leading coefficient must be 1 (divide through first if not)"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "b": 6
+          },
+          "output": 9,
+          "note": "x² + 6x + 9 = (x + 3)²."
+        },
+        {
+          "inputs": {
+            "b": -5
+          },
+          "output": 6.25
+        }
+      ],
+      "tags": [
+        "quadratic",
+        "perfect-square"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/completing-the-square/",
+        "practice": "https://mathovia.com/practice/completing-the-square-practice-problems/"
+      }
+    },
+    {
+      "id": "discriminant",
+      "name": "Discriminant of a Quadratic",
+      "category": "algebra",
+      "topic": "quadratic-equations",
+      "latex": "\\Delta = b^2 - 4ac",
+      "plain": "Δ = b² − 4ac",
+      "description": "Tells you how many real roots a quadratic has: two if Δ > 0, one if Δ = 0, none if Δ < 0.",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "coefficient of x²"
+        },
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "coefficient of x"
+        },
+        {
+          "key": "c",
+          "symbol": "c",
+          "name": "constant term"
+        }
+      ],
+      "output": {
+        "key": "D",
+        "symbol": "\\Delta",
+        "name": "discriminant"
+      },
+      "compute": "b**2 - 4*a*c",
+      "conditions": [
+        "a ≠ 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a": 1,
+            "b": -3,
+            "c": 2
+          },
+          "output": 1,
+          "note": "Positive, so two distinct real roots."
+        },
+        {
+          "inputs": {
+            "a": 1,
+            "b": 2,
+            "c": 5
+          },
+          "output": -16,
+          "note": "Negative, so two complex roots."
+        }
+      ],
+      "tags": [
+        "quadratic",
+        "roots"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/quadratic-formula/",
+        "practice": "https://mathovia.com/practice/quadratic-equations-practice-problems/"
+      }
+    },
+    {
+      "id": "quadratic-formula",
+      "name": "Quadratic Formula",
+      "category": "algebra",
+      "topic": "quadratic-equations",
+      "latex": "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}",
+      "plain": "x = (-b ± √(b² − 4ac)) / (2a)",
+      "description": "Gives both solutions of any quadratic equation ax² + bx + c = 0.",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "coefficient of x²"
+        },
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "coefficient of x"
+        },
+        {
+          "key": "c",
+          "symbol": "c",
+          "name": "constant term"
+        }
+      ],
+      "output": {
+        "key": "x",
+        "symbol": "x_1, x_2",
+        "name": "roots (+ root first, − root second)"
+      },
+      "compute": "[(-b + sqrt(b**2 - 4*a*c)) / (2*a), (-b - sqrt(b**2 - 4*a*c)) / (2*a)]",
+      "conditions": [
+        "a ≠ 0",
+        "b² − 4ac ≥ 0 for real roots"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a": 1,
+            "b": -3,
+            "c": 2
+          },
+          "output": [
+            2,
+            1
+          ],
+          "note": "x² − 3x + 2 = 0 factors as (x − 1)(x − 2)."
+        },
+        {
+          "inputs": {
+            "a": 2,
+            "b": 4,
+            "c": -6
+          },
+          "output": [
+            1,
+            -3
+          ]
+        }
+      ],
+      "tags": [
+        "quadratic",
+        "roots",
+        "polynomial"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/quadratic-formula/",
+        "practice": "https://mathovia.com/practice/quadratic-formula-practice-problems/"
+      }
+    },
+    {
+      "id": "vieta-sum-and-product-of-roots",
+      "name": "Sum and Product of Quadratic Roots (Vieta)",
+      "category": "algebra",
+      "topic": "quadratic-equations",
+      "latex": "x_1 + x_2 = -\\frac{b}{a}, \\quad x_1 x_2 = \\frac{c}{a}",
+      "plain": "x₁ + x₂ = −b/a,  x₁·x₂ = c/a",
+      "description": "Relates the roots of ax² + bx + c = 0 to its coefficients without solving the equation.",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "coefficient of x²"
+        },
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "coefficient of x"
+        },
+        {
+          "key": "c",
+          "symbol": "c",
+          "name": "constant term"
+        }
+      ],
+      "output": {
+        "key": "sp",
+        "symbol": "(x_1 + x_2,\\ x_1 x_2)",
+        "name": "[sum, product] of roots"
+      },
+      "compute": "[-b / a, c / a]",
+      "conditions": [
+        "a ≠ 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a": 1,
+            "b": -3,
+            "c": 2
+          },
+          "output": [
+            3,
+            2
+          ],
+          "note": "Roots 1 and 2: sum 3, product 2."
+        }
+      ],
+      "tags": [
+        "quadratic",
+        "roots",
+        "vieta"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/quadratic-equations/",
+        "practice": "https://mathovia.com/practice/quadratic-equations-practice-problems/"
+      }
+    },
+    {
+      "id": "arithmetic-sequence-nth-term",
+      "name": "Arithmetic Sequence nth Term",
+      "category": "algebra",
+      "topic": "sequences-and-series",
+      "latex": "a_n = a_1 + (n - 1)d",
+      "plain": "aₙ = a₁ + (n − 1)d",
+      "description": "Any term of a sequence that changes by a constant difference d.",
+      "variables": [
+        {
+          "key": "a1",
+          "symbol": "a_1",
+          "name": "first term"
+        },
+        {
+          "key": "d",
+          "symbol": "d",
+          "name": "common difference"
+        },
+        {
+          "key": "n",
+          "symbol": "n",
+          "name": "term number"
+        }
+      ],
+      "output": {
+        "key": "an",
+        "symbol": "a_n",
+        "name": "nth term"
+      },
+      "compute": "a1 + (n - 1)*d",
+      "conditions": [
+        "n ≥ 1, integer"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a1": 3,
+            "d": 4,
+            "n": 10
+          },
+          "output": 39
+        }
+      ],
+      "tags": [
+        "sequences",
+        "arithmetic-sequence"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/arithmetic-sequences/",
+        "calculate": "https://mathovia.com/calculators/arithmetic-sequence-calculator/",
+        "practice": "https://mathovia.com/practice/arithmetic-sequences-practice-problems/"
+      }
+    },
+    {
+      "id": "arithmetic-series-sum",
+      "name": "Arithmetic Series Sum",
+      "category": "algebra",
+      "topic": "sequences-and-series",
+      "latex": "S_n = \\frac{n}{2}(a_1 + a_n)",
+      "plain": "Sₙ = n(a₁ + aₙ) / 2",
+      "description": "Sum of the first n terms of an arithmetic sequence.",
+      "variables": [
+        {
+          "key": "n",
+          "symbol": "n",
+          "name": "number of terms"
+        },
+        {
+          "key": "a1",
+          "symbol": "a_1",
+          "name": "first term"
+        },
+        {
+          "key": "an",
+          "symbol": "a_n",
+          "name": "last term"
+        }
+      ],
+      "output": {
+        "key": "S",
+        "symbol": "S_n",
+        "name": "sum"
+      },
+      "compute": "n * (a1 + an) / 2",
+      "conditions": [
+        "n ≥ 1, integer"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "n": 10,
+            "a1": 3,
+            "an": 39
+          },
+          "output": 210
+        }
+      ],
+      "tags": [
+        "series",
+        "arithmetic-series"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/arithmetic-series/",
+        "practice": "https://mathovia.com/practice/arithmetic-series-practice-problems/"
+      }
+    },
+    {
+      "id": "geometric-series-sum",
+      "name": "Finite Geometric Series Sum",
+      "category": "algebra",
+      "topic": "sequences-and-series",
+      "latex": "S_n = \\frac{a_1(1 - r^n)}{1 - r}",
+      "plain": "Sₙ = a₁(1 − rⁿ) / (1 − r)",
+      "description": "Sum of the first n terms of a geometric sequence.",
+      "variables": [
+        {
+          "key": "a1",
+          "symbol": "a_1",
+          "name": "first term"
+        },
+        {
+          "key": "r",
+          "symbol": "r",
+          "name": "common ratio"
+        },
+        {
+          "key": "n",
+          "symbol": "n",
+          "name": "number of terms"
+        }
+      ],
+      "output": {
+        "key": "S",
+        "symbol": "S_n",
+        "name": "sum"
+      },
+      "compute": "a1 * (1 - r**n) / (1 - r)",
+      "conditions": [
+        "r ≠ 1 (if r = 1, Sₙ = n·a₁)"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a1": 2,
+            "r": 3,
+            "n": 5
+          },
+          "output": 242,
+          "note": "2 + 6 + 18 + 54 + 162."
+        }
+      ],
+      "tags": [
+        "series",
+        "geometric-series"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/geometric-series/",
+        "practice": "https://mathovia.com/practice/geometric-series-practice-problems/"
+      }
+    },
+    {
+      "id": "geometric-sequence-nth-term",
+      "name": "Geometric Sequence nth Term",
+      "category": "algebra",
+      "topic": "sequences-and-series",
+      "latex": "a_n = a_1 r^{n-1}",
+      "plain": "aₙ = a₁ · rⁿ⁻¹",
+      "description": "Any term of a sequence that is multiplied by a constant ratio r each step.",
+      "variables": [
+        {
+          "key": "a1",
+          "symbol": "a_1",
+          "name": "first term"
+        },
+        {
+          "key": "r",
+          "symbol": "r",
+          "name": "common ratio"
+        },
+        {
+          "key": "n",
+          "symbol": "n",
+          "name": "term number"
+        }
+      ],
+      "output": {
+        "key": "an",
+        "symbol": "a_n",
+        "name": "nth term"
+      },
+      "compute": "a1 * r**(n - 1)",
+      "conditions": [
+        "n ≥ 1, integer"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a1": 2,
+            "r": 3,
+            "n": 5
+          },
+          "output": 162
+        }
+      ],
+      "tags": [
+        "sequences",
+        "geometric-sequence"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/geometric-sequences/",
+        "calculate": "https://mathovia.com/calculators/geometric-sequence-calculator/",
+        "practice": "https://mathovia.com/practice/geometric-sequences-practice-problems/"
+      }
+    },
+    {
+      "id": "infinite-geometric-series-sum",
+      "name": "Infinite Geometric Series Sum",
+      "category": "algebra",
+      "topic": "sequences-and-series",
+      "latex": "S = \\frac{a_1}{1 - r}",
+      "plain": "S = a₁ / (1 − r)",
+      "description": "Sum of all terms of a geometric series that converges.",
+      "variables": [
+        {
+          "key": "a1",
+          "symbol": "a_1",
+          "name": "first term"
+        },
+        {
+          "key": "r",
+          "symbol": "r",
+          "name": "common ratio"
+        }
+      ],
+      "output": {
+        "key": "S",
+        "symbol": "S",
+        "name": "sum"
+      },
+      "compute": "a1 / (1 - r)",
+      "conditions": [
+        "|r| < 1 (otherwise the series diverges)"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a1": 6,
+            "r": 0.5
+          },
+          "output": 12
+        }
+      ],
+      "tags": [
+        "series",
+        "geometric-series",
+        "convergence"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/geometric-series/",
+        "practice": "https://mathovia.com/practice/geometric-series-practice-problems/"
+      }
+    },
+    {
+      "id": "sum-of-first-n-integers",
+      "name": "Sum of the First n Positive Integers",
+      "category": "algebra",
+      "topic": "sequences-and-series",
+      "latex": "\\sum_{i=1}^{n} i = \\frac{n(n + 1)}{2}",
+      "plain": "1 + 2 + … + n = n(n + 1) / 2",
+      "description": "Closed form for adding the integers from 1 to n.",
+      "variables": [
+        {
+          "key": "n",
+          "symbol": "n",
+          "name": "last integer"
+        }
+      ],
+      "output": {
+        "key": "S",
+        "symbol": "S",
+        "name": "sum"
+      },
+      "compute": "n * (n + 1) / 2",
+      "conditions": [
+        "n ≥ 1, integer"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "n": 100
+          },
+          "output": 5050
+        }
+      ],
+      "tags": [
+        "summation",
+        "sigma-notation",
+        "series"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/sigma-notation/",
+        "calculate": "https://mathovia.com/calculators/summation-calculator/",
+        "practice": "https://mathovia.com/practice/sigma-notation-practice-problems/"
+      }
+    },
+    {
+      "id": "sum-of-squares",
+      "name": "Sum of the First n Squares",
+      "category": "algebra",
+      "topic": "sequences-and-series",
+      "latex": "\\sum_{i=1}^{n} i^2 = \\frac{n(n + 1)(2n + 1)}{6}",
+      "plain": "1² + 2² + … + n² = n(n + 1)(2n + 1) / 6",
+      "description": "Closed form for adding the squares from 1² to n².",
+      "variables": [
+        {
+          "key": "n",
+          "symbol": "n",
+          "name": "last integer"
+        }
+      ],
+      "output": {
+        "key": "S",
+        "symbol": "S",
+        "name": "sum"
+      },
+      "compute": "n * (n + 1) * (2*n + 1) / 6",
+      "conditions": [
+        "n ≥ 1, integer"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "n": 10
+          },
+          "output": 385
+        }
+      ],
+      "tags": [
+        "summation",
+        "sigma-notation",
+        "series"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/sigma-notation/",
+        "calculate": "https://mathovia.com/calculators/summation-calculator/"
+      }
+    },
+    {
+      "id": "cramers-rule-2x2",
+      "name": "Cramer's Rule (2×2 System)",
+      "category": "algebra",
+      "topic": "systems-of-equations",
+      "latex": "x = \\frac{c_1 b_2 - b_1 c_2}{a_1 b_2 - b_1 a_2}, \\quad y = \\frac{a_1 c_2 - c_1 a_2}{a_1 b_2 - b_1 a_2}",
+      "plain": "x = (c₁b₂ − b₁c₂)/D,  y = (a₁c₂ − c₁a₂)/D,  D = a₁b₂ − b₁a₂",
+      "description": "Solves a₁x + b₁y = c₁ and a₂x + b₂y = c₂ using determinants.",
+      "variables": [
+        {
+          "key": "a1",
+          "symbol": "a_1",
+          "name": "x coefficient, equation 1"
+        },
+        {
+          "key": "b1",
+          "symbol": "b_1",
+          "name": "y coefficient, equation 1"
+        },
+        {
+          "key": "c1",
+          "symbol": "c_1",
+          "name": "constant, equation 1"
+        },
+        {
+          "key": "a2",
+          "symbol": "a_2",
+          "name": "x coefficient, equation 2"
+        },
+        {
+          "key": "b2",
+          "symbol": "b_2",
+          "name": "y coefficient, equation 2"
+        },
+        {
+          "key": "c2",
+          "symbol": "c_2",
+          "name": "constant, equation 2"
+        }
+      ],
+      "output": {
+        "key": "xy",
+        "symbol": "(x, y)",
+        "name": "[x, y] solution"
+      },
+      "compute": "[(c1*b2 - b1*c2) / (a1*b2 - b1*a2), (a1*c2 - c1*a2) / (a1*b2 - b1*a2)]",
+      "conditions": [
+        "a₁b₂ − b₁a₂ ≠ 0 (otherwise no unique solution)"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a1": 2,
+            "b1": 3,
+            "c1": 8,
+            "a2": 1,
+            "b2": -1,
+            "c2": -1
+          },
+          "output": [
+            1,
+            2
+          ],
+          "note": "2x + 3y = 8 and x − y = −1."
+        }
+      ],
+      "tags": [
+        "systems-of-equations",
+        "determinant",
+        "linear-algebra"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/cramers-rule/",
+        "calculate": "https://mathovia.com/calculators/system-of-equations-calculator/",
+        "practice": "https://mathovia.com/practice/cramers-rule-practice-problems/"
+      }
+    },
+    {
+      "id": "direct-variation",
+      "name": "Direct Variation",
+      "category": "algebra",
+      "topic": "variation",
+      "latex": "y = kx",
+      "plain": "y = kx",
+      "description": "y varies directly with x: doubling x doubles y.",
+      "variables": [
+        {
+          "key": "k",
+          "symbol": "k",
+          "name": "constant of variation"
+        },
+        {
+          "key": "x",
+          "symbol": "x",
+          "name": "independent variable"
+        }
+      ],
+      "output": {
+        "key": "y",
+        "symbol": "y",
+        "name": "dependent variable"
+      },
+      "compute": "k * x",
+      "conditions": [
+        "k ≠ 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "k": 4,
+            "x": 2.5
+          },
+          "output": 10
+        }
+      ],
+      "tags": [
+        "variation",
+        "proportion"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/direct-variation/",
+        "practice": "https://mathovia.com/practice/direct-variation-practice-problems/"
+      }
+    },
+    {
+      "id": "inverse-variation",
+      "name": "Inverse Variation",
+      "category": "algebra",
+      "topic": "variation",
+      "latex": "y = \\frac{k}{x}",
+      "plain": "y = k / x",
+      "description": "y varies inversely with x: doubling x halves y.",
+      "variables": [
+        {
+          "key": "k",
+          "symbol": "k",
+          "name": "constant of variation"
+        },
+        {
+          "key": "x",
+          "symbol": "x",
+          "name": "independent variable"
+        }
+      ],
+      "output": {
+        "key": "y",
+        "symbol": "y",
+        "name": "dependent variable"
+      },
+      "compute": "k / x",
+      "conditions": [
+        "x ≠ 0",
+        "k ≠ 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "k": 24,
+            "x": 6
+          },
+          "output": 4
+        }
+      ],
+      "tags": [
+        "variation",
+        "proportion"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/inverse-variation/",
+        "practice": "https://mathovia.com/practice/inverse-variation-practice-problems/"
+      }
+    },
+    {
+      "id": "joint-variation",
+      "name": "Joint Variation",
+      "category": "algebra",
+      "topic": "variation",
+      "latex": "z = kxy",
+      "plain": "z = kxy",
+      "description": "z varies directly with the product of x and y.",
+      "variables": [
+        {
+          "key": "k",
+          "symbol": "k",
+          "name": "constant of variation"
+        },
+        {
+          "key": "x",
+          "symbol": "x",
+          "name": "first variable"
+        },
+        {
+          "key": "y",
+          "symbol": "y",
+          "name": "second variable"
+        }
+      ],
+      "output": {
+        "key": "z",
+        "symbol": "z",
+        "name": "dependent variable"
+      },
+      "compute": "k * x * y",
+      "conditions": [
+        "k ≠ 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "k": 0.5,
+            "x": 4,
+            "y": 6
+          },
+          "output": 12
+        }
+      ],
+      "tags": [
+        "variation",
+        "proportion"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/joint-variation/",
+        "practice": "https://mathovia.com/practice/joint-variation-practice-problems/"
+      }
+    },
+    {
+      "id": "combined-work-rate",
+      "name": "Combined Work Rate",
+      "category": "algebra",
+      "topic": "word-problems",
+      "latex": "\\frac{1}{t} = \\frac{1}{t_1} + \\frac{1}{t_2}",
+      "plain": "1/t = 1/t₁ + 1/t₂",
+      "description": "Time t for two workers together when they take t₁ and t₂ alone; equivalently t = t₁t₂ / (t₁ + t₂).",
+      "variables": [
+        {
+          "key": "t1",
+          "symbol": "t_1",
+          "name": "time for worker 1 alone"
+        },
+        {
+          "key": "t2",
+          "symbol": "t_2",
+          "name": "time for worker 2 alone"
+        }
+      ],
+      "output": {
+        "key": "t",
+        "symbol": "t",
+        "name": "time working together"
+      },
+      "compute": "(t1 * t2) / (t1 + t2)",
+      "conditions": [
+        "t₁ > 0, t₂ > 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "t1": 6,
+            "t2": 3
+          },
+          "output": 2
+        }
+      ],
+      "tags": [
+        "word-problems",
+        "work-problems",
+        "rates"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/work-problems/",
+        "practice": "https://mathovia.com/practice/work-problems-practice-problems/"
+      }
+    },
+    {
+      "id": "distance-rate-time",
+      "name": "Distance = Rate × Time",
+      "category": "algebra",
+      "topic": "word-problems",
+      "latex": "d = rt",
+      "plain": "d = r · t",
+      "description": "Distance traveled at a constant rate r for time t.",
+      "variables": [
+        {
+          "key": "r",
+          "symbol": "r",
+          "name": "rate (speed)"
+        },
+        {
+          "key": "t",
+          "symbol": "t",
+          "name": "time"
+        }
+      ],
+      "output": {
+        "key": "d",
+        "symbol": "d",
+        "name": "distance"
+      },
+      "compute": "r * t",
+      "conditions": [
+        "Units of r and t must match (e.g. km/h and hours)"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "r": 60,
+            "t": 2.5
+          },
+          "output": 150
+        }
+      ],
+      "tags": [
+        "word-problems",
+        "motion"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/distance-rate-problems/",
+        "practice": "https://mathovia.com/practice/distance-rate-problems-practice-problems/"
+      }
+    },
+    {
+      "id": "mixture-concentration",
+      "name": "Mixture Concentration",
+      "category": "algebra",
+      "topic": "word-problems",
+      "latex": "C = \\frac{c_1 v_1 + c_2 v_2}{v_1 + v_2}",
+      "plain": "C = (c₁v₁ + c₂v₂) / (v₁ + v₂)",
+      "description": "Concentration of a mixture made from two solutions.",
+      "variables": [
+        {
+          "key": "c1",
+          "symbol": "c_1",
+          "name": "concentration of solution 1 (decimal)"
+        },
+        {
+          "key": "v1",
+          "symbol": "v_1",
+          "name": "volume of solution 1"
+        },
+        {
+          "key": "c2",
+          "symbol": "c_2",
+          "name": "concentration of solution 2 (decimal)"
+        },
+        {
+          "key": "v2",
+          "symbol": "v_2",
+          "name": "volume of solution 2"
+        }
+      ],
+      "output": {
+        "key": "C",
+        "symbol": "C",
+        "name": "mixture concentration"
+      },
+      "compute": "(c1*v1 + c2*v2) / (v1 + v2)",
+      "conditions": [
+        "v₁ + v₂ > 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "c1": 0.1,
+            "v1": 2,
+            "c2": 0.4,
+            "v2": 1
+          },
+          "output": 0.2
+        }
+      ],
+      "tags": [
+        "word-problems",
+        "mixture-problems"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/algebra/mixture-problems/",
+        "practice": "https://mathovia.com/practice/mixture-problems-practice-problems/"
+      }
+    }
+  ]
+}

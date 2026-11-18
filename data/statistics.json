@@ -1,0 +1,73 @@
+[
+  {
+    "id": "binomial-probability",
+    "name": "Binomial Probability",
+    "category": "statistics",
+    "topic": "probability-distributions",
+    "latex": "P(X = k) = \\binom{n}{k} p^k (1 - p)^{n-k}",
+    "plain": "P(X = k) = C(n, k) · pᵏ · (1 − p)ⁿ⁻ᵏ",
+    "description": "Probability of exactly k successes in n independent trials, each with success probability p.",
+    "variables": [
+      { "key": "n", "symbol": "n", "name": "number of trials" },
+      { "key": "k", "symbol": "k", "name": "number of successes" },
+      { "key": "p", "symbol": "p", "name": "probability of success" }
+    ],
+    "output": { "key": "P", "symbol": "P(X = k)", "name": "probability" },
+    "compute": "comb(n, k) * p**k * (1 - p)**(n - k)",
+    "conditions": ["0 ≤ k ≤ n, integers", "0 ≤ p ≤ 1", "Trials independent"],
+    "examples": [
+      { "inputs": { "n": 5, "k": 2, "p": 0.5 }, "output": 0.3125, "display": "10/32" },
+      { "inputs": { "n": 10, "k": 0, "p": 0.1 }, "output": 0.3486784401 }
+    ],
+    "tags": ["probability", "binomial-distribution", "statistics"],
+    "links": {
+      "calculate": "https://mathovia.com/calculators/binomial-distribution-calculator/"
+    }
+  },
+  {
+    "id": "binomial-mean",
+    "name": "Mean of a Binomial Distribution",
+    "category": "statistics",
+    "topic": "probability-distributions",
+    "latex": "\\mu = np",
+    "plain": "μ = n·p",
+    "description": "Expected number of successes in n trials with success probability p.",
+    "variables": [
+      { "key": "n", "symbol": "n", "name": "number of trials" },
+      { "key": "p", "symbol": "p", "name": "probability of success" }
+    ],
+    "output": { "key": "mu", "symbol": "\\mu", "name": "mean" },
+    "compute": "n * p",
+    "conditions": ["0 ≤ p ≤ 1"],
+    "examples": [
+      { "inputs": { "n": 20, "p": 0.3 }, "output": 6 }
+    ],
+    "tags": ["probability", "binomial-distribution", "expected-value"],
+    "links": {
+      "calculate": "https://mathovia.com/calculators/binomial-distribution-calculator/"
+    }
+  },
+  {
+    "id": "binomial-standard-deviation",
+    "name": "Standard Deviation of a Binomial Distribution",
+    "category": "statistics",
+    "topic": "probability-distributions",
+    "latex": "\\sigma = \\sqrt{np(1 - p)}",
+    "plain": "σ = √(n·p·(1 − p))",
+    "description": "Spread of the number of successes around the mean np.",
+    "variables": [
+      { "key": "n", "symbol": "n", "name": "number of trials" },
+      { "key": "p", "symbol": "p", "name": "probability of success" }
+    ],
+    "output": { "key": "sigma", "symbol": "\\sigma", "name": "standard deviation" },
+    "compute": "sqrt(n * p * (1 - p))",
+    "conditions": ["0 ≤ p ≤ 1"],
+    "examples": [
+      { "inputs": { "n": 100, "p": 0.5 }, "output": 5 }
+    ],
+    "tags": ["probability", "binomial-distribution", "standard-deviation"],
+    "links": {
+      "calculate": "https://mathovia.com/calculators/binomial-distribution-calculator/"
+    }
+  }
+]

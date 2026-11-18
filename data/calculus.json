@@ -1,0 +1,347 @@
+[
+  {
+    "id": "power-rule-derivative",
+    "name": "Power Rule (Derivatives)",
+    "category": "calculus",
+    "topic": "derivatives",
+    "latex": "\\frac{d}{dx} x^n = n x^{n-1}",
+    "plain": "d/dx xⁿ = n·xⁿ⁻¹",
+    "description": "Derivative of a power of x: bring the exponent down and reduce it by one.",
+    "variables": [
+      { "key": "n", "symbol": "n", "name": "exponent" },
+      { "key": "x", "symbol": "x", "name": "point of evaluation" }
+    ],
+    "output": { "key": "dy", "symbol": "f'(x)", "name": "derivative value at x" },
+    "compute": "n * x**(n - 1)",
+    "conditions": ["n any real number (x > 0 for non-integer n)"],
+    "examples": [
+      { "inputs": { "n": 3, "x": 2 }, "output": 12 }
+    ],
+    "tags": ["derivatives", "differentiation-rules"],
+    "links": {
+      "learn": "https://mathovia.com/math/calculus/power-rule/",
+      "practice": "https://mathovia.com/practice/power-rule-practice-problems/"
+    }
+  },
+  {
+    "id": "product-rule",
+    "name": "Product Rule",
+    "category": "calculus",
+    "topic": "derivatives",
+    "latex": "(fg)' = f'g + fg'",
+    "plain": "(f·g)′ = f′·g + f·g′",
+    "description": "Derivative of a product of two differentiable functions.",
+    "variables": [
+      { "key": "f", "symbol": "f(x)", "name": "value of f at x" },
+      { "key": "fp", "symbol": "f'(x)", "name": "value of f′ at x" },
+      { "key": "g", "symbol": "g(x)", "name": "value of g at x" },
+      { "key": "gp", "symbol": "g'(x)", "name": "value of g′ at x" }
+    ],
+    "output": { "key": "d", "symbol": "(fg)'(x)", "name": "derivative of the product at x" },
+    "compute": "fp*g + f*gp",
+    "conditions": ["f and g differentiable at x"],
+    "examples": [
+      { "inputs": { "f": 2, "fp": 3, "g": 4, "gp": 5 }, "output": 22 }
+    ],
+    "tags": ["derivatives", "differentiation-rules"],
+    "links": {
+      "learn": "https://mathovia.com/math/calculus/product-rule/",
+      "practice": "https://mathovia.com/practice/product-rule-practice-problems/"
+    }
+  },
+  {
+    "id": "quotient-rule",
+    "name": "Quotient Rule",
+    "category": "calculus",
+    "topic": "derivatives",
+    "latex": "\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}",
+    "plain": "(f/g)′ = (f′g − fg′) / g²",
+    "description": "Derivative of a quotient of two differentiable functions.",
+    "variables": [
+      { "key": "f", "symbol": "f(x)", "name": "value of f at x" },
+      { "key": "fp", "symbol": "f'(x)", "name": "value of f′ at x" },
+      { "key": "g", "symbol": "g(x)", "name": "value of g at x" },
+      { "key": "gp", "symbol": "g'(x)", "name": "value of g′ at x" }
+    ],
+    "output": { "key": "d", "symbol": "(f/g)'(x)", "name": "derivative of the quotient at x" },
+    "compute": "(fp*g - f*gp) / g**2",
+    "conditions": ["g(x) ≠ 0"],
+    "examples": [
+      { "inputs": { "f": 2, "fp": 3, "g": 4, "gp": 5 }, "output": 0.125 }
+    ],
+    "tags": ["derivatives", "differentiation-rules"],
+    "links": {
+      "learn": "https://mathovia.com/math/calculus/quotient-rule/",
+      "practice": "https://mathovia.com/practice/quotient-rule-practice-problems/"
+    }
+  },
+  {
+    "id": "chain-rule",
+    "name": "Chain Rule",
+    "category": "calculus",
+    "topic": "derivatives",
+    "latex": "\\frac{d}{dx} f(g(x)) = f'(g(x)) \\cdot g'(x)",
+    "plain": "d/dx f(g(x)) = f′(g(x)) · g′(x)",
+    "description": "Derivative of a composite function: outer derivative (evaluated at the inner function) times inner derivative.",
+    "variables": [
+      { "key": "fpg", "symbol": "f'(g(x))", "name": "outer derivative evaluated at g(x)" },
+      { "key": "gp", "symbol": "g'(x)", "name": "inner derivative at x" }
+    ],
+    "output": { "key": "d", "symbol": "(f \\circ g)'(x)", "name": "derivative of the composition at x" },
+    "compute": "fpg * gp",
+    "conditions": ["g differentiable at x, f differentiable at g(x)"],
+    "examples": [
+      { "inputs": { "fpg": 12, "gp": 2 }, "output": 24, "note": "f(u) = u³, g(x) = x² + 1 at x = 1: f′(g(1)) = 3·2² = 12 and g′(1) = 2." }
+    ],
+    "tags": ["derivatives", "differentiation-rules", "composition"],
+    "links": {
+      "learn": "https://mathovia.com/math/calculus/chain-rule/",
+      "practice": "https://mathovia.com/practice/chain-rule-practice-problems/"
+    }
+  },
+  {
+    "id": "derivative-of-natural-log",
+    "name": "Derivative of ln x",
+    "category": "calculus",
+    "topic": "derivatives",
+    "latex": "\\frac{d}{dx} \\ln x = \\frac{1}{x}",
+    "plain": "d/dx ln(x) = 1/x",
+    "description": "The natural logarithm's rate of change is the reciprocal of x.",
+    "variables": [
+      { "key": "x", "symbol": "x", "name": "point of evaluation" }
+    ],
+    "output": { "key": "d", "symbol": "\\frac{d}{dx}\\ln x", "name": "derivative value" },
+    "compute": "1 / x",
+    "conditions": ["x > 0"],
+    "examples": [
+      { "inputs": { "x": 4 }, "output": 0.25 }
+    ],
+    "tags": ["derivatives", "logarithms"],
+    "links": {
+      "learn": "https://mathovia.com/math/calculus/derivatives-of-exponential-and-logarithmic-functions/",
+      "practice": "https://mathovia.com/practice/derivatives-of-exponential-and-logarithmic-functions-practice-problems/"
+    }
+  },
+  {
+    "id": "derivative-of-exponential",
+    "name": "Derivative of aˣ",
+    "category": "calculus",
+    "topic": "derivatives",
+    "latex": "\\frac{d}{dx} a^x = a^x \\ln a",
+    "plain": "d/dx aˣ = aˣ · ln(a)",
+    "description": "Derivative of an exponential with base a; for a = e it reduces to eˣ.",
+    "variables": [
+      { "key": "a", "symbol": "a", "name": "base" },
+      { "key": "x", "symbol": "x", "name": "point of evaluation" }
+    ],
+    "output": { "key": "d", "symbol": "\\frac{d}{dx}a^x", "name": "derivative value" },
+    "compute": "a**x * ln(a)",
+    "conditions": ["a > 0, a ≠ 1"],
+    "examples": [
+      { "inputs": { "a": 2, "x": 3 }, "output": 5.545177444479562 },
+      { "inputs": { "a": 2.718281828459045, "x": 1 }, "output": 2.718281828459045, "tolerance": 0.000000001, "note": "For a = e the derivative equals eˣ." }
+    ],
+    "tags": ["derivatives", "exponential"],
+    "links": {
+      "learn": "https://mathovia.com/math/calculus/derivatives-of-exponential-and-logarithmic-functions/",
+      "practice": "https://mathovia.com/practice/derivatives-of-exponential-and-logarithmic-functions-practice-problems/"
+    }
+  },
+  {
+    "id": "derivative-of-sine",
+    "name": "Derivative of sin x",
+    "category": "calculus",
+    "topic": "derivatives",
+    "latex": "\\frac{d}{dx} \\sin x = \\cos x",
+    "plain": "d/dx sin(x) = cos(x)",
+    "description": "The derivative of sine is cosine (x in radians).",
+    "variables": [
+      { "key": "x", "symbol": "x", "name": "angle in radians" }
+    ],
+    "output": { "key": "d", "symbol": "\\frac{d}{dx}\\sin x", "name": "derivative value" },
+    "compute": "cos(x)",
+    "conditions": ["x measured in radians"],
+    "examples": [
+      { "inputs": { "x": 0 }, "output": 1 }
+    ],
+    "tags": ["derivatives", "trigonometry"],
+    "links": {
+      "learn": "https://mathovia.com/math/calculus/derivatives-of-trig-functions/",
+      "practice": "https://mathovia.com/practice/derivatives-of-trig-functions-practice-problems/"
+    }
+  },
+  {
+    "id": "derivative-of-arctan",
+    "name": "Derivative of arctan x",
+    "category": "calculus",
+    "topic": "derivatives",
+    "latex": "\\frac{d}{dx} \\arctan x = \\frac{1}{1 + x^2}",
+    "plain": "d/dx arctan(x) = 1 / (1 + x²)",
+    "description": "Derivative of the inverse tangent function.",
+    "variables": [
+      { "key": "x", "symbol": "x", "name": "point of evaluation" }
+    ],
+    "output": { "key": "d", "symbol": "\\frac{d}{dx}\\arctan x", "name": "derivative value" },
+    "compute": "1 / (1 + x**2)",
+    "conditions": [],
+    "examples": [
+      { "inputs": { "x": 1 }, "output": 0.5 }
+    ],
+    "tags": ["derivatives", "inverse-trigonometry"],
+    "links": {
+      "learn": "https://mathovia.com/math/calculus/derivatives-of-inverse-trig-functions/",
+      "calculate": "https://mathovia.com/calculators/inverse-tan-calculator/",
+      "practice": "https://mathovia.com/practice/derivatives-of-inverse-trig-functions-practice-problems/"
+    }
+  },
+  {
+    "id": "linear-approximation",
+    "name": "Linear Approximation (Tangent Line)",
+    "category": "calculus",
+    "topic": "applications-of-derivatives",
+    "latex": "L(x) = f(a) + f'(a)(x - a)",
+    "plain": "L(x) = f(a) + f′(a)(x − a)",
+    "description": "Approximates f near x = a using its tangent line.",
+    "variables": [
+      { "key": "fa", "symbol": "f(a)", "name": "function value at a" },
+      { "key": "fpa", "symbol": "f'(a)", "name": "derivative at a" },
+      { "key": "a", "symbol": "a", "name": "center point" },
+      { "key": "x", "symbol": "x", "name": "nearby input" }
+    ],
+    "output": { "key": "L", "symbol": "L(x)", "name": "approximate value" },
+    "compute": "fa + fpa*(x - a)",
+    "conditions": ["f differentiable at a; accurate only for x near a"],
+    "examples": [
+      { "inputs": { "fa": 2, "fpa": 0.25, "a": 4, "x": 4.1 }, "output": 2.025, "note": "√4.1 ≈ 2.025 using f(x) = √x at a = 4." }
+    ],
+    "tags": ["derivatives", "approximation", "tangent-line"],
+    "links": {
+      "learn": "https://mathovia.com/math/calculus/linear-approximation/",
+      "practice": "https://mathovia.com/practice/linear-approximation-practice-problems/"
+    }
+  },
+  {
+    "id": "mean-value-theorem",
+    "name": "Mean Value Theorem",
+    "category": "calculus",
+    "topic": "applications-of-derivatives",
+    "latex": "f'(c) = \\frac{f(b) - f(a)}{b - a}",
+    "plain": "f′(c) = (f(b) − f(a)) / (b − a)",
+    "description": "Some point c in (a, b) has an instantaneous rate equal to the average rate over [a, b]. The value computed is that required slope f′(c).",
+    "variables": [
+      { "key": "fa", "symbol": "f(a)", "name": "function value at a" },
+      { "key": "fb", "symbol": "f(b)", "name": "function value at b" },
+      { "key": "a", "symbol": "a", "name": "left endpoint" },
+      { "key": "b", "symbol": "b", "name": "right endpoint" }
+    ],
+    "output": { "key": "s", "symbol": "f'(c)", "name": "required slope" },
+    "compute": "(fb - fa) / (b - a)",
+    "conditions": ["f continuous on [a, b] and differentiable on (a, b)"],
+    "examples": [
+      { "inputs": { "fa": 0, "fb": 8, "a": 0, "b": 2 }, "output": 4, "note": "f(x) = x³ on [0, 2]; 3c² = 4 gives c = 2/√3." }
+    ],
+    "tags": ["mean-value-theorem", "derivatives", "theorems"],
+    "links": {
+      "learn": "https://mathovia.com/math/calculus/mean-value-theorem/",
+      "practice": "https://mathovia.com/practice/mean-value-theorem-practice-problems/"
+    }
+  },
+  {
+    "id": "power-rule-integral",
+    "name": "Power Rule (Integrals)",
+    "category": "calculus",
+    "topic": "integrals",
+    "latex": "\\int x^n \\, dx = \\frac{x^{n+1}}{n + 1} + C",
+    "plain": "∫ xⁿ dx = xⁿ⁺¹ / (n + 1) + C",
+    "description": "Antiderivative of a power of x. The value computed is the antiderivative at x with C = 0.",
+    "variables": [
+      { "key": "n", "symbol": "n", "name": "exponent" },
+      { "key": "x", "symbol": "x", "name": "point of evaluation" }
+    ],
+    "output": { "key": "F", "symbol": "F(x)", "name": "antiderivative value (C = 0)" },
+    "compute": "x**(n + 1) / (n + 1)",
+    "conditions": ["n ≠ −1 (∫ x⁻¹ dx = ln|x| + C)"],
+    "examples": [
+      { "inputs": { "n": 2, "x": 3 }, "output": 9 }
+    ],
+    "tags": ["integrals", "antiderivatives"],
+    "links": {
+      "learn": "https://mathovia.com/math/calculus/antiderivatives/",
+      "practice": "https://mathovia.com/practice/antiderivatives-practice-problems/"
+    }
+  },
+  {
+    "id": "fundamental-theorem-of-calculus",
+    "name": "Fundamental Theorem of Calculus",
+    "category": "calculus",
+    "topic": "integrals",
+    "latex": "\\int_a^b f(x) \\, dx = F(b) - F(a)",
+    "plain": "∫ₐᵇ f(x) dx = F(b) − F(a)",
+    "description": "A definite integral equals the change in any antiderivative F across the interval.",
+    "variables": [
+      { "key": "Fb", "symbol": "F(b)", "name": "antiderivative at b" },
+      { "key": "Fa", "symbol": "F(a)", "name": "antiderivative at a" }
+    ],
+    "output": { "key": "I", "symbol": "\\int_a^b f(x)\\,dx", "name": "definite integral" },
+    "compute": "Fb - Fa",
+    "conditions": ["f continuous on [a, b], F′ = f"],
+    "examples": [
+      { "inputs": { "Fb": 9, "Fa": 1 }, "output": 8, "note": "∫₁³ 2x dx with antiderivative F(x) = x²: F(3) − F(1) = 9 − 1." }
+    ],
+    "tags": ["integrals", "definite-integral", "theorems"],
+    "links": {
+      "learn": "https://mathovia.com/math/calculus/fundamental-theorem-of-calculus/",
+      "practice": "https://mathovia.com/practice/fundamental-theorem-of-calculus-practice-problems/"
+    }
+  },
+  {
+    "id": "average-value-of-a-function",
+    "name": "Average Value of a Function",
+    "category": "calculus",
+    "topic": "integrals",
+    "latex": "f_{\\text{avg}} = \\frac{1}{b - a} \\int_a^b f(x) \\, dx",
+    "plain": "f_avg = (1 / (b − a)) · ∫ₐᵇ f(x) dx",
+    "description": "The constant height that gives the same area as f over [a, b].",
+    "variables": [
+      { "key": "I", "symbol": "\\int_a^b f(x)\\,dx", "name": "definite integral over [a, b]" },
+      { "key": "a", "symbol": "a", "name": "left endpoint" },
+      { "key": "b", "symbol": "b", "name": "right endpoint" }
+    ],
+    "output": { "key": "avg", "symbol": "f_{\\text{avg}}", "name": "average value" },
+    "compute": "I / (b - a)",
+    "conditions": ["a < b", "f integrable on [a, b]"],
+    "examples": [
+      { "inputs": { "I": 9, "a": 0, "b": 3 }, "output": 3, "note": "f(x) = x² on [0, 3]: ∫ = 9." }
+    ],
+    "tags": ["integrals", "average-value"],
+    "links": {
+      "learn": "https://mathovia.com/math/calculus/average-value-of-a-function/",
+      "practice": "https://mathovia.com/practice/average-value-of-a-function-practice-problems/"
+    }
+  },
+  {
+    "id": "riemann-sum-subinterval-width",
+    "name": "Riemann Sum Subinterval Width",
+    "category": "calculus",
+    "topic": "integrals",
+    "latex": "\\Delta x = \\frac{b - a}{n}",
+    "plain": "Δx = (b − a) / n",
+    "description": "Width of each of n equal subintervals used in a Riemann sum Σ f(xᵢ)·Δx.",
+    "variables": [
+      { "key": "a", "symbol": "a", "name": "left endpoint" },
+      { "key": "b", "symbol": "b", "name": "right endpoint" },
+      { "key": "n", "symbol": "n", "name": "number of subintervals" }
+    ],
+    "output": { "key": "dx", "symbol": "\\Delta x", "name": "subinterval width" },
+    "compute": "(b - a) / n",
+    "conditions": ["n ≥ 1, integer"],
+    "examples": [
+      { "inputs": { "a": 0, "b": 2, "n": 4 }, "output": 0.5 }
+    ],
+    "tags": ["integrals", "riemann-sums"],
+    "links": {
+      "learn": "https://mathovia.com/math/calculus/riemann-sums/",
+      "practice": "https://mathovia.com/practice/riemann-sums-practice-problems/"
+    }
+  }
+]

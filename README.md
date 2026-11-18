@@ -1,0 +1,250 @@
+# Math Formulas Dataset
+
+[![Validate](https://github.com/zohaib99k/math-formulas-dataset/actions/workflows/validate.yml/badge.svg)](https://github.com/zohaib99k/math-formulas-dataset/actions/workflows/validate.yml)
+[![License: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Code: MIT](https://img.shields.io/badge/code-MIT-green.svg)](LICENSE-CODE)
+
+An open, machine-readable dataset of **81 formulas** covering algebra, calculus, trigonometry, statistics and fractions.
+
+Every formula has:
+
+- **LaTeX** and a plain-text (Unicode) version
+- **Variable definitions** with symbols and names
+- A **computable expression**, so you can evaluate the formula in code
+- **Worked examples** that CI checks against the expression on every commit
+- **Conditions** (domain restrictions such as `a ≠ 0` or `|r| < 1`)
+- **Links to a full lesson, calculator or practice set** on [Mathovia](https://mathovia.com/)
+
+**[Browse the formulas →](https://zohaib99k.github.io/math-formulas-dataset/)**
+
+## Who it's for
+
+- **Edtech and app developers:** a ready-made formula reference with LaTeX for MathJax or KaTeX.
+- **Teachers and tutors:** formula sheets, quiz generators or slide content.
+- **AI / RAG projects:** clean, structured formula knowledge with verified examples.
+- **Students:** a single searchable reference with step-by-step lessons one click away.
+
+## Get the data
+
+| Format | Link |
+|---|---|
+| JSON (pretty) | [`dist/formulas.json`](dist/formulas.json) |
+| JSON (minified, via CDN) | `https://cdn.jsdelivr.net/gh/zohaib99k/math-formulas-dataset@main/dist/formulas.min.json` |
+| CSV (Excel / Google Sheets) | [`dist/formulas.csv`](dist/formulas.csv) |
+| By category | [`dist/categories/`](dist/categories/) |
+
+### JavaScript (browser or Node 18+)
+
+```js
+const res = await fetch("https://cdn.jsdelivr.net/gh/zohaib99k/math-formulas-dataset@main/dist/formulas.min.json");
+const { formulas } = await res.json();
+
+const qf = formulas.find((f) => f.id === "quadratic-formula");
+console.log(qf.latex);       // x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+console.log(qf.links.learn); // https://mathovia.com/math/algebra/quadratic-formula/
+```
+
+### Python
+
+```python
+import json, urllib.request
+
+url = "https://cdn.jsdelivr.net/gh/zohaib99k/math-formulas-dataset@main/dist/formulas.json"
+data = json.load(urllib.request.urlopen(url))
+calculus = [f for f in data["formulas"] if f["category"] == "calculus"]
+print(len(calculus), calculus[0]["name"])
+```
+
+### Render with MathJax
+
+```html
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<div id="formula"></div>
+<script type="module">
+  const { formulas } = await (await fetch("https://cdn.jsdelivr.net/gh/zohaib99k/math-formulas-dataset@main/dist/formulas.min.json")).json();
+  const f = formulas.find((x) => x.id === "compound-interest");
+  document.getElementById("formula").innerHTML =
+    `\\[${f.latex}\\]<p>${f.description} <a href="${f.links.learn}">Learn more</a></p>`;
+  MathJax.typesetPromise();
+</script>
+```
+
+## Entry format
+
+```json
+{
+  "id": "quadratic-formula",
+  "name": "Quadratic Formula",
+  "category": "algebra",
+  "topic": "quadratic-equations",
+  "latex": "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}",
+  "plain": "x = (-b ± √(b² − 4ac)) / (2a)",
+  "description": "Gives both solutions of any quadratic equation ax² + bx + c = 0.",
+  "variables": [{ "key": "a", "symbol": "a", "name": "coefficient of x²" }, "…"],
+  "output": { "key": "x", "symbol": "x_1, x_2", "name": "roots" },
+  "compute": "[(-b + sqrt(b**2 - 4*a*c)) / (2*a), (-b - sqrt(b**2 - 4*a*c)) / (2*a)]",
+  "conditions": ["a ≠ 0", "b² − 4ac ≥ 0 for real roots"],
+  "examples": [{ "inputs": { "a": 1, "b": -3, "c": 2 }, "output": [2, 1] }],
+  "tags": ["quadratic", "roots", "polynomial"],
+  "links": {
+    "learn": "https://mathovia.com/math/algebra/quadratic-formula/",
+    "practice": "https://mathovia.com/practice/quadratic-formula-practice-problems/"
+  }
+}
+```
+
+The full specification is in [`schema/formula.schema.json`](schema/formula.schema.json). `compute` is a plain JavaScript expression. It can use only the variable keys and these helpers: `sqrt cbrt abs exp ln log10 log2 sin cos tan asin acos atan PI E fact comb`. The validator rejects any other identifier.
+
+## How accuracy is checked
+
+On every push and pull request, CI does three things:
+
+1. Validates every entry: required fields, kebab-case IDs, balanced LaTeX and links pointing to `mathovia.com`.
+2. Evaluates every worked example through its `compute` expression and compares it with the stated answer (relative tolerance 1e-9 unless set).
+3. Parses every LaTeX string and variable symbol with KaTeX.
+
+Found a mistake? [Open an issue](https://github.com/zohaib99k/math-formulas-dataset/issues/new?template=formula-correction.md). Corrections are the most valuable contribution.
+
+## All formulas
+
+<!-- FORMULAS:START -->
+<!-- Generated by scripts/build.mjs — do not edit by hand. -->
+
+### Algebra (52)
+
+| Formula | Expression | Learn more |
+|---|---|---|
+| [Binomial Coefficient](https://zohaib99k.github.io/math-formulas-dataset/#binomial-coefficient) | `C(n, k) = n! / (k!(n − k)!)` | [Lesson](https://mathovia.com/math/algebra/binomial-theorem/) · [Calculator](https://mathovia.com/calculators/binomial-expansion-calculator/) · [Practice](https://mathovia.com/practice/binomial-theorem-practice-problems/) |
+| [Binomial Theorem (General Term)](https://zohaib99k.github.io/math-formulas-dataset/#binomial-theorem-general-term) | `(a + b)ⁿ = Σ C(n, k)·aⁿ⁻ᵏ·bᵏ` | [Lesson](https://mathovia.com/math/algebra/binomial-theorem/) · [Calculator](https://mathovia.com/calculators/binomial-expansion-calculator/) · [Practice](https://mathovia.com/practice/binomial-theorem-practice-problems/) |
+| [Modulus of a Complex Number](https://zohaib99k.github.io/math-formulas-dataset/#complex-number-modulus) | `\|a + bi\| = √(a² + b²)` | [Lesson](https://mathovia.com/math/algebra/complex-numbers/) · [Practice](https://mathovia.com/practice/complex-number-generator/) |
+| [Focal Distance of a Hyperbola](https://zohaib99k.github.io/math-formulas-dataset/#hyperbola-focal-distance) | `c² = a² + b²` | [Lesson](https://mathovia.com/math/algebra/hyperbolas/) |
+| [Focal Distance of an Ellipse](https://zohaib99k.github.io/math-formulas-dataset/#ellipse-focal-distance) | `c² = a² − b²` | [Lesson](https://mathovia.com/math/algebra/ellipses/) |
+| [Standard Equation of a Circle](https://zohaib99k.github.io/math-formulas-dataset/#equation-of-a-circle) | `(x − h)² + (y − k)² = r²` | [Lesson](https://mathovia.com/math/algebra/circles/) · [Practice](https://mathovia.com/practice/equation-of-a-circle-practice-problems/) |
+| [Distance Formula](https://zohaib99k.github.io/math-formulas-dataset/#distance-formula) | `d = √((x₂ − x₁)² + (y₂ − y₁)²)` | [Lesson](https://mathovia.com/math/algebra/cartesian-coordinate-system/) |
+| [Midpoint Formula](https://zohaib99k.github.io/math-formulas-dataset/#midpoint-formula) | `M = ((x₁ + x₂)/2, (y₁ + y₂)/2)` | [Lesson](https://mathovia.com/math/algebra/cartesian-coordinate-system/) |
+| [Compound Interest](https://zohaib99k.github.io/math-formulas-dataset/#compound-interest) | `A = P(1 + r/n)^(nt)` | [Lesson](https://mathovia.com/math/algebra/continuous-compound-interest/) |
+| [Continuous Compound Interest](https://zohaib99k.github.io/math-formulas-dataset/#continuous-compound-interest) | `A = P·e^(rt)` | [Lesson](https://mathovia.com/math/algebra/continuous-compound-interest/) · [Practice](https://mathovia.com/practice/continuous-compound-interest-practice-problems/) |
+| [Exponential Growth and Decay](https://zohaib99k.github.io/math-formulas-dataset/#exponential-growth-and-decay) | `y = a(1 + r)ᵗ` | [Lesson](https://mathovia.com/math/algebra/exponential-growth-and-decay/) · [Calculator](https://mathovia.com/calculators/exponential-growth-calculator/) · [Practice](https://mathovia.com/practice/exponential-growth-and-decay-practice-problems/) |
+| [Half-Life Decay](https://zohaib99k.github.io/math-formulas-dataset/#half-life-decay) | `N = N₀ · (1/2)^(t/T)` | [Lesson](https://mathovia.com/math/algebra/exponential-growth-and-decay/) · [Practice](https://mathovia.com/practice/exponential-growth-and-decay-practice-problems/) |
+| [Logistic Growth Model](https://zohaib99k.github.io/math-formulas-dataset/#logistic-growth) | `P(t) = K / (1 + ((K − P₀)/P₀)·e^(−rt))` | [Lesson](https://mathovia.com/math/algebra/exponential-vs-logistic-growth/) · [Practice](https://mathovia.com/practice/exponential-vs-logistic-growth-practice-problems/) |
+| [Negative Exponent Rule](https://zohaib99k.github.io/math-formulas-dataset/#negative-exponent-rule) | `a⁻ⁿ = 1 / aⁿ` | [Lesson](https://mathovia.com/math/algebra/negative-exponents/) · [Practice](https://mathovia.com/practice/negative-exponent-generator/) |
+| [Power of a Power Rule](https://zohaib99k.github.io/math-formulas-dataset/#power-of-a-power-rule) | `(aᵐ)ⁿ = aᵐⁿ` | [Lesson](https://mathovia.com/math/algebra/exponent-rules/) · [Practice](https://mathovia.com/practice/exponent-rules-generator/) |
+| [Product Rule for Exponents](https://zohaib99k.github.io/math-formulas-dataset/#exponent-product-rule) | `aᵐ · aⁿ = aᵐ⁺ⁿ` | [Lesson](https://mathovia.com/math/algebra/exponent-rules/) · [Practice](https://mathovia.com/practice/exponent-rules-generator/) |
+| [Quotient Rule for Exponents](https://zohaib99k.github.io/math-formulas-dataset/#exponent-quotient-rule) | `aᵐ / aⁿ = aᵐ⁻ⁿ` | [Lesson](https://mathovia.com/math/algebra/exponent-rules/) · [Practice](https://mathovia.com/practice/exponent-rules-generator/) |
+| [Rational Exponent Rule](https://zohaib99k.github.io/math-formulas-dataset/#rational-exponent-rule) | `a^(m/n) = (ⁿ√a)ᵐ` | [Lesson](https://mathovia.com/math/algebra/rational-exponents/) · [Practice](https://mathovia.com/practice/rational-exponent-generator/) |
+| [Average Rate of Change](https://zohaib99k.github.io/math-formulas-dataset/#average-rate-of-change) | `(f(b) − f(a)) / (b − a)` | [Lesson](https://mathovia.com/math/algebra/average-rate-of-change/) · [Calculator](https://mathovia.com/calculators/average-rate-of-change-calculator/) · [Practice](https://mathovia.com/practice/average-rate-of-change-practice-problems/) |
+| [Difference Quotient](https://zohaib99k.github.io/math-formulas-dataset/#difference-quotient) | `(f(x + h) − f(x)) / h` | [Lesson](https://mathovia.com/math/algebra/difference-quotient/) · [Calculator](https://mathovia.com/calculators/difference-quotient-calculator/) · [Practice](https://mathovia.com/practice/difference-quotient-practice-problems/) |
+| [Point-Slope Form](https://zohaib99k.github.io/math-formulas-dataset/#point-slope-form) | `y − y₁ = m(x − x₁)` | [Lesson](https://mathovia.com/math/algebra/point-slope-form/) · [Practice](https://mathovia.com/practice/point-slope-form-practice-problems/) |
+| [Slope Formula](https://zohaib99k.github.io/math-formulas-dataset/#slope-formula) | `m = (y₂ − y₁) / (x₂ − x₁)` | [Lesson](https://mathovia.com/math/algebra/slope/) · [Practice](https://mathovia.com/practice/slope-practice-problems/) |
+| [Slope of a Perpendicular Line](https://zohaib99k.github.io/math-formulas-dataset/#perpendicular-slope) | `m₂ = −1 / m₁` | [Lesson](https://mathovia.com/math/algebra/perpendicular-lines/) · [Practice](https://mathovia.com/practice/parallel-and-perpendicular-lines-practice-problems/) |
+| [Slope-Intercept Form](https://zohaib99k.github.io/math-formulas-dataset/#slope-intercept-form) | `y = mx + b` | [Lesson](https://mathovia.com/math/algebra/slope-intercept-form/) · [Practice](https://mathovia.com/practice/slope-intercept-form-practice-problems/) |
+| [Standard Form of a Line](https://zohaib99k.github.io/math-formulas-dataset/#standard-form-of-a-line) | `Ax + By = C` | [Lesson](https://mathovia.com/math/algebra/standard-form/) · [Practice](https://mathovia.com/practice/standard-form-practice-problems/) |
+| [Change of Base Formula](https://zohaib99k.github.io/math-formulas-dataset/#change-of-base-formula) | `log_b(x) = log_c(x) / log_c(b)` | [Lesson](https://mathovia.com/math/algebra/change-of-base-formula/) · [Practice](https://mathovia.com/practice/change-of-base-practice-problems/) |
+| [Definition of a Logarithm](https://zohaib99k.github.io/math-formulas-dataset/#logarithm-definition) | `log_b(x) = y  ⇔  bʸ = x` | [Lesson](https://mathovia.com/math/algebra/logarithms/) · [Practice](https://mathovia.com/practice/logarithm-practice-problems/) |
+| [Power Rule for Logarithms](https://zohaib99k.github.io/math-formulas-dataset/#logarithm-power-rule) | `log_b(Mᵖ) = p · log_b(M)` | [Lesson](https://mathovia.com/math/algebra/logarithm-rules/) · [Practice](https://mathovia.com/practice/logarithm-rules-practice-problems/) |
+| [Product Rule for Logarithms](https://zohaib99k.github.io/math-formulas-dataset/#logarithm-product-rule) | `log_b(MN) = log_b(M) + log_b(N)` | [Lesson](https://mathovia.com/math/algebra/logarithm-rules/) · [Practice](https://mathovia.com/practice/logarithm-rules-practice-problems/) |
+| [Quotient Rule for Logarithms](https://zohaib99k.github.io/math-formulas-dataset/#logarithm-quotient-rule) | `log_b(M/N) = log_b(M) − log_b(N)` | [Lesson](https://mathovia.com/math/algebra/logarithm-rules/) · [Practice](https://mathovia.com/practice/logarithm-rules-practice-problems/) |
+| [Richter Scale Magnitude](https://zohaib99k.github.io/math-formulas-dataset/#richter-scale-magnitude) | `M = log₁₀(A / A₀)` | [Lesson](https://mathovia.com/math/algebra/richter-scale/) · [Practice](https://mathovia.com/practice/richter-scale-practice-problems/) |
+| [Determinant of a 2×2 Matrix](https://zohaib99k.github.io/math-formulas-dataset/#determinant-2x2) | `det [[a, b], [c, d]] = ad − bc` | [Lesson](https://mathovia.com/math/algebra/inverse-of-a-matrix/) · [Practice](https://mathovia.com/practice/inverse-of-a-matrix-practice-problems/) |
+| [Vertex / Axis of Symmetry of a Parabola](https://zohaib99k.github.io/math-formulas-dataset/#vertex-x-coordinate) | `h = −b / (2a)` | [Lesson](https://mathovia.com/math/algebra/vertex-and-axis-of-symmetry/) · [Calculator](https://mathovia.com/calculators/vertex-form-calculator/) |
+| [Vertex Form of a Quadratic](https://zohaib99k.github.io/math-formulas-dataset/#vertex-form) | `y = a(x − h)² + k` | [Lesson](https://mathovia.com/math/algebra/parabolas/) · [Calculator](https://mathovia.com/calculators/vertex-form-calculator/) |
+| [Completing the Square](https://zohaib99k.github.io/math-formulas-dataset/#completing-the-square) | `x² + bx + (b/2)² = (x + b/2)²` | [Lesson](https://mathovia.com/math/algebra/completing-the-square/) · [Practice](https://mathovia.com/practice/completing-the-square-practice-problems/) |
+| [Discriminant of a Quadratic](https://zohaib99k.github.io/math-formulas-dataset/#discriminant) | `Δ = b² − 4ac` | [Lesson](https://mathovia.com/math/algebra/quadratic-formula/) · [Practice](https://mathovia.com/practice/quadratic-equations-practice-problems/) |
+| [Quadratic Formula](https://zohaib99k.github.io/math-formulas-dataset/#quadratic-formula) | `x = (-b ± √(b² − 4ac)) / (2a)` | [Lesson](https://mathovia.com/math/algebra/quadratic-formula/) · [Practice](https://mathovia.com/practice/quadratic-formula-practice-problems/) |
+| [Sum and Product of Quadratic Roots (Vieta)](https://zohaib99k.github.io/math-formulas-dataset/#vieta-sum-and-product-of-roots) | `x₁ + x₂ = −b/a,  x₁·x₂ = c/a` | [Lesson](https://mathovia.com/math/algebra/quadratic-equations/) · [Practice](https://mathovia.com/practice/quadratic-equations-practice-problems/) |
+| [Arithmetic Sequence nth Term](https://zohaib99k.github.io/math-formulas-dataset/#arithmetic-sequence-nth-term) | `aₙ = a₁ + (n − 1)d` | [Lesson](https://mathovia.com/math/algebra/arithmetic-sequences/) · [Calculator](https://mathovia.com/calculators/arithmetic-sequence-calculator/) · [Practice](https://mathovia.com/practice/arithmetic-sequences-practice-problems/) |
+| [Arithmetic Series Sum](https://zohaib99k.github.io/math-formulas-dataset/#arithmetic-series-sum) | `Sₙ = n(a₁ + aₙ) / 2` | [Lesson](https://mathovia.com/math/algebra/arithmetic-series/) · [Practice](https://mathovia.com/practice/arithmetic-series-practice-problems/) |
+| [Finite Geometric Series Sum](https://zohaib99k.github.io/math-formulas-dataset/#geometric-series-sum) | `Sₙ = a₁(1 − rⁿ) / (1 − r)` | [Lesson](https://mathovia.com/math/algebra/geometric-series/) · [Practice](https://mathovia.com/practice/geometric-series-practice-problems/) |
+| [Geometric Sequence nth Term](https://zohaib99k.github.io/math-formulas-dataset/#geometric-sequence-nth-term) | `aₙ = a₁ · rⁿ⁻¹` | [Lesson](https://mathovia.com/math/algebra/geometric-sequences/) · [Calculator](https://mathovia.com/calculators/geometric-sequence-calculator/) · [Practice](https://mathovia.com/practice/geometric-sequences-practice-problems/) |
+| [Infinite Geometric Series Sum](https://zohaib99k.github.io/math-formulas-dataset/#infinite-geometric-series-sum) | `S = a₁ / (1 − r)` | [Lesson](https://mathovia.com/math/algebra/geometric-series/) · [Practice](https://mathovia.com/practice/geometric-series-practice-problems/) |
+| [Sum of the First n Positive Integers](https://zohaib99k.github.io/math-formulas-dataset/#sum-of-first-n-integers) | `1 + 2 + … + n = n(n + 1) / 2` | [Lesson](https://mathovia.com/math/algebra/sigma-notation/) · [Calculator](https://mathovia.com/calculators/summation-calculator/) · [Practice](https://mathovia.com/practice/sigma-notation-practice-problems/) |
+| [Sum of the First n Squares](https://zohaib99k.github.io/math-formulas-dataset/#sum-of-squares) | `1² + 2² + … + n² = n(n + 1)(2n + 1) / 6` | [Lesson](https://mathovia.com/math/algebra/sigma-notation/) · [Calculator](https://mathovia.com/calculators/summation-calculator/) |
+| [Cramer's Rule (2×2 System)](https://zohaib99k.github.io/math-formulas-dataset/#cramers-rule-2x2) | `x = (c₁b₂ − b₁c₂)/D,  y = (a₁c₂ − c₁a₂)/D,  D = a₁b₂ − b₁a₂` | [Lesson](https://mathovia.com/math/algebra/cramers-rule/) · [Calculator](https://mathovia.com/calculators/system-of-equations-calculator/) · [Practice](https://mathovia.com/practice/cramers-rule-practice-problems/) |
+| [Direct Variation](https://zohaib99k.github.io/math-formulas-dataset/#direct-variation) | `y = kx` | [Lesson](https://mathovia.com/math/algebra/direct-variation/) · [Practice](https://mathovia.com/practice/direct-variation-practice-problems/) |
+| [Inverse Variation](https://zohaib99k.github.io/math-formulas-dataset/#inverse-variation) | `y = k / x` | [Lesson](https://mathovia.com/math/algebra/inverse-variation/) · [Practice](https://mathovia.com/practice/inverse-variation-practice-problems/) |
+| [Joint Variation](https://zohaib99k.github.io/math-formulas-dataset/#joint-variation) | `z = kxy` | [Lesson](https://mathovia.com/math/algebra/joint-variation/) · [Practice](https://mathovia.com/practice/joint-variation-practice-problems/) |
+| [Combined Work Rate](https://zohaib99k.github.io/math-formulas-dataset/#combined-work-rate) | `1/t = 1/t₁ + 1/t₂` | [Lesson](https://mathovia.com/math/algebra/work-problems/) · [Practice](https://mathovia.com/practice/work-problems-practice-problems/) |
+| [Distance = Rate × Time](https://zohaib99k.github.io/math-formulas-dataset/#distance-rate-time) | `d = r · t` | [Lesson](https://mathovia.com/math/algebra/distance-rate-problems/) · [Practice](https://mathovia.com/practice/distance-rate-problems-practice-problems/) |
+| [Mixture Concentration](https://zohaib99k.github.io/math-formulas-dataset/#mixture-concentration) | `C = (c₁v₁ + c₂v₂) / (v₁ + v₂)` | [Lesson](https://mathovia.com/math/algebra/mixture-problems/) · [Practice](https://mathovia.com/practice/mixture-problems-practice-problems/) |
+
+### Arithmetic (8)
+
+| Formula | Expression | Learn more |
+|---|---|---|
+| [Adding Fractions](https://zohaib99k.github.io/math-formulas-dataset/#adding-fractions) | `a/b + c/d = (ad + bc) / (bd)` | [Lesson](https://mathovia.com/guides/adding-fractions/) · [Calculator](https://mathovia.com/calculators/adding-fractions-calculator/) · [Practice](https://mathovia.com/practice/fraction-problem-generator/) |
+| [Dividing Fractions](https://zohaib99k.github.io/math-formulas-dataset/#dividing-fractions) | `a/b ÷ c/d = ad / bc` | [Calculator](https://mathovia.com/calculators/dividing-fractions-calculator/) · [Practice](https://mathovia.com/practice/fraction-problem-generator/) |
+| [Fraction to Decimal](https://zohaib99k.github.io/math-formulas-dataset/#fraction-to-decimal) | `n/d = n ÷ d` | [Lesson](https://mathovia.com/guides/common-fractions-decimal-equivalents/) · [Calculator](https://mathovia.com/calculators/fraction-to-decimal-calculator/) |
+| [Mixed Number to Improper Fraction](https://zohaib99k.github.io/math-formulas-dataset/#mixed-number-to-improper-fraction) | `w n/d = (w·d + n) / d` | [Calculator](https://mathovia.com/calculators/mixed-number-to-improper-fraction-calculator/) · [Practice](https://mathovia.com/practice/fraction-problem-generator/) |
+| [Multiplying Fractions](https://zohaib99k.github.io/math-formulas-dataset/#multiplying-fractions) | `a/b × c/d = ac / bd` | [Calculator](https://mathovia.com/calculators/multiplying-fractions-calculator/) · [Practice](https://mathovia.com/practice/fraction-problem-generator/) |
+| [Subtracting Fractions](https://zohaib99k.github.io/math-formulas-dataset/#subtracting-fractions) | `a/b − c/d = (ad − bc) / (bd)` | [Calculator](https://mathovia.com/calculators/subtracting-fractions-calculator/) · [Practice](https://mathovia.com/practice/fraction-problem-generator/) |
+| [Fraction to Percent](https://zohaib99k.github.io/math-formulas-dataset/#fraction-to-percent) | `(n/d) × 100%` | [Lesson](https://mathovia.com/guides/common-fraction-percent-equivalents/) · [Calculator](https://mathovia.com/calculators/fraction-to-percent-calculator/) |
+| [Percent of a Number](https://zohaib99k.github.io/math-formulas-dataset/#percent-of-a-number) | `p% of x = (p / 100) · x` | [Practice](https://mathovia.com/practice/percentage-problem-generator/) |
+
+### Calculus (14)
+
+| Formula | Expression | Learn more |
+|---|---|---|
+| [Linear Approximation (Tangent Line)](https://zohaib99k.github.io/math-formulas-dataset/#linear-approximation) | `L(x) = f(a) + f′(a)(x − a)` | [Lesson](https://mathovia.com/math/calculus/linear-approximation/) · [Practice](https://mathovia.com/practice/linear-approximation-practice-problems/) |
+| [Mean Value Theorem](https://zohaib99k.github.io/math-formulas-dataset/#mean-value-theorem) | `f′(c) = (f(b) − f(a)) / (b − a)` | [Lesson](https://mathovia.com/math/calculus/mean-value-theorem/) · [Practice](https://mathovia.com/practice/mean-value-theorem-practice-problems/) |
+| [Chain Rule](https://zohaib99k.github.io/math-formulas-dataset/#chain-rule) | `d/dx f(g(x)) = f′(g(x)) · g′(x)` | [Lesson](https://mathovia.com/math/calculus/chain-rule/) · [Practice](https://mathovia.com/practice/chain-rule-practice-problems/) |
+| [Derivative of arctan x](https://zohaib99k.github.io/math-formulas-dataset/#derivative-of-arctan) | `d/dx arctan(x) = 1 / (1 + x²)` | [Lesson](https://mathovia.com/math/calculus/derivatives-of-inverse-trig-functions/) · [Calculator](https://mathovia.com/calculators/inverse-tan-calculator/) · [Practice](https://mathovia.com/practice/derivatives-of-inverse-trig-functions-practice-problems/) |
+| [Derivative of aˣ](https://zohaib99k.github.io/math-formulas-dataset/#derivative-of-exponential) | `d/dx aˣ = aˣ · ln(a)` | [Lesson](https://mathovia.com/math/calculus/derivatives-of-exponential-and-logarithmic-functions/) · [Practice](https://mathovia.com/practice/derivatives-of-exponential-and-logarithmic-functions-practice-problems/) |
+| [Derivative of ln x](https://zohaib99k.github.io/math-formulas-dataset/#derivative-of-natural-log) | `d/dx ln(x) = 1/x` | [Lesson](https://mathovia.com/math/calculus/derivatives-of-exponential-and-logarithmic-functions/) · [Practice](https://mathovia.com/practice/derivatives-of-exponential-and-logarithmic-functions-practice-problems/) |
+| [Derivative of sin x](https://zohaib99k.github.io/math-formulas-dataset/#derivative-of-sine) | `d/dx sin(x) = cos(x)` | [Lesson](https://mathovia.com/math/calculus/derivatives-of-trig-functions/) · [Practice](https://mathovia.com/practice/derivatives-of-trig-functions-practice-problems/) |
+| [Power Rule (Derivatives)](https://zohaib99k.github.io/math-formulas-dataset/#power-rule-derivative) | `d/dx xⁿ = n·xⁿ⁻¹` | [Lesson](https://mathovia.com/math/calculus/power-rule/) · [Practice](https://mathovia.com/practice/power-rule-practice-problems/) |
+| [Product Rule](https://zohaib99k.github.io/math-formulas-dataset/#product-rule) | `(f·g)′ = f′·g + f·g′` | [Lesson](https://mathovia.com/math/calculus/product-rule/) · [Practice](https://mathovia.com/practice/product-rule-practice-problems/) |
+| [Quotient Rule](https://zohaib99k.github.io/math-formulas-dataset/#quotient-rule) | `(f/g)′ = (f′g − fg′) / g²` | [Lesson](https://mathovia.com/math/calculus/quotient-rule/) · [Practice](https://mathovia.com/practice/quotient-rule-practice-problems/) |
+| [Average Value of a Function](https://zohaib99k.github.io/math-formulas-dataset/#average-value-of-a-function) | `f_avg = (1 / (b − a)) · ∫ₐᵇ f(x) dx` | [Lesson](https://mathovia.com/math/calculus/average-value-of-a-function/) · [Practice](https://mathovia.com/practice/average-value-of-a-function-practice-problems/) |
+| [Fundamental Theorem of Calculus](https://zohaib99k.github.io/math-formulas-dataset/#fundamental-theorem-of-calculus) | `∫ₐᵇ f(x) dx = F(b) − F(a)` | [Lesson](https://mathovia.com/math/calculus/fundamental-theorem-of-calculus/) · [Practice](https://mathovia.com/practice/fundamental-theorem-of-calculus-practice-problems/) |
+| [Power Rule (Integrals)](https://zohaib99k.github.io/math-formulas-dataset/#power-rule-integral) | `∫ xⁿ dx = xⁿ⁺¹ / (n + 1) + C` | [Lesson](https://mathovia.com/math/calculus/antiderivatives/) · [Practice](https://mathovia.com/practice/antiderivatives-practice-problems/) |
+| [Riemann Sum Subinterval Width](https://zohaib99k.github.io/math-formulas-dataset/#riemann-sum-subinterval-width) | `Δx = (b − a) / n` | [Lesson](https://mathovia.com/math/calculus/riemann-sums/) · [Practice](https://mathovia.com/practice/riemann-sums-practice-problems/) |
+
+### Statistics (3)
+
+| Formula | Expression | Learn more |
+|---|---|---|
+| [Binomial Probability](https://zohaib99k.github.io/math-formulas-dataset/#binomial-probability) | `P(X = k) = C(n, k) · pᵏ · (1 − p)ⁿ⁻ᵏ` | [Calculator](https://mathovia.com/calculators/binomial-distribution-calculator/) |
+| [Mean of a Binomial Distribution](https://zohaib99k.github.io/math-formulas-dataset/#binomial-mean) | `μ = n·p` | [Calculator](https://mathovia.com/calculators/binomial-distribution-calculator/) |
+| [Standard Deviation of a Binomial Distribution](https://zohaib99k.github.io/math-formulas-dataset/#binomial-standard-deviation) | `σ = √(n·p·(1 − p))` | [Calculator](https://mathovia.com/calculators/binomial-distribution-calculator/) |
+
+### Trigonometry (4)
+
+| Formula | Expression | Learn more |
+|---|---|---|
+| [Degrees to Radians](https://zohaib99k.github.io/math-formulas-dataset/#degrees-to-radians) | `radians = degrees × π / 180` | [Lesson](https://mathovia.com/math/calculus/radians-and-degrees/) · [Practice](https://mathovia.com/practice/radians-and-degrees-practice-problems/) |
+| [Radians to Degrees](https://zohaib99k.github.io/math-formulas-dataset/#radians-to-degrees) | `degrees = radians × 180 / π` | [Lesson](https://mathovia.com/math/calculus/radians-and-degrees/) · [Practice](https://mathovia.com/practice/radians-and-degrees-practice-problems/) |
+| [Pythagorean Identity](https://zohaib99k.github.io/math-formulas-dataset/#pythagorean-identity) | `sin²θ + cos²θ = 1` | [Lesson](https://mathovia.com/math/calculus/trigonometric-functions/) · [Practice](https://mathovia.com/practice/trigonometric-functions-practice-problems/) |
+| [Pythagorean Theorem](https://zohaib99k.github.io/math-formulas-dataset/#pythagorean-theorem) | `a² + b² = c²` | [Calculator](https://mathovia.com/calculators/right-triangle-calculator/) |
+
+<!-- FORMULAS:END -->
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). In short: add an entry to the right `data/*.json` file, then run `npm test` and `npm run build`.
+
+## License & attribution
+
+- **Data** (`data/`, `dist/`): [Creative Commons Attribution 4.0](LICENSE). You may use it for anything, including commercial work, if you give credit:
+
+  > Formula data from [Mathovia](https://mathovia.com) — [math-formulas-dataset](https://github.com/zohaib99k/math-formulas-dataset)
+
+- **Code** (`scripts/`, `test/`): [MIT](LICENSE-CODE).
+
+## Citation
+
+Use the **"Cite this repository"** button on GitHub (it reads [`CITATION.cff`](CITATION.cff)), or:
+
+```bibtex
+@misc{mathovia_formulas_2026,
+  author       = {{Mathovia}},
+  title        = {Math Formulas Dataset},
+  year         = {2026},
+  version      = {1.0.0},
+  howpublished = {\url{https://github.com/zohaib99k/math-formulas-dataset}},
+  note         = {Lessons and calculators: \url{https://mathovia.com}}
+}
+```
+
+---
+
+Maintained by [Mathovia](https://mathovia.com/), which offers free math lessons, [calculators](https://mathovia.com/calculators/) and [practice problem generators](https://mathovia.com/practice/).

@@ -1,0 +1,54 @@
+{
+  "name": "math-formulas-dataset",
+  "version": "1.0.0",
+  "description": "Open dataset of math formulas with LaTeX, variables, computable expressions and verified worked examples. JSON + CSV.",
+  "type": "module",
+  "main": "dist/formulas.json",
+  "exports": {
+    ".": "./dist/formulas.json",
+    "./min": "./dist/formulas.min.json",
+    "./categories/*": "./dist/categories/*.json",
+    "./csv": "./dist/formulas.csv"
+  },
+  "files": [
+    "dist/",
+    "LICENSE",
+    "LICENSE-CODE",
+    "README.md"
+  ],
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "check-links": "node scripts/check-links.mjs"
+  },
+  "keywords": [
+    "math",
+    "formulas",
+    "latex",
+    "dataset",
+    "algebra",
+    "calculus",
+    "trigonometry",
+    "statistics",
+    "education",
+    "edtech",
+    "json"
+  ],
+  "homepage": "https://mathovia.com/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zohaib99k/math-formulas-dataset.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zohaib99k/math-formulas-dataset/issues"
+  },
+  "author": "Mathovia (https://mathovia.com)",
+  "license": "CC-BY-4.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "katex": "^0.19.1"
+  }
+}

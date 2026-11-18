@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math Formulas Dataset — 81 formulas with LaTeX &amp; worked examples</title>
+<meta name="description" content="Free, open dataset of 81 math formulas (algebra, calculus, trigonometry, statistics, fractions) in JSON and CSV, with LaTeX, variables and verified examples. CC BY 4.0.">
+<link rel="canonical" href="https://zohaib99k.github.io/math-formulas-dataset/">
+<meta property="og:title" content="Math Formulas Dataset">
+<meta property="og:description" content="81 math formulas in JSON/CSV with LaTeX and verified worked examples.">
+<meta property="og:url" content="https://zohaib99k.github.io/math-formulas-dataset/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Math Formulas Dataset","description":"81 math formulas across algebra, arithmetic, calculus, statistics, trigonometry with LaTeX, variable definitions, computable expressions and verified worked examples. Each formula links to a full lesson, calculator or practice set on Mathovia.","url":"https://zohaib99k.github.io/math-formulas-dataset/","sameAs":"https://github.com/zohaib99k/math-formulas-dataset","version":"1.0.0","license":"https://creativecommons.org/licenses/by/4.0/","isAccessibleForFree":true,"keywords":["math formulas","LaTeX","algebra","calculus","education dataset","worked examples"],"creator":{"@type":"Organization","name":"Mathovia","url":"https://mathovia.com/"},"distribution":[{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://cdn.jsdelivr.net/gh/zohaib99k/math-formulas-dataset@main/dist/formulas.json"},{"@type":"DataDownload","encodingFormat":"text/csv","contentUrl":"https://cdn.jsdelivr.net/gh/zohaib99k/math-formulas-dataset@main/dist/formulas.csv"}]}</script>
+<script>window.MathJax = { tex: { inlineMath: [["\\(", "\\)"]] }, chtml: { displayAlign: "left" } };</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+:root{--bg:#fafaf7;--fg:#1d2433;--muted:#5b6475;--line:#e4e4dc;--accent:#2f5bd3;--card:#fff}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+.wrap{max-width:1100px;margin:0 auto;padding:32px 20px}
+h1{font-size:2rem;margin:0 0 8px}h2{margin:40px 0 12px}.lede{color:var(--muted);max-width:720px;margin:0 0 20px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 28px}.actions a{padding:8px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);text-decoration:none;font-weight:500}
+.actions a.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:18px}
+.tools input{flex:1 1 260px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;font:inherit}
+.tools button{padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);cursor:pointer;font:inherit;font-size:.9rem}
+.tools button.on{background:var(--fg);color:#fff;border-color:var(--fg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column}
+.card header{display:flex;justify-content:space-between;gap:8px;align-items:baseline}.card h3{margin:0;font-size:1.05rem}.card h3 a{color:inherit;text-decoration:none}
+.badge{font-size:.75rem;color:var(--muted);white-space:nowrap}.formula{overflow-x:auto;margin:6px 0}
+.card p{margin:6px 0;color:var(--muted);font-size:.95rem}details{font-size:.9rem;margin:4px 0}summary{cursor:pointer;color:var(--accent)}
+.vars{padding-left:18px;margin:6px 0}.code code{font-size:.82rem;background:#f2f2ec;padding:2px 6px;border-radius:4px;word-break:break-all}
+.links{margin-top:auto;padding-top:10px;display:flex;flex-wrap:wrap;gap:12px;font-size:.9rem}.links a{color:var(--accent)}
+pre{background:#1d2433;color:#e8e8e8;padding:14px;border-radius:8px;overflow-x:auto;font-size:.85rem}
+footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}footer a{color:var(--accent)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Math Formulas Dataset</h1>
+<p class="lede">81 formulas in machine-readable JSON and CSV. Each one has LaTeX, plain-text notation, variable definitions, a computable expression and worked examples that are checked automatically. Every formula links to a full explanation on <a href="https://mathovia.com/">Mathovia</a>.</p>
+<div class="actions">
+  <a class="primary" href="https://cdn.jsdelivr.net/gh/zohaib99k/math-formulas-dataset@main/dist/formulas.json">Download JSON</a>
+  <a href="https://cdn.jsdelivr.net/gh/zohaib99k/math-formulas-dataset@main/dist/formulas.csv">Download CSV</a>
+  <a href="https://github.com/zohaib99k/math-formulas-dataset">View on GitHub</a>
+  <a href="https://mathovia.com/calculators/">Mathovia calculators</a>
+</div>
+
+<h2>Browse formulas</h2>
+<div class="tools">
+  <input id="q" type="search" placeholder="Search formulas (e.g. quadratic, derivative, interest)" aria-label="Search formulas">
+  <button data-filter="all" class="on">All (81)</button><button data-filter="algebra">Algebra (52)</button><button data-filter="arithmetic">Arithmetic (8)</button><button data-filter="calculus">Calculus (14)</button><button data-filter="statistics">Statistics (3)</button><button data-filter="trigonometry">Trigonometry (4)</button>
+</div>
+<div class="grid" id="grid">
+<article id="binomial-coefficient" class="card" data-cat="algebra" data-search="binomial coefficient binomial-theorem combinatorics binomial combinations">
+  <header><h3><a href="#binomial-coefficient">Binomial Coefficient</a></h3><span class="badge">Binomial Theorem</span></header>
+  <div class="formula">\[\binom{n}{k} = \frac{n!}{k!(n - k)!}\]</div>
+  <p>Number of ways to choose k items from n; also the coefficients in a binomial expansion.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(n\)</span> total items</li><li><span class="tex">\(k\)</span> items chosen</li></ul><p class="conds"><strong>Conditions:</strong> 0 ≤ k ≤ n, integers</p>
+    <p class="ex"><strong>Example:</strong> n = 5, k = 2 → <strong>10</strong></p>
+    <p class="code"><code>fact(n) / (fact(k) * fact(n - k))</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/binomial-theorem/">Binomial Coefficient lesson</a><a href="https://mathovia.com/calculators/binomial-expansion-calculator/">Calculator</a><a href="https://mathovia.com/practice/binomial-theorem-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="binomial-theorem-general-term" class="card" data-cat="algebra" data-search="binomial theorem (general term) binomial-theorem binomial expansion polynomial">
+  <header><h3><a href="#binomial-theorem-general-term">Binomial Theorem (General Term)</a></h3><span class="badge">Binomial Theorem</span></header>
+  <div class="formula">\[(a + b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k\]</div>
+  <p>Expands a binomial power; the term with index k is C(n, k)·aⁿ⁻ᵏ·bᵏ.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(n\)</span> power</li><li><span class="tex">\(k\)</span> term index (starting at 0)</li><li><span class="tex">\(a\)</span> first term of binomial</li><li><span class="tex">\(b\)</span> second term of binomial</li></ul><p class="conds"><strong>Conditions:</strong> n ≥ 0 integer; 0 ≤ k ≤ n</p>
+    <p class="ex"><strong>Example:</strong> n = 5, k = 2, a = 2, b = 3 → <strong>720</strong> — C(5,2)·2³·3² = 10·8·9.</p>
+    <p class="code"><code>comb(n, k) * a**(n - k) * b**k</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/binomial-theorem/">Binomial Theorem (General Term) lesson</a><a href="https://mathovia.com/calculators/binomial-expansion-calculator/">Calculator</a><a href="https://mathovia.com/practice/binomial-theorem-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="complex-number-modulus" class="card" data-cat="algebra" data-search="modulus of a complex number complex-numbers complex-numbers modulus">
+  <header><h3><a href="#complex-number-modulus">Modulus of a Complex Number</a></h3><span class="badge">Complex Numbers</span></header>
+  <div class="formula">\[|a + bi| = \sqrt{a^2 + b^2}\]</div>
+  <p>Distance of a + bi from the origin in the complex plane.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> real part</li><li><span class="tex">\(b\)</span> imaginary part</li></ul>
+    <p class="ex"><strong>Example:</strong> a = 3, b = 4 → <strong>5</strong></p>
+    <p class="code"><code>sqrt(a**2 + b**2)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/complex-numbers/">Modulus of a Complex Number lesson</a><a href="https://mathovia.com/practice/complex-number-generator/">Practice problems</a></nav>
+</article>
+<article id="hyperbola-focal-distance" class="card" data-cat="algebra" data-search="focal distance of a hyperbola conic-sections hyperbola conic foci">
+  <header><h3><a href="#hyperbola-focal-distance">Focal Distance of a Hyperbola</a></h3><span class="badge">Conic Sections</span></header>
+  <div class="formula">\[c^2 = a^2 + b^2\]</div>
+  <p>Distance c from the center to each focus of a hyperbola.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> distance from center to vertex</li><li><span class="tex">\(b\)</span> conjugate semi-axis</li></ul><p class="conds"><strong>Conditions:</strong> a &gt; 0, b &gt; 0</p>
+    <p class="ex"><strong>Example:</strong> a = 3, b = 4 → <strong>5</strong></p>
+    <p class="code"><code>sqrt(a**2 + b**2)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/hyperbolas/">Focal Distance of a Hyperbola lesson</a></nav>
+</article>
+<article id="ellipse-focal-distance" class="card" data-cat="algebra" data-search="focal distance of an ellipse conic-sections ellipse conic foci">
+  <header><h3><a href="#ellipse-focal-distance">Focal Distance of an Ellipse</a></h3><span class="badge">Conic Sections</span></header>
+  <div class="formula">\[c^2 = a^2 - b^2\]</div>
+  <p>Distance c from the center to each focus of an ellipse with semi-major axis a and semi-minor axis b.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> semi-major axis</li><li><span class="tex">\(b\)</span> semi-minor axis</li></ul><p class="conds"><strong>Conditions:</strong> a ≥ b &gt; 0</p>
+    <p class="ex"><strong>Example:</strong> a = 5, b = 3 → <strong>4</strong></p>
+    <p class="code"><code>sqrt(a**2 - b**2)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/ellipses/">Focal Distance of an Ellipse lesson</a></nav>
+</article>
+<article id="equation-of-a-circle" class="card" data-cat="algebra" data-search="standard equation of a circle conic-sections circle conic coordinate-geometry">
+  <header><h3><a href="#equation-of-a-circle">Standard Equation of a Circle</a></h3><span class="badge">Conic Sections</span></header>
+  <div class="formula">\[(x - h)^2 + (y - k)^2 = r^2\]</div>
+  <p>All points (x, y) at distance r from the center (h, k). Given a point on the circle, r = √((x − h)² + (y − k)²).</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(h\)</span> center x</li><li><span class="tex">\(k\)</span> center y</li><li><span class="tex">\(x\)</span> x of a point on the circle</li><li><span class="tex">\(y\)</span> y of a point on the circle</li></ul><p class="conds"><strong>Conditions:</strong> r &gt; 0</p>
+    <p class="ex"><strong>Example:</strong> h = 1, k = -2, x = 4, y = 2 → <strong>5</strong></p>
+    <p class="code"><code>sqrt((x - h)**2 + (y - k)**2)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/circles/">Standard Equation of a Circle lesson</a><a href="https://mathovia.com/practice/equation-of-a-circle-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="distance-formula" class="card" data-cat="algebra" data-search="distance formula coordinate-geometry distance coordinate-geometry pythagorean">
+  <header><h3><a href="#distance-formula">Distance Formula</a></h3><span class="badge">Coordinate Geometry</span></header>
+  <div class="formula">\[d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\]</div>
+  <p>Straight-line distance between two points in the plane.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(x_1\)</span> x of first point</li><li><span class="tex">\(y_1\)</span> y of first point</li><li><span class="tex">\(x_2\)</span> x of second point</li><li><span class="tex">\(y_2\)</span> y of second point</li></ul>
+    <p class="ex"><strong>Example:</strong> x1 = 1, y1 = 2, x2 = 4, y2 = 6 → <strong>5</strong></p>
+    <p class="code"><code>sqrt((x2 - x1)**2 + (y2 - y1)**2)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/cartesian-coordinate-system/">Distance Formula lesson</a></nav>
+</article>
+<article id="midpoint-formula" class="card" data-cat="algebra" data-search="midpoint formula coordinate-geometry midpoint coordinate-geometry">
+  <header><h3><a href="#midpoint-formula">Midpoint Formula</a></h3><span class="badge">Coordinate Geometry</span></header>
+  <div class="formula">\[M = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)\]</div>
+  <p>The point exactly halfway between two points.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(x_1\)</span> x of first point</li><li><span class="tex">\(y_1\)</span> y of first point</li><li><span class="tex">\(x_2\)</span> x of second point</li><li><span class="tex">\(y_2\)</span> y of second point</li></ul>
+    <p class="ex"><strong>Example:</strong> x1 = 2, y1 = 3, x2 = 8, y2 = -5 → <strong>[5, -1]</strong></p>
+    <p class="code"><code>[(x1 + x2) / 2, (y1 + y2) / 2]</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/cartesian-coordinate-system/">Midpoint Formula lesson</a></nav>
+</article>
+<article id="compound-interest" class="card" data-cat="algebra" data-search="compound interest exponential-functions exponential finance interest">
+  <header><h3><a href="#compound-interest">Compound Interest</a></h3><span class="badge">Exponential Functions</span></header>
+  <div class="formula">\[A = P\left(1 + \frac{r}{n}\right)^{nt}\]</div>
+  <p>Balance after t years when interest at annual rate r is compounded n times per year.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(P\)</span> principal</li><li><span class="tex">\(r\)</span> annual interest rate (decimal)</li><li><span class="tex">\(n\)</span> compounding periods per year</li><li><span class="tex">\(t\)</span> time in years</li></ul><p class="conds"><strong>Conditions:</strong> n &gt; 0</p>
+    <p class="ex"><strong>Example:</strong> P = 1000, r = 0.06, n = 12, t = 1 → <strong>1061.6778</strong></p>
+    <p class="code"><code>P * (1 + r/n)**(n*t)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/continuous-compound-interest/">Compound Interest lesson</a></nav>
+</article>
+<article id="continuous-compound-interest" class="card" data-cat="algebra" data-search="continuous compound interest exponential-functions exponential finance interest euler">
+  <header><h3><a href="#continuous-compound-interest">Continuous Compound Interest</a></h3><span class="badge">Exponential Functions</span></header>
+  <div class="formula">\[A = Pe^{rt}\]</div>
+  <p>Balance when interest is compounded continuously, the limit of compound interest as n → ∞.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(P\)</span> principal</li><li><span class="tex">\(r\)</span> annual interest rate (decimal)</li><li><span class="tex">\(t\)</span> time in years</li></ul>
+    <p class="ex"><strong>Example:</strong> P = 1000, r = 0.05, t = 10 → <strong>1648.7212707</strong></p>
+    <p class="code"><code>P * exp(r*t)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/continuous-compound-interest/">Continuous Compound Interest lesson</a><a href="https://mathovia.com/practice/continuous-compound-interest-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="exponential-growth-and-decay" class="card" data-cat="algebra" data-search="exponential growth and decay exponential-functions exponential growth decay">
+  <header><h3><a href="#exponential-growth-and-decay">Exponential Growth and Decay</a></h3><span class="badge">Exponential Functions</span></header>
+  <div class="formula">\[y = a(1 + r)^t\]</div>
+  <p>Amount after t periods when a quantity changes by a fixed percentage r each period (r &lt; 0 for decay).</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> initial amount</li><li><span class="tex">\(r\)</span> growth rate per period (decimal)</li><li><span class="tex">\(t\)</span> number of periods</li></ul><p class="conds"><strong>Conditions:</strong> r &gt; −1</p>
+    <p class="ex"><strong>Example:</strong> a = 1000, r = 0.05, t = 2 → <strong>1102.5</strong></p>
+    <p class="code"><code>a * (1 + r)**t</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/exponential-growth-and-decay/">Exponential Growth and Decay lesson</a><a href="https://mathovia.com/calculators/exponential-growth-calculator/">Calculator</a><a href="https://mathovia.com/practice/exponential-growth-and-decay-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="half-life-decay" class="card" data-cat="algebra" data-search="half-life decay exponential-functions exponential decay half-life">
+  <header><h3><a href="#half-life-decay">Half-Life Decay</a></h3><span class="badge">Exponential Functions</span></header>
+  <div class="formula">\[N = N_0 \left(\frac{1}{2}\right)^{t/T}\]</div>
+  <p>Amount remaining after time t for a substance with half-life T.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(N_0\)</span> initial amount</li><li><span class="tex">\(t\)</span> elapsed time</li><li><span class="tex">\(T\)</span> half-life (same units as t)</li></ul><p class="conds"><strong>Conditions:</strong> T &gt; 0</p>
+    <p class="ex"><strong>Example:</strong> N0 = 80, t = 10, T = 5 → <strong>20</strong></p>
+    <p class="code"><code>N0 * 0.5**(t / T)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/exponential-growth-and-decay/">Half-Life Decay lesson</a><a href="https://mathovia.com/practice/exponential-growth-and-decay-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="logistic-growth" class="card" data-cat="algebra" data-search="logistic growth model exponential-functions logistic growth exponential">
+  <header><h3><a href="#logistic-growth">Logistic Growth Model</a></h3><span class="badge">Exponential Functions</span></header>
+  <div class="formula">\[P(t) = \frac{K}{1 + \left(\frac{K - P_0}{P_0}\right)e^{-rt}}\]</div>
+  <p>Growth that starts out exponential and levels off at the carrying capacity K.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(K\)</span> carrying capacity</li><li><span class="tex">\(P_0\)</span> initial population</li><li><span class="tex">\(r\)</span> growth rate</li><li><span class="tex">\(t\)</span> time</li></ul><p class="conds"><strong>Conditions:</strong> K &gt; 0, P₀ &gt; 0</p>
+    <p class="ex"><strong>Example:</strong> K = 1000, P0 = 100, r = 0.5, t = 0 → <strong>100</strong></p>
+    <p class="code"><code>K / (1 + ((K - P0) / P0) * exp(-r*t))</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/exponential-vs-logistic-growth/">Logistic Growth Model lesson</a><a href="https://mathovia.com/practice/exponential-vs-logistic-growth-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="negative-exponent-rule" class="card" data-cat="algebra" data-search="negative exponent rule exponents exponents negative-exponents">
+  <header><h3><a href="#negative-exponent-rule">Negative Exponent Rule</a></h3><span class="badge">Exponents</span></header>
+  <div class="formula">\[a^{-n} = \frac{1}{a^n}\]</div>
+  <p>A negative exponent means the reciprocal of the positive power.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> base</li><li><span class="tex">\(n\)</span> exponent</li></ul><p class="conds"><strong>Conditions:</strong> a ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> a = 2, n = 3 → <strong>1/8 (0.125)</strong></p>
+    <p class="code"><code>1 / a**n</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/negative-exponents/">Negative Exponent Rule lesson</a><a href="https://mathovia.com/practice/negative-exponent-generator/">Practice problems</a></nav>
+</article>
+<article id="power-of-a-power-rule" class="card" data-cat="algebra" data-search="power of a power rule exponents exponents exponent-rules">
+  <header><h3><a href="#power-of-a-power-rule">Power of a Power Rule</a></h3><span class="badge">Exponents</span></header>
+  <div class="formula">\[(a^m)^n = a^{mn}\]</div>
+  <p>Raising a power to a power multiplies the exponents.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> base</li><li><span class="tex">\(m\)</span> inner exponent</li><li><span class="tex">\(n\)</span> outer exponent</li></ul>
+    <p class="ex"><strong>Example:</strong> a = 3, m = 2, n = 3 → <strong>729</strong></p>
+    <p class="code"><code>a**(m * n)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/exponent-rules/">Power of a Power Rule lesson</a><a href="https://mathovia.com/practice/exponent-rules-generator/">Practice problems</a></nav>
+</article>
+<article id="exponent-product-rule" class="card" data-cat="algebra" data-search="product rule for exponents exponents exponents exponent-rules">
+  <header><h3><a href="#exponent-product-rule">Product Rule for Exponents</a></h3><span class="badge">Exponents</span></header>
+  <div class="formula">\[a^m \cdot a^n = a^{m+n}\]</div>
+  <p>When multiplying powers with the same base, add the exponents.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> base</li><li><span class="tex">\(m\)</span> first exponent</li><li><span class="tex">\(n\)</span> second exponent</li></ul>
+    <p class="ex"><strong>Example:</strong> a = 2, m = 3, n = 4 → <strong>128</strong></p>
+    <p class="code"><code>a**(m + n)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/exponent-rules/">Product Rule for Exponents lesson</a><a href="https://mathovia.com/practice/exponent-rules-generator/">Practice problems</a></nav>
+</article>
+<article id="exponent-quotient-rule" class="card" data-cat="algebra" data-search="quotient rule for exponents exponents exponents exponent-rules">
+  <header><h3><a href="#exponent-quotient-rule">Quotient Rule for Exponents</a></h3><span class="badge">Exponents</span></header>
+  <div class="formula">\[\frac{a^m}{a^n} = a^{m-n}\]</div>
+  <p>When dividing powers with the same base, subtract the exponents.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> base</li><li><span class="tex">\(m\)</span> numerator exponent</li><li><span class="tex">\(n\)</span> denominator exponent</li></ul><p class="conds"><strong>Conditions:</strong> a ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> a = 5, m = 6, n = 4 → <strong>25</strong></p>
+    <p class="code"><code>a**(m - n)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/exponent-rules/">Quotient Rule for Exponents lesson</a><a href="https://mathovia.com/practice/exponent-rules-generator/">Practice problems</a></nav>
+</article>
+<article id="rational-exponent-rule" class="card" data-cat="algebra" data-search="rational exponent rule exponents exponents radicals roots">
+  <header><h3><a href="#rational-exponent-rule">Rational Exponent Rule</a></h3><span class="badge">Exponents</span></header>
+  <div class="formula">\[a^{m/n} = \left(\sqrt[n]{a}\right)^m\]</div>
+  <p>The denominator of a fractional exponent is a root; the numerator is a power.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> base</li><li><span class="tex">\(m\)</span> power (numerator)</li><li><span class="tex">\(n\)</span> root index (denominator)</li></ul><p class="conds"><strong>Conditions:</strong> n ≠ 0; a ≥ 0 when n is even</p>
+    <p class="ex"><strong>Example:</strong> a = 8, m = 2, n = 3 → <strong>4</strong></p>
+    <p class="code"><code>a**(m / n)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/rational-exponents/">Rational Exponent Rule lesson</a><a href="https://mathovia.com/practice/rational-exponent-generator/">Practice problems</a></nav>
+</article>
+<article id="average-rate-of-change" class="card" data-cat="algebra" data-search="average rate of change functions functions rate-of-change secant">
+  <header><h3><a href="#average-rate-of-change">Average Rate of Change</a></h3><span class="badge">Functions</span></header>
+  <div class="formula">\[\frac{f(b) - f(a)}{b - a}\]</div>
+  <p>Slope of the secant line of f between x = a and x = b.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(f(a)\)</span> function value at a</li><li><span class="tex">\(f(b)\)</span> function value at b</li><li><span class="tex">\(a\)</span> start of interval</li><li><span class="tex">\(b\)</span> end of interval</li></ul><p class="conds"><strong>Conditions:</strong> a ≠ b</p>
+    <p class="ex"><strong>Example:</strong> fa = 1, fb = 9, a = 1, b = 3 → <strong>4</strong> — f(x) = x² on [1, 3].</p>
+    <p class="code"><code>(fb - fa) / (b - a)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/average-rate-of-change/">Average Rate of Change lesson</a><a href="https://mathovia.com/calculators/average-rate-of-change-calculator/">Calculator</a><a href="https://mathovia.com/practice/average-rate-of-change-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="difference-quotient" class="card" data-cat="algebra" data-search="difference quotient functions functions derivative rate-of-change">
+  <header><h3><a href="#difference-quotient">Difference Quotient</a></h3><span class="badge">Functions</span></header>
+  <div class="formula">\[\frac{f(x + h) - f(x)}{h}\]</div>
+  <p>Average rate of change over [x, x + h]; its limit as h → 0 is the derivative.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(f(x+h)\)</span> function value at x + h</li><li><span class="tex">\(f(x)\)</span> function value at x</li><li><span class="tex">\(h\)</span> step size</li></ul><p class="conds"><strong>Conditions:</strong> h ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> fxh = 6.25, fx = 4, h = 0.5 → <strong>4.5</strong> — f(x) = x² at x = 2, h = 0.5.</p>
+    <p class="code"><code>(fxh - fx) / h</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/difference-quotient/">Difference Quotient lesson</a><a href="https://mathovia.com/calculators/difference-quotient-calculator/">Calculator</a><a href="https://mathovia.com/practice/difference-quotient-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="point-slope-form" class="card" data-cat="algebra" data-search="point-slope form lines linear line-equation">
+  <header><h3><a href="#point-slope-form">Point-Slope Form</a></h3><span class="badge">Lines</span></header>
+  <div class="formula">\[y - y_1 = m(x - x_1)\]</div>
+  <p>Equation of a line through the point (x₁, y₁) with slope m.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(m\)</span> slope</li><li><span class="tex">\(x_1\)</span> x of known point</li><li><span class="tex">\(y_1\)</span> y of known point</li><li><span class="tex">\(x\)</span> input value</li></ul>
+    <p class="ex"><strong>Example:</strong> m = 3, x1 = 2, y1 = 5, x = 4 → <strong>11</strong></p>
+    <p class="code"><code>m*(x - x1) + y1</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/point-slope-form/">Point-Slope Form lesson</a><a href="https://mathovia.com/practice/point-slope-form-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="slope-formula" class="card" data-cat="algebra" data-search="slope formula lines slope linear coordinate-geometry">
+  <header><h3><a href="#slope-formula">Slope Formula</a></h3><span class="badge">Lines</span></header>
+  <div class="formula">\[m = \frac{y_2 - y_1}{x_2 - x_1}\]</div>
+  <p>Rise over run between two points on a line.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(x_1\)</span> x of first point</li><li><span class="tex">\(y_1\)</span> y of first point</li><li><span class="tex">\(x_2\)</span> x of second point</li><li><span class="tex">\(y_2\)</span> y of second point</li></ul><p class="conds"><strong>Conditions:</strong> x₁ ≠ x₂ (vertical lines have undefined slope)</p>
+    <p class="ex"><strong>Example:</strong> x1 = 1, y1 = 2, x2 = 4, y2 = 11 → <strong>3</strong></p>
+    <p class="code"><code>(y2 - y1) / (x2 - x1)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/slope/">Slope Formula lesson</a><a href="https://mathovia.com/practice/slope-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="perpendicular-slope" class="card" data-cat="algebra" data-search="slope of a perpendicular line lines slope perpendicular">
+  <header><h3><a href="#perpendicular-slope">Slope of a Perpendicular Line</a></h3><span class="badge">Lines</span></header>
+  <div class="formula">\[m_2 = -\frac{1}{m_1}\]</div>
+  <p>Perpendicular lines have slopes that are negative reciprocals (m₁·m₂ = −1).</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(m_1\)</span> slope of original line</li></ul><p class="conds"><strong>Conditions:</strong> m₁ ≠ 0 (perpendicular to a horizontal line is vertical)</p>
+    <p class="ex"><strong>Example:</strong> m1 = 4 → <strong>-0.25</strong></p>
+    <p class="code"><code>-1 / m1</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/perpendicular-lines/">Slope of a Perpendicular Line lesson</a><a href="https://mathovia.com/practice/parallel-and-perpendicular-lines-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="slope-intercept-form" class="card" data-cat="algebra" data-search="slope-intercept form lines linear line-equation">
+  <header><h3><a href="#slope-intercept-form">Slope-Intercept Form</a></h3><span class="badge">Lines</span></header>
+  <div class="formula">\[y = mx + b\]</div>
+  <p>Equation of a line with slope m and y-intercept b.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(m\)</span> slope</li><li><span class="tex">\(b\)</span> y-intercept</li><li><span class="tex">\(x\)</span> input value</li></ul>
+    <p class="ex"><strong>Example:</strong> m = 2, b = -1, x = 4 → <strong>7</strong></p>
+    <p class="code"><code>m*x + b</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/slope-intercept-form/">Slope-Intercept Form lesson</a><a href="https://mathovia.com/practice/slope-intercept-form-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="standard-form-of-a-line" class="card" data-cat="algebra" data-search="standard form of a line lines linear line-equation">
+  <header><h3><a href="#standard-form-of-a-line">Standard Form of a Line</a></h3><span class="badge">Lines</span></header>
+  <div class="formula">\[Ax + By = C\]</div>
+  <p>General linear equation; solving for y gives y = (C − Ax) / B.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(A\)</span> coefficient of x</li><li><span class="tex">\(B\)</span> coefficient of y</li><li><span class="tex">\(C\)</span> constant</li><li><span class="tex">\(x\)</span> input value</li></ul><p class="conds"><strong>Conditions:</strong> B ≠ 0 to solve for y</p>
+    <p class="ex"><strong>Example:</strong> A = 2, B = 3, C = 12, x = 3 → <strong>2</strong></p>
+    <p class="code"><code>(C - A*x) / B</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/standard-form/">Standard Form of a Line lesson</a><a href="https://mathovia.com/practice/standard-form-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="change-of-base-formula" class="card" data-cat="algebra" data-search="change of base formula logarithms logarithms change-of-base">
+  <header><h3><a href="#change-of-base-formula">Change of Base Formula</a></h3><span class="badge">Logarithms</span></header>
+  <div class="formula">\[\log_b x = \frac{\log_c x}{\log_c b}\]</div>
+  <p>Rewrites a logarithm in any base using a base your calculator has (usually 10 or e).</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(b\)</span> original base</li><li><span class="tex">\(x\)</span> argument</li></ul><p class="conds"><strong>Conditions:</strong> b &gt; 0, b ≠ 1; x &gt; 0; c &gt; 0, c ≠ 1</p>
+    <p class="ex"><strong>Example:</strong> b = 3, x = 81 → <strong>4</strong></p>
+    <p class="code"><code>log10(x) / log10(b)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/change-of-base-formula/">Change of Base Formula lesson</a><a href="https://mathovia.com/practice/change-of-base-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="logarithm-definition" class="card" data-cat="algebra" data-search="definition of a logarithm logarithms logarithms exponents">
+  <header><h3><a href="#logarithm-definition">Definition of a Logarithm</a></h3><span class="badge">Logarithms</span></header>
+  <div class="formula">\[\log_b x = y \iff b^y = x\]</div>
+  <p>A logarithm is the exponent you raise the base b to in order to get x.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(b\)</span> base</li><li><span class="tex">\(x\)</span> argument</li></ul><p class="conds"><strong>Conditions:</strong> b &gt; 0, b ≠ 1; x &gt; 0</p>
+    <p class="ex"><strong>Example:</strong> b = 2, x = 32 → <strong>5</strong></p>
+    <p class="code"><code>ln(x) / ln(b)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/logarithms/">Definition of a Logarithm lesson</a><a href="https://mathovia.com/practice/logarithm-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="logarithm-power-rule" class="card" data-cat="algebra" data-search="power rule for logarithms logarithms logarithms logarithm-rules">
+  <header><h3><a href="#logarithm-power-rule">Power Rule for Logarithms</a></h3><span class="badge">Logarithms</span></header>
+  <div class="formula">\[\log_b(M^p) = p \log_b M\]</div>
+  <p>An exponent inside a log can be moved out front as a multiplier.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(b\)</span> base</li><li><span class="tex">\(M\)</span> argument</li><li><span class="tex">\(p\)</span> exponent</li></ul><p class="conds"><strong>Conditions:</strong> b &gt; 0, b ≠ 1; M &gt; 0</p>
+    <p class="ex"><strong>Example:</strong> b = 2, M = 8, p = 3 → <strong>9</strong></p>
+    <p class="code"><code>p * ln(M) / ln(b)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/logarithm-rules/">Power Rule for Logarithms lesson</a><a href="https://mathovia.com/practice/logarithm-rules-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="logarithm-product-rule" class="card" data-cat="algebra" data-search="product rule for logarithms logarithms logarithms logarithm-rules">
+  <header><h3><a href="#logarithm-product-rule">Product Rule for Logarithms</a></h3><span class="badge">Logarithms</span></header>
+  <div class="formula">\[\log_b(MN) = \log_b M + \log_b N\]</div>
+  <p>The log of a product is the sum of the logs.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(b\)</span> base</li><li><span class="tex">\(M\)</span> first factor</li><li><span class="tex">\(N\)</span> second factor</li></ul><p class="conds"><strong>Conditions:</strong> b &gt; 0, b ≠ 1; M &gt; 0, N &gt; 0</p>
+    <p class="ex"><strong>Example:</strong> b = 2, M = 8, N = 4 → <strong>5</strong></p>
+    <p class="code"><code>(ln(M) + ln(N)) / ln(b)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/logarithm-rules/">Product Rule for Logarithms lesson</a><a href="https://mathovia.com/practice/logarithm-rules-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="logarithm-quotient-rule" class="card" data-cat="algebra" data-search="quotient rule for logarithms logarithms logarithms logarithm-rules">
+  <header><h3><a href="#logarithm-quotient-rule">Quotient Rule for Logarithms</a></h3><span class="badge">Logarithms</span></header>
+  <div class="formula">\[\log_b\left(\frac{M}{N}\right) = \log_b M - \log_b N\]</div>
+  <p>The log of a quotient is the difference of the logs.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(b\)</span> base</li><li><span class="tex">\(M\)</span> numerator</li><li><span class="tex">\(N\)</span> denominator</li></ul><p class="conds"><strong>Conditions:</strong> b &gt; 0, b ≠ 1; M &gt; 0, N &gt; 0</p>
+    <p class="ex"><strong>Example:</strong> b = 10, M = 1000, N = 10 → <strong>2</strong></p>
+    <p class="code"><code>(ln(M) - ln(N)) / ln(b)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/logarithm-rules/">Quotient Rule for Logarithms lesson</a><a href="https://mathovia.com/practice/logarithm-rules-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="richter-scale-magnitude" class="card" data-cat="algebra" data-search="richter scale magnitude logarithms logarithms applications richter">
+  <header><h3><a href="#richter-scale-magnitude">Richter Scale Magnitude</a></h3><span class="badge">Logarithms</span></header>
+  <div class="formula">\[M = \log_{10}\left(\frac{A}{A_0}\right)\]</div>
+  <p>Earthquake magnitude from the measured amplitude A compared with a reference amplitude A₀.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(A\)</span> measured amplitude</li><li><span class="tex">\(A_0\)</span> reference amplitude</li></ul><p class="conds"><strong>Conditions:</strong> A &gt; 0, A₀ &gt; 0</p>
+    <p class="ex"><strong>Example:</strong> A = 10000, A0 = 1 → <strong>4</strong></p>
+    <p class="code"><code>log10(A / A0)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/richter-scale/">Richter Scale Magnitude lesson</a><a href="https://mathovia.com/practice/richter-scale-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="determinant-2x2" class="card" data-cat="algebra" data-search="determinant of a 2×2 matrix matrices matrices determinant linear-algebra">
+  <header><h3><a href="#determinant-2x2">Determinant of a 2×2 Matrix</a></h3><span class="badge">Matrices</span></header>
+  <div class="formula">\[\det\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix} = ad - bc\]</div>
+  <p>A 2×2 matrix is invertible exactly when its determinant is non-zero.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> top-left</li><li><span class="tex">\(b\)</span> top-right</li><li><span class="tex">\(c\)</span> bottom-left</li><li><span class="tex">\(d\)</span> bottom-right</li></ul>
+    <p class="ex"><strong>Example:</strong> a = 4, b = 7, c = 2, d = 6 → <strong>10</strong></p>
+    <p class="code"><code>a*d - b*c</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/inverse-of-a-matrix/">Determinant of a 2×2 Matrix lesson</a><a href="https://mathovia.com/practice/inverse-of-a-matrix-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="vertex-x-coordinate" class="card" data-cat="algebra" data-search="vertex / axis of symmetry of a parabola parabolas parabola vertex quadratic">
+  <header><h3><a href="#vertex-x-coordinate">Vertex / Axis of Symmetry of a Parabola</a></h3><span class="badge">Parabolas</span></header>
+  <div class="formula">\[h = -\frac{b}{2a}\]</div>
+  <p>The x-coordinate of the vertex of y = ax² + bx + c, which is also the axis of symmetry x = h.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> coefficient of x²</li><li><span class="tex">\(b\)</span> coefficient of x</li></ul><p class="conds"><strong>Conditions:</strong> a ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> a = 2, b = -8 → <strong>2</strong> — y = 2x² − 8x + 1 has axis of symmetry x = 2.</p>
+    <p class="code"><code>-b / (2*a)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/vertex-and-axis-of-symmetry/">Vertex / Axis of Symmetry of a Parabola lesson</a><a href="https://mathovia.com/calculators/vertex-form-calculator/">Calculator</a></nav>
+</article>
+<article id="vertex-form" class="card" data-cat="algebra" data-search="vertex form of a quadratic parabolas parabola vertex quadratic">
+  <header><h3><a href="#vertex-form">Vertex Form of a Quadratic</a></h3><span class="badge">Parabolas</span></header>
+  <div class="formula">\[y = a(x - h)^2 + k\]</div>
+  <p>Writes a quadratic so the vertex (h, k) can be read off directly.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> stretch / direction</li><li><span class="tex">\(h\)</span> vertex x-coordinate</li><li><span class="tex">\(k\)</span> vertex y-coordinate</li><li><span class="tex">\(x\)</span> input value</li></ul><p class="conds"><strong>Conditions:</strong> a ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> a = 2, h = 1, k = -3, x = 3 → <strong>5</strong></p>
+    <p class="code"><code>a * (x - h)**2 + k</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/parabolas/">Vertex Form of a Quadratic lesson</a><a href="https://mathovia.com/calculators/vertex-form-calculator/">Calculator</a></nav>
+</article>
+<article id="completing-the-square" class="card" data-cat="algebra" data-search="completing the square quadratic-equations quadratic perfect-square">
+  <header><h3><a href="#completing-the-square">Completing the Square</a></h3><span class="badge">Quadratic Equations</span></header>
+  <div class="formula">\[x^2 + bx + \left(\frac{b}{2}\right)^2 = \left(x + \frac{b}{2}\right)^2\]</div>
+  <p>The constant (b/2)² turns x² + bx into a perfect square trinomial.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(b\)</span> coefficient of x (leading coefficient 1)</li></ul><p class="conds"><strong>Conditions:</strong> Leading coefficient must be 1 (divide through first if not)</p>
+    <p class="ex"><strong>Example:</strong> b = 6 → <strong>9</strong> — x² + 6x + 9 = (x + 3)².</p>
+    <p class="code"><code>(b / 2)**2</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/completing-the-square/">Completing the Square lesson</a><a href="https://mathovia.com/practice/completing-the-square-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="discriminant" class="card" data-cat="algebra" data-search="discriminant of a quadratic quadratic-equations quadratic roots">
+  <header><h3><a href="#discriminant">Discriminant of a Quadratic</a></h3><span class="badge">Quadratic Equations</span></header>
+  <div class="formula">\[\Delta = b^2 - 4ac\]</div>
+  <p>Tells you how many real roots a quadratic has: two if Δ &gt; 0, one if Δ = 0, none if Δ &lt; 0.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> coefficient of x²</li><li><span class="tex">\(b\)</span> coefficient of x</li><li><span class="tex">\(c\)</span> constant term</li></ul><p class="conds"><strong>Conditions:</strong> a ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> a = 1, b = -3, c = 2 → <strong>1</strong> — Positive, so two distinct real roots.</p>
+    <p class="code"><code>b**2 - 4*a*c</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/quadratic-formula/">Discriminant of a Quadratic lesson</a><a href="https://mathovia.com/practice/quadratic-equations-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="quadratic-formula" class="card" data-cat="algebra" data-search="quadratic formula quadratic-equations quadratic roots polynomial">
+  <header><h3><a href="#quadratic-formula">Quadratic Formula</a></h3><span class="badge">Quadratic Equations</span></header>
+  <div class="formula">\[x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]</div>
+  <p>Gives both solutions of any quadratic equation ax² + bx + c = 0.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> coefficient of x²</li><li><span class="tex">\(b\)</span> coefficient of x</li><li><span class="tex">\(c\)</span> constant term</li></ul><p class="conds"><strong>Conditions:</strong> a ≠ 0; b² − 4ac ≥ 0 for real roots</p>
+    <p class="ex"><strong>Example:</strong> a = 1, b = -3, c = 2 → <strong>[2, 1]</strong> — x² − 3x + 2 = 0 factors as (x − 1)(x − 2).</p>
+    <p class="code"><code>[(-b + sqrt(b**2 - 4*a*c)) / (2*a), (-b - sqrt(b**2 - 4*a*c)) / (2*a)]</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/quadratic-formula/">Quadratic Formula lesson</a><a href="https://mathovia.com/practice/quadratic-formula-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="vieta-sum-and-product-of-roots" class="card" data-cat="algebra" data-search="sum and product of quadratic roots (vieta) quadratic-equations quadratic roots vieta">
+  <header><h3><a href="#vieta-sum-and-product-of-roots">Sum and Product of Quadratic Roots (Vieta)</a></h3><span class="badge">Quadratic Equations</span></header>
+  <div class="formula">\[x_1 + x_2 = -\frac{b}{a}, \quad x_1 x_2 = \frac{c}{a}\]</div>
+  <p>Relates the roots of ax² + bx + c = 0 to its coefficients without solving the equation.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> coefficient of x²</li><li><span class="tex">\(b\)</span> coefficient of x</li><li><span class="tex">\(c\)</span> constant term</li></ul><p class="conds"><strong>Conditions:</strong> a ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> a = 1, b = -3, c = 2 → <strong>[3, 2]</strong> — Roots 1 and 2: sum 3, product 2.</p>
+    <p class="code"><code>[-b / a, c / a]</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/quadratic-equations/">Sum and Product of Quadratic Roots (Vieta) lesson</a><a href="https://mathovia.com/practice/quadratic-equations-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="arithmetic-sequence-nth-term" class="card" data-cat="algebra" data-search="arithmetic sequence nth term sequences-and-series sequences arithmetic-sequence">
+  <header><h3><a href="#arithmetic-sequence-nth-term">Arithmetic Sequence nth Term</a></h3><span class="badge">Sequences and Series</span></header>
+  <div class="formula">\[a_n = a_1 + (n - 1)d\]</div>
+  <p>Any term of a sequence that changes by a constant difference d.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a_1\)</span> first term</li><li><span class="tex">\(d\)</span> common difference</li><li><span class="tex">\(n\)</span> term number</li></ul><p class="conds"><strong>Conditions:</strong> n ≥ 1, integer</p>
+    <p class="ex"><strong>Example:</strong> a1 = 3, d = 4, n = 10 → <strong>39</strong></p>
+    <p class="code"><code>a1 + (n - 1)*d</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/arithmetic-sequences/">Arithmetic Sequence nth Term lesson</a><a href="https://mathovia.com/calculators/arithmetic-sequence-calculator/">Calculator</a><a href="https://mathovia.com/practice/arithmetic-sequences-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="arithmetic-series-sum" class="card" data-cat="algebra" data-search="arithmetic series sum sequences-and-series series arithmetic-series">
+  <header><h3><a href="#arithmetic-series-sum">Arithmetic Series Sum</a></h3><span class="badge">Sequences and Series</span></header>
+  <div class="formula">\[S_n = \frac{n}{2}(a_1 + a_n)\]</div>
+  <p>Sum of the first n terms of an arithmetic sequence.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(n\)</span> number of terms</li><li><span class="tex">\(a_1\)</span> first term</li><li><span class="tex">\(a_n\)</span> last term</li></ul><p class="conds"><strong>Conditions:</strong> n ≥ 1, integer</p>
+    <p class="ex"><strong>Example:</strong> n = 10, a1 = 3, an = 39 → <strong>210</strong></p>
+    <p class="code"><code>n * (a1 + an) / 2</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/arithmetic-series/">Arithmetic Series Sum lesson</a><a href="https://mathovia.com/practice/arithmetic-series-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="geometric-series-sum" class="card" data-cat="algebra" data-search="finite geometric series sum sequences-and-series series geometric-series">
+  <header><h3><a href="#geometric-series-sum">Finite Geometric Series Sum</a></h3><span class="badge">Sequences and Series</span></header>
+  <div class="formula">\[S_n = \frac{a_1(1 - r^n)}{1 - r}\]</div>
+  <p>Sum of the first n terms of a geometric sequence.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a_1\)</span> first term</li><li><span class="tex">\(r\)</span> common ratio</li><li><span class="tex">\(n\)</span> number of terms</li></ul><p class="conds"><strong>Conditions:</strong> r ≠ 1 (if r = 1, Sₙ = n·a₁)</p>
+    <p class="ex"><strong>Example:</strong> a1 = 2, r = 3, n = 5 → <strong>242</strong> — 2 + 6 + 18 + 54 + 162.</p>
+    <p class="code"><code>a1 * (1 - r**n) / (1 - r)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/geometric-series/">Finite Geometric Series Sum lesson</a><a href="https://mathovia.com/practice/geometric-series-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="geometric-sequence-nth-term" class="card" data-cat="algebra" data-search="geometric sequence nth term sequences-and-series sequences geometric-sequence">
+  <header><h3><a href="#geometric-sequence-nth-term">Geometric Sequence nth Term</a></h3><span class="badge">Sequences and Series</span></header>
+  <div class="formula">\[a_n = a_1 r^{n-1}\]</div>
+  <p>Any term of a sequence that is multiplied by a constant ratio r each step.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a_1\)</span> first term</li><li><span class="tex">\(r\)</span> common ratio</li><li><span class="tex">\(n\)</span> term number</li></ul><p class="conds"><strong>Conditions:</strong> n ≥ 1, integer</p>
+    <p class="ex"><strong>Example:</strong> a1 = 2, r = 3, n = 5 → <strong>162</strong></p>
+    <p class="code"><code>a1 * r**(n - 1)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/geometric-sequences/">Geometric Sequence nth Term lesson</a><a href="https://mathovia.com/calculators/geometric-sequence-calculator/">Calculator</a><a href="https://mathovia.com/practice/geometric-sequences-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="infinite-geometric-series-sum" class="card" data-cat="algebra" data-search="infinite geometric series sum sequences-and-series series geometric-series convergence">
+  <header><h3><a href="#infinite-geometric-series-sum">Infinite Geometric Series Sum</a></h3><span class="badge">Sequences and Series</span></header>
+  <div class="formula">\[S = \frac{a_1}{1 - r}\]</div>
+  <p>Sum of all terms of a geometric series that converges.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a_1\)</span> first term</li><li><span class="tex">\(r\)</span> common ratio</li></ul><p class="conds"><strong>Conditions:</strong> |r| &lt; 1 (otherwise the series diverges)</p>
+    <p class="ex"><strong>Example:</strong> a1 = 6, r = 0.5 → <strong>12</strong></p>
+    <p class="code"><code>a1 / (1 - r)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/geometric-series/">Infinite Geometric Series Sum lesson</a><a href="https://mathovia.com/practice/geometric-series-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="sum-of-first-n-integers" class="card" data-cat="algebra" data-search="sum of the first n positive integers sequences-and-series summation sigma-notation series">
+  <header><h3><a href="#sum-of-first-n-integers">Sum of the First n Positive Integers</a></h3><span class="badge">Sequences and Series</span></header>
+  <div class="formula">\[\sum_{i=1}^{n} i = \frac{n(n + 1)}{2}\]</div>
+  <p>Closed form for adding the integers from 1 to n.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(n\)</span> last integer</li></ul><p class="conds"><strong>Conditions:</strong> n ≥ 1, integer</p>
+    <p class="ex"><strong>Example:</strong> n = 100 → <strong>5050</strong></p>
+    <p class="code"><code>n * (n + 1) / 2</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/sigma-notation/">Sum of the First n Positive Integers lesson</a><a href="https://mathovia.com/calculators/summation-calculator/">Calculator</a><a href="https://mathovia.com/practice/sigma-notation-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="sum-of-squares" class="card" data-cat="algebra" data-search="sum of the first n squares sequences-and-series summation sigma-notation series">
+  <header><h3><a href="#sum-of-squares">Sum of the First n Squares</a></h3><span class="badge">Sequences and Series</span></header>
+  <div class="formula">\[\sum_{i=1}^{n} i^2 = \frac{n(n + 1)(2n + 1)}{6}\]</div>
+  <p>Closed form for adding the squares from 1² to n².</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(n\)</span> last integer</li></ul><p class="conds"><strong>Conditions:</strong> n ≥ 1, integer</p>
+    <p class="ex"><strong>Example:</strong> n = 10 → <strong>385</strong></p>
+    <p class="code"><code>n * (n + 1) * (2*n + 1) / 6</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/sigma-notation/">Sum of the First n Squares lesson</a><a href="https://mathovia.com/calculators/summation-calculator/">Calculator</a></nav>
+</article>
+<article id="cramers-rule-2x2" class="card" data-cat="algebra" data-search="cramer's rule (2×2 system) systems-of-equations systems-of-equations determinant linear-algebra">
+  <header><h3><a href="#cramers-rule-2x2">Cramer's Rule (2×2 System)</a></h3><span class="badge">Systems of Equations</span></header>
+  <div class="formula">\[x = \frac{c_1 b_2 - b_1 c_2}{a_1 b_2 - b_1 a_2}, \quad y = \frac{a_1 c_2 - c_1 a_2}{a_1 b_2 - b_1 a_2}\]</div>
+  <p>Solves a₁x + b₁y = c₁ and a₂x + b₂y = c₂ using determinants.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a_1\)</span> x coefficient, equation 1</li><li><span class="tex">\(b_1\)</span> y coefficient, equation 1</li><li><span class="tex">\(c_1\)</span> constant, equation 1</li><li><span class="tex">\(a_2\)</span> x coefficient, equation 2</li><li><span class="tex">\(b_2\)</span> y coefficient, equation 2</li><li><span class="tex">\(c_2\)</span> constant, equation 2</li></ul><p class="conds"><strong>Conditions:</strong> a₁b₂ − b₁a₂ ≠ 0 (otherwise no unique solution)</p>
+    <p class="ex"><strong>Example:</strong> a1 = 2, b1 = 3, c1 = 8, a2 = 1, b2 = -1, c2 = -1 → <strong>[1, 2]</strong> — 2x + 3y = 8 and x − y = −1.</p>
+    <p class="code"><code>[(c1*b2 - b1*c2) / (a1*b2 - b1*a2), (a1*c2 - c1*a2) / (a1*b2 - b1*a2)]</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/cramers-rule/">Cramer's Rule (2×2 System) lesson</a><a href="https://mathovia.com/calculators/system-of-equations-calculator/">Calculator</a><a href="https://mathovia.com/practice/cramers-rule-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="direct-variation" class="card" data-cat="algebra" data-search="direct variation variation variation proportion">
+  <header><h3><a href="#direct-variation">Direct Variation</a></h3><span class="badge">Variation</span></header>
+  <div class="formula">\[y = kx\]</div>
+  <p>y varies directly with x: doubling x doubles y.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(k\)</span> constant of variation</li><li><span class="tex">\(x\)</span> independent variable</li></ul><p class="conds"><strong>Conditions:</strong> k ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> k = 4, x = 2.5 → <strong>10</strong></p>
+    <p class="code"><code>k * x</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/direct-variation/">Direct Variation lesson</a><a href="https://mathovia.com/practice/direct-variation-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="inverse-variation" class="card" data-cat="algebra" data-search="inverse variation variation variation proportion">
+  <header><h3><a href="#inverse-variation">Inverse Variation</a></h3><span class="badge">Variation</span></header>
+  <div class="formula">\[y = \frac{k}{x}\]</div>
+  <p>y varies inversely with x: doubling x halves y.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(k\)</span> constant of variation</li><li><span class="tex">\(x\)</span> independent variable</li></ul><p class="conds"><strong>Conditions:</strong> x ≠ 0; k ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> k = 24, x = 6 → <strong>4</strong></p>
+    <p class="code"><code>k / x</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/inverse-variation/">Inverse Variation lesson</a><a href="https://mathovia.com/practice/inverse-variation-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="joint-variation" class="card" data-cat="algebra" data-search="joint variation variation variation proportion">
+  <header><h3><a href="#joint-variation">Joint Variation</a></h3><span class="badge">Variation</span></header>
+  <div class="formula">\[z = kxy\]</div>
+  <p>z varies directly with the product of x and y.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(k\)</span> constant of variation</li><li><span class="tex">\(x\)</span> first variable</li><li><span class="tex">\(y\)</span> second variable</li></ul><p class="conds"><strong>Conditions:</strong> k ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> k = 0.5, x = 4, y = 6 → <strong>12</strong></p>
+    <p class="code"><code>k * x * y</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/joint-variation/">Joint Variation lesson</a><a href="https://mathovia.com/practice/joint-variation-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="combined-work-rate" class="card" data-cat="algebra" data-search="combined work rate word-problems word-problems work-problems rates">
+  <header><h3><a href="#combined-work-rate">Combined Work Rate</a></h3><span class="badge">Word Problems</span></header>
+  <div class="formula">\[\frac{1}{t} = \frac{1}{t_1} + \frac{1}{t_2}\]</div>
+  <p>Time t for two workers together when they take t₁ and t₂ alone; equivalently t = t₁t₂ / (t₁ + t₂).</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(t_1\)</span> time for worker 1 alone</li><li><span class="tex">\(t_2\)</span> time for worker 2 alone</li></ul><p class="conds"><strong>Conditions:</strong> t₁ &gt; 0, t₂ &gt; 0</p>
+    <p class="ex"><strong>Example:</strong> t1 = 6, t2 = 3 → <strong>2</strong></p>
+    <p class="code"><code>(t1 * t2) / (t1 + t2)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/work-problems/">Combined Work Rate lesson</a><a href="https://mathovia.com/practice/work-problems-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="distance-rate-time" class="card" data-cat="algebra" data-search="distance = rate × time word-problems word-problems motion">
+  <header><h3><a href="#distance-rate-time">Distance = Rate × Time</a></h3><span class="badge">Word Problems</span></header>
+  <div class="formula">\[d = rt\]</div>
+  <p>Distance traveled at a constant rate r for time t.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(r\)</span> rate (speed)</li><li><span class="tex">\(t\)</span> time</li></ul><p class="conds"><strong>Conditions:</strong> Units of r and t must match (e.g. km/h and hours)</p>
+    <p class="ex"><strong>Example:</strong> r = 60, t = 2.5 → <strong>150</strong></p>
+    <p class="code"><code>r * t</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/distance-rate-problems/">Distance = Rate × Time lesson</a><a href="https://mathovia.com/practice/distance-rate-problems-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="mixture-concentration" class="card" data-cat="algebra" data-search="mixture concentration word-problems word-problems mixture-problems">
+  <header><h3><a href="#mixture-concentration">Mixture Concentration</a></h3><span class="badge">Word Problems</span></header>
+  <div class="formula">\[C = \frac{c_1 v_1 + c_2 v_2}{v_1 + v_2}\]</div>
+  <p>Concentration of a mixture made from two solutions.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(c_1\)</span> concentration of solution 1 (decimal)</li><li><span class="tex">\(v_1\)</span> volume of solution 1</li><li><span class="tex">\(c_2\)</span> concentration of solution 2 (decimal)</li><li><span class="tex">\(v_2\)</span> volume of solution 2</li></ul><p class="conds"><strong>Conditions:</strong> v₁ + v₂ &gt; 0</p>
+    <p class="ex"><strong>Example:</strong> c1 = 0.1, v1 = 2, c2 = 0.4, v2 = 1 → <strong>0.2</strong></p>
+    <p class="code"><code>(c1*v1 + c2*v2) / (v1 + v2)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/algebra/mixture-problems/">Mixture Concentration lesson</a><a href="https://mathovia.com/practice/mixture-problems-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="adding-fractions" class="card" data-cat="arithmetic" data-search="adding fractions fractions fractions addition">
+  <header><h3><a href="#adding-fractions">Adding Fractions</a></h3><span class="badge">Fractions</span></header>
+  <div class="formula">\[\frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd}\]</div>
+  <p>Adds two fractions using a common denominator; simplify the result afterwards.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> numerator of first fraction</li><li><span class="tex">\(b\)</span> denominator of first fraction</li><li><span class="tex">\(c\)</span> numerator of second fraction</li><li><span class="tex">\(d\)</span> denominator of second fraction</li></ul><p class="conds"><strong>Conditions:</strong> b ≠ 0, d ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> a = 1, b = 2, c = 1, d = 3 → <strong>5/6 (0.8333333333333334)</strong></p>
+    <p class="code"><code>(a*d + b*c) / (b*d)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/guides/adding-fractions/">Adding Fractions lesson</a><a href="https://mathovia.com/calculators/adding-fractions-calculator/">Calculator</a><a href="https://mathovia.com/practice/fraction-problem-generator/">Practice problems</a></nav>
+</article>
+<article id="dividing-fractions" class="card" data-cat="arithmetic" data-search="dividing fractions fractions fractions division reciprocal">
+  <header><h3><a href="#dividing-fractions">Dividing Fractions</a></h3><span class="badge">Fractions</span></header>
+  <div class="formula">\[\frac{a}{b} \div \frac{c}{d} = \frac{ad}{bc}\]</div>
+  <p>Multiply the first fraction by the reciprocal of the second.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> numerator of first fraction</li><li><span class="tex">\(b\)</span> denominator of first fraction</li><li><span class="tex">\(c\)</span> numerator of second fraction</li><li><span class="tex">\(d\)</span> denominator of second fraction</li></ul><p class="conds"><strong>Conditions:</strong> b ≠ 0, c ≠ 0, d ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> a = 3, b = 4, c = 1, d = 2 → <strong>3/2 (1.5)</strong></p>
+    <p class="code"><code>(a*d) / (b*c)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/calculators/dividing-fractions-calculator/">Calculator</a><a href="https://mathovia.com/practice/fraction-problem-generator/">Practice problems</a></nav>
+</article>
+<article id="fraction-to-decimal" class="card" data-cat="arithmetic" data-search="fraction to decimal fractions fractions decimals conversion">
+  <header><h3><a href="#fraction-to-decimal">Fraction to Decimal</a></h3><span class="badge">Fractions</span></header>
+  <div class="formula">\[\frac{n}{d} = n \div d\]</div>
+  <p>Divide the numerator by the denominator.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(n\)</span> numerator</li><li><span class="tex">\(d\)</span> denominator</li></ul><p class="conds"><strong>Conditions:</strong> d ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> n = 7, d = 8 → <strong>0.875</strong></p>
+    <p class="code"><code>n / d</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/guides/common-fractions-decimal-equivalents/">Fraction to Decimal lesson</a><a href="https://mathovia.com/calculators/fraction-to-decimal-calculator/">Calculator</a></nav>
+</article>
+<article id="mixed-number-to-improper-fraction" class="card" data-cat="arithmetic" data-search="mixed number to improper fraction fractions fractions mixed-numbers">
+  <header><h3><a href="#mixed-number-to-improper-fraction">Mixed Number to Improper Fraction</a></h3><span class="badge">Fractions</span></header>
+  <div class="formula">\[w\frac{n}{d} = \frac{wd + n}{d}\]</div>
+  <p>Converts a mixed number to an improper fraction. The value computed is the new numerator; the denominator stays d.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(w\)</span> whole number part</li><li><span class="tex">\(n\)</span> numerator</li><li><span class="tex">\(d\)</span> denominator</li></ul><p class="conds"><strong>Conditions:</strong> d ≠ 0; w ≥ 0 (for negative mixed numbers apply the sign to the whole result)</p>
+    <p class="ex"><strong>Example:</strong> w = 2, n = 3, d = 4 → <strong>11/4 (11)</strong></p>
+    <p class="code"><code>w*d + n</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/calculators/mixed-number-to-improper-fraction-calculator/">Calculator</a><a href="https://mathovia.com/practice/fraction-problem-generator/">Practice problems</a></nav>
+</article>
+<article id="multiplying-fractions" class="card" data-cat="arithmetic" data-search="multiplying fractions fractions fractions multiplication">
+  <header><h3><a href="#multiplying-fractions">Multiplying Fractions</a></h3><span class="badge">Fractions</span></header>
+  <div class="formula">\[\frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}\]</div>
+  <p>Multiply numerators together and denominators together.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> numerator of first fraction</li><li><span class="tex">\(b\)</span> denominator of first fraction</li><li><span class="tex">\(c\)</span> numerator of second fraction</li><li><span class="tex">\(d\)</span> denominator of second fraction</li></ul><p class="conds"><strong>Conditions:</strong> b ≠ 0, d ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> a = 2, b = 3, c = 3, d = 5 → <strong>2/5 (0.4)</strong></p>
+    <p class="code"><code>(a*c) / (b*d)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/calculators/multiplying-fractions-calculator/">Calculator</a><a href="https://mathovia.com/practice/fraction-problem-generator/">Practice problems</a></nav>
+</article>
+<article id="subtracting-fractions" class="card" data-cat="arithmetic" data-search="subtracting fractions fractions fractions subtraction">
+  <header><h3><a href="#subtracting-fractions">Subtracting Fractions</a></h3><span class="badge">Fractions</span></header>
+  <div class="formula">\[\frac{a}{b} - \frac{c}{d} = \frac{ad - bc}{bd}\]</div>
+  <p>Subtracts two fractions using a common denominator; simplify the result afterwards.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> numerator of first fraction</li><li><span class="tex">\(b\)</span> denominator of first fraction</li><li><span class="tex">\(c\)</span> numerator of second fraction</li><li><span class="tex">\(d\)</span> denominator of second fraction</li></ul><p class="conds"><strong>Conditions:</strong> b ≠ 0, d ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> a = 3, b = 4, c = 1, d = 6 → <strong>7/12 (0.5833333333333334)</strong></p>
+    <p class="code"><code>(a*d - b*c) / (b*d)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/calculators/subtracting-fractions-calculator/">Calculator</a><a href="https://mathovia.com/practice/fraction-problem-generator/">Practice problems</a></nav>
+</article>
+<article id="fraction-to-percent" class="card" data-cat="arithmetic" data-search="fraction to percent percentages fractions percentages conversion">
+  <header><h3><a href="#fraction-to-percent">Fraction to Percent</a></h3><span class="badge">Percentages</span></header>
+  <div class="formula">\[\frac{n}{d} \times 100\%\]</div>
+  <p>Divide, then multiply by 100 to express a fraction as a percentage.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(n\)</span> numerator</li><li><span class="tex">\(d\)</span> denominator</li></ul><p class="conds"><strong>Conditions:</strong> d ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> n = 3, d = 8 → <strong>37.5% (37.5)</strong></p>
+    <p class="code"><code>n / d * 100</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/guides/common-fraction-percent-equivalents/">Fraction to Percent lesson</a><a href="https://mathovia.com/calculators/fraction-to-percent-calculator/">Calculator</a></nav>
+</article>
+<article id="percent-of-a-number" class="card" data-cat="arithmetic" data-search="percent of a number percentages percentages">
+  <header><h3><a href="#percent-of-a-number">Percent of a Number</a></h3><span class="badge">Percentages</span></header>
+  <div class="formula">\[p\% \text{ of } x = \frac{p}{100} \cdot x\]</div>
+  <p>Convert the percent to a decimal and multiply.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(p\)</span> percent</li><li><span class="tex">\(x\)</span> whole amount</li></ul>
+    <p class="ex"><strong>Example:</strong> p = 15, x = 80 → <strong>12</strong></p>
+    <p class="code"><code>p / 100 * x</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/practice/percentage-problem-generator/">Practice problems</a></nav>
+</article>
+<article id="linear-approximation" class="card" data-cat="calculus" data-search="linear approximation (tangent line) applications-of-derivatives derivatives approximation tangent-line">
+  <header><h3><a href="#linear-approximation">Linear Approximation (Tangent Line)</a></h3><span class="badge">Applications of Derivatives</span></header>
+  <div class="formula">\[L(x) = f(a) + f'(a)(x - a)\]</div>
+  <p>Approximates f near x = a using its tangent line.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(f(a)\)</span> function value at a</li><li><span class="tex">\(f'(a)\)</span> derivative at a</li><li><span class="tex">\(a\)</span> center point</li><li><span class="tex">\(x\)</span> nearby input</li></ul><p class="conds"><strong>Conditions:</strong> f differentiable at a; accurate only for x near a</p>
+    <p class="ex"><strong>Example:</strong> fa = 2, fpa = 0.25, a = 4, x = 4.1 → <strong>2.025</strong> — √4.1 ≈ 2.025 using f(x) = √x at a = 4.</p>
+    <p class="code"><code>fa + fpa*(x - a)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/linear-approximation/">Linear Approximation (Tangent Line) lesson</a><a href="https://mathovia.com/practice/linear-approximation-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="mean-value-theorem" class="card" data-cat="calculus" data-search="mean value theorem applications-of-derivatives mean-value-theorem derivatives theorems">
+  <header><h3><a href="#mean-value-theorem">Mean Value Theorem</a></h3><span class="badge">Applications of Derivatives</span></header>
+  <div class="formula">\[f'(c) = \frac{f(b) - f(a)}{b - a}\]</div>
+  <p>Some point c in (a, b) has an instantaneous rate equal to the average rate over [a, b]. The value computed is that required slope f′(c).</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(f(a)\)</span> function value at a</li><li><span class="tex">\(f(b)\)</span> function value at b</li><li><span class="tex">\(a\)</span> left endpoint</li><li><span class="tex">\(b\)</span> right endpoint</li></ul><p class="conds"><strong>Conditions:</strong> f continuous on [a, b] and differentiable on (a, b)</p>
+    <p class="ex"><strong>Example:</strong> fa = 0, fb = 8, a = 0, b = 2 → <strong>4</strong> — f(x) = x³ on [0, 2]; 3c² = 4 gives c = 2/√3.</p>
+    <p class="code"><code>(fb - fa) / (b - a)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/mean-value-theorem/">Mean Value Theorem lesson</a><a href="https://mathovia.com/practice/mean-value-theorem-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="chain-rule" class="card" data-cat="calculus" data-search="chain rule derivatives derivatives differentiation-rules composition">
+  <header><h3><a href="#chain-rule">Chain Rule</a></h3><span class="badge">Derivatives</span></header>
+  <div class="formula">\[\frac{d}{dx} f(g(x)) = f'(g(x)) \cdot g'(x)\]</div>
+  <p>Derivative of a composite function: outer derivative (evaluated at the inner function) times inner derivative.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(f'(g(x))\)</span> outer derivative evaluated at g(x)</li><li><span class="tex">\(g'(x)\)</span> inner derivative at x</li></ul><p class="conds"><strong>Conditions:</strong> g differentiable at x, f differentiable at g(x)</p>
+    <p class="ex"><strong>Example:</strong> fpg = 12, gp = 2 → <strong>24</strong> — f(u) = u³, g(x) = x² + 1 at x = 1: f′(g(1)) = 3·2² = 12 and g′(1) = 2.</p>
+    <p class="code"><code>fpg * gp</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/chain-rule/">Chain Rule lesson</a><a href="https://mathovia.com/practice/chain-rule-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="derivative-of-arctan" class="card" data-cat="calculus" data-search="derivative of arctan x derivatives derivatives inverse-trigonometry">
+  <header><h3><a href="#derivative-of-arctan">Derivative of arctan x</a></h3><span class="badge">Derivatives</span></header>
+  <div class="formula">\[\frac{d}{dx} \arctan x = \frac{1}{1 + x^2}\]</div>
+  <p>Derivative of the inverse tangent function.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(x\)</span> point of evaluation</li></ul>
+    <p class="ex"><strong>Example:</strong> x = 1 → <strong>0.5</strong></p>
+    <p class="code"><code>1 / (1 + x**2)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/derivatives-of-inverse-trig-functions/">Derivative of arctan x lesson</a><a href="https://mathovia.com/calculators/inverse-tan-calculator/">Calculator</a><a href="https://mathovia.com/practice/derivatives-of-inverse-trig-functions-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="derivative-of-exponential" class="card" data-cat="calculus" data-search="derivative of aˣ derivatives derivatives exponential">
+  <header><h3><a href="#derivative-of-exponential">Derivative of aˣ</a></h3><span class="badge">Derivatives</span></header>
+  <div class="formula">\[\frac{d}{dx} a^x = a^x \ln a\]</div>
+  <p>Derivative of an exponential with base a; for a = e it reduces to eˣ.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> base</li><li><span class="tex">\(x\)</span> point of evaluation</li></ul><p class="conds"><strong>Conditions:</strong> a &gt; 0, a ≠ 1</p>
+    <p class="ex"><strong>Example:</strong> a = 2, x = 3 → <strong>5.545177444479562</strong></p>
+    <p class="code"><code>a**x * ln(a)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/derivatives-of-exponential-and-logarithmic-functions/">Derivative of aˣ lesson</a><a href="https://mathovia.com/practice/derivatives-of-exponential-and-logarithmic-functions-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="derivative-of-natural-log" class="card" data-cat="calculus" data-search="derivative of ln x derivatives derivatives logarithms">
+  <header><h3><a href="#derivative-of-natural-log">Derivative of ln x</a></h3><span class="badge">Derivatives</span></header>
+  <div class="formula">\[\frac{d}{dx} \ln x = \frac{1}{x}\]</div>
+  <p>The natural logarithm's rate of change is the reciprocal of x.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(x\)</span> point of evaluation</li></ul><p class="conds"><strong>Conditions:</strong> x &gt; 0</p>
+    <p class="ex"><strong>Example:</strong> x = 4 → <strong>0.25</strong></p>
+    <p class="code"><code>1 / x</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/derivatives-of-exponential-and-logarithmic-functions/">Derivative of ln x lesson</a><a href="https://mathovia.com/practice/derivatives-of-exponential-and-logarithmic-functions-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="derivative-of-sine" class="card" data-cat="calculus" data-search="derivative of sin x derivatives derivatives trigonometry">
+  <header><h3><a href="#derivative-of-sine">Derivative of sin x</a></h3><span class="badge">Derivatives</span></header>
+  <div class="formula">\[\frac{d}{dx} \sin x = \cos x\]</div>
+  <p>The derivative of sine is cosine (x in radians).</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(x\)</span> angle in radians</li></ul><p class="conds"><strong>Conditions:</strong> x measured in radians</p>
+    <p class="ex"><strong>Example:</strong> x = 0 → <strong>1</strong></p>
+    <p class="code"><code>cos(x)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/derivatives-of-trig-functions/">Derivative of sin x lesson</a><a href="https://mathovia.com/practice/derivatives-of-trig-functions-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="power-rule-derivative" class="card" data-cat="calculus" data-search="power rule (derivatives) derivatives derivatives differentiation-rules">
+  <header><h3><a href="#power-rule-derivative">Power Rule (Derivatives)</a></h3><span class="badge">Derivatives</span></header>
+  <div class="formula">\[\frac{d}{dx} x^n = n x^{n-1}\]</div>
+  <p>Derivative of a power of x: bring the exponent down and reduce it by one.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(n\)</span> exponent</li><li><span class="tex">\(x\)</span> point of evaluation</li></ul><p class="conds"><strong>Conditions:</strong> n any real number (x &gt; 0 for non-integer n)</p>
+    <p class="ex"><strong>Example:</strong> n = 3, x = 2 → <strong>12</strong></p>
+    <p class="code"><code>n * x**(n - 1)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/power-rule/">Power Rule (Derivatives) lesson</a><a href="https://mathovia.com/practice/power-rule-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="product-rule" class="card" data-cat="calculus" data-search="product rule derivatives derivatives differentiation-rules">
+  <header><h3><a href="#product-rule">Product Rule</a></h3><span class="badge">Derivatives</span></header>
+  <div class="formula">\[(fg)' = f'g + fg'\]</div>
+  <p>Derivative of a product of two differentiable functions.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(f(x)\)</span> value of f at x</li><li><span class="tex">\(f'(x)\)</span> value of f′ at x</li><li><span class="tex">\(g(x)\)</span> value of g at x</li><li><span class="tex">\(g'(x)\)</span> value of g′ at x</li></ul><p class="conds"><strong>Conditions:</strong> f and g differentiable at x</p>
+    <p class="ex"><strong>Example:</strong> f = 2, fp = 3, g = 4, gp = 5 → <strong>22</strong></p>
+    <p class="code"><code>fp*g + f*gp</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/product-rule/">Product Rule lesson</a><a href="https://mathovia.com/practice/product-rule-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="quotient-rule" class="card" data-cat="calculus" data-search="quotient rule derivatives derivatives differentiation-rules">
+  <header><h3><a href="#quotient-rule">Quotient Rule</a></h3><span class="badge">Derivatives</span></header>
+  <div class="formula">\[\left(\frac{f}{g}\right)' = \frac{f'g - fg'}{g^2}\]</div>
+  <p>Derivative of a quotient of two differentiable functions.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(f(x)\)</span> value of f at x</li><li><span class="tex">\(f'(x)\)</span> value of f′ at x</li><li><span class="tex">\(g(x)\)</span> value of g at x</li><li><span class="tex">\(g'(x)\)</span> value of g′ at x</li></ul><p class="conds"><strong>Conditions:</strong> g(x) ≠ 0</p>
+    <p class="ex"><strong>Example:</strong> f = 2, fp = 3, g = 4, gp = 5 → <strong>0.125</strong></p>
+    <p class="code"><code>(fp*g - f*gp) / g**2</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/quotient-rule/">Quotient Rule lesson</a><a href="https://mathovia.com/practice/quotient-rule-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="average-value-of-a-function" class="card" data-cat="calculus" data-search="average value of a function integrals integrals average-value">
+  <header><h3><a href="#average-value-of-a-function">Average Value of a Function</a></h3><span class="badge">Integrals</span></header>
+  <div class="formula">\[f_{\text{avg}} = \frac{1}{b - a} \int_a^b f(x) \, dx\]</div>
+  <p>The constant height that gives the same area as f over [a, b].</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(\int_a^b f(x)\,dx\)</span> definite integral over [a, b]</li><li><span class="tex">\(a\)</span> left endpoint</li><li><span class="tex">\(b\)</span> right endpoint</li></ul><p class="conds"><strong>Conditions:</strong> a &lt; b; f integrable on [a, b]</p>
+    <p class="ex"><strong>Example:</strong> I = 9, a = 0, b = 3 → <strong>3</strong> — f(x) = x² on [0, 3]: ∫ = 9.</p>
+    <p class="code"><code>I / (b - a)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/average-value-of-a-function/">Average Value of a Function lesson</a><a href="https://mathovia.com/practice/average-value-of-a-function-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="fundamental-theorem-of-calculus" class="card" data-cat="calculus" data-search="fundamental theorem of calculus integrals integrals definite-integral theorems">
+  <header><h3><a href="#fundamental-theorem-of-calculus">Fundamental Theorem of Calculus</a></h3><span class="badge">Integrals</span></header>
+  <div class="formula">\[\int_a^b f(x) \, dx = F(b) - F(a)\]</div>
+  <p>A definite integral equals the change in any antiderivative F across the interval.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(F(b)\)</span> antiderivative at b</li><li><span class="tex">\(F(a)\)</span> antiderivative at a</li></ul><p class="conds"><strong>Conditions:</strong> f continuous on [a, b], F′ = f</p>
+    <p class="ex"><strong>Example:</strong> Fb = 9, Fa = 1 → <strong>8</strong> — ∫₁³ 2x dx with antiderivative F(x) = x²: F(3) − F(1) = 9 − 1.</p>
+    <p class="code"><code>Fb - Fa</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/fundamental-theorem-of-calculus/">Fundamental Theorem of Calculus lesson</a><a href="https://mathovia.com/practice/fundamental-theorem-of-calculus-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="power-rule-integral" class="card" data-cat="calculus" data-search="power rule (integrals) integrals integrals antiderivatives">
+  <header><h3><a href="#power-rule-integral">Power Rule (Integrals)</a></h3><span class="badge">Integrals</span></header>
+  <div class="formula">\[\int x^n \, dx = \frac{x^{n+1}}{n + 1} + C\]</div>
+  <p>Antiderivative of a power of x. The value computed is the antiderivative at x with C = 0.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(n\)</span> exponent</li><li><span class="tex">\(x\)</span> point of evaluation</li></ul><p class="conds"><strong>Conditions:</strong> n ≠ −1 (∫ x⁻¹ dx = ln|x| + C)</p>
+    <p class="ex"><strong>Example:</strong> n = 2, x = 3 → <strong>9</strong></p>
+    <p class="code"><code>x**(n + 1) / (n + 1)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/antiderivatives/">Power Rule (Integrals) lesson</a><a href="https://mathovia.com/practice/antiderivatives-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="riemann-sum-subinterval-width" class="card" data-cat="calculus" data-search="riemann sum subinterval width integrals integrals riemann-sums">
+  <header><h3><a href="#riemann-sum-subinterval-width">Riemann Sum Subinterval Width</a></h3><span class="badge">Integrals</span></header>
+  <div class="formula">\[\Delta x = \frac{b - a}{n}\]</div>
+  <p>Width of each of n equal subintervals used in a Riemann sum Σ f(xᵢ)·Δx.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> left endpoint</li><li><span class="tex">\(b\)</span> right endpoint</li><li><span class="tex">\(n\)</span> number of subintervals</li></ul><p class="conds"><strong>Conditions:</strong> n ≥ 1, integer</p>
+    <p class="ex"><strong>Example:</strong> a = 0, b = 2, n = 4 → <strong>0.5</strong></p>
+    <p class="code"><code>(b - a) / n</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/riemann-sums/">Riemann Sum Subinterval Width lesson</a><a href="https://mathovia.com/practice/riemann-sums-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="binomial-probability" class="card" data-cat="statistics" data-search="binomial probability probability-distributions probability binomial-distribution statistics">
+  <header><h3><a href="#binomial-probability">Binomial Probability</a></h3><span class="badge">Probability Distributions</span></header>
+  <div class="formula">\[P(X = k) = \binom{n}{k} p^k (1 - p)^{n-k}\]</div>
+  <p>Probability of exactly k successes in n independent trials, each with success probability p.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(n\)</span> number of trials</li><li><span class="tex">\(k\)</span> number of successes</li><li><span class="tex">\(p\)</span> probability of success</li></ul><p class="conds"><strong>Conditions:</strong> 0 ≤ k ≤ n, integers; 0 ≤ p ≤ 1; Trials independent</p>
+    <p class="ex"><strong>Example:</strong> n = 5, k = 2, p = 0.5 → <strong>10/32 (0.3125)</strong></p>
+    <p class="code"><code>comb(n, k) * p**k * (1 - p)**(n - k)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/calculators/binomial-distribution-calculator/">Calculator</a></nav>
+</article>
+<article id="binomial-mean" class="card" data-cat="statistics" data-search="mean of a binomial distribution probability-distributions probability binomial-distribution expected-value">
+  <header><h3><a href="#binomial-mean">Mean of a Binomial Distribution</a></h3><span class="badge">Probability Distributions</span></header>
+  <div class="formula">\[\mu = np\]</div>
+  <p>Expected number of successes in n trials with success probability p.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(n\)</span> number of trials</li><li><span class="tex">\(p\)</span> probability of success</li></ul><p class="conds"><strong>Conditions:</strong> 0 ≤ p ≤ 1</p>
+    <p class="ex"><strong>Example:</strong> n = 20, p = 0.3 → <strong>6</strong></p>
+    <p class="code"><code>n * p</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/calculators/binomial-distribution-calculator/">Calculator</a></nav>
+</article>
+<article id="binomial-standard-deviation" class="card" data-cat="statistics" data-search="standard deviation of a binomial distribution probability-distributions probability binomial-distribution standard-deviation">
+  <header><h3><a href="#binomial-standard-deviation">Standard Deviation of a Binomial Distribution</a></h3><span class="badge">Probability Distributions</span></header>
+  <div class="formula">\[\sigma = \sqrt{np(1 - p)}\]</div>
+  <p>Spread of the number of successes around the mean np.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(n\)</span> number of trials</li><li><span class="tex">\(p\)</span> probability of success</li></ul><p class="conds"><strong>Conditions:</strong> 0 ≤ p ≤ 1</p>
+    <p class="ex"><strong>Example:</strong> n = 100, p = 0.5 → <strong>5</strong></p>
+    <p class="code"><code>sqrt(n * p * (1 - p))</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/calculators/binomial-distribution-calculator/">Calculator</a></nav>
+</article>
+<article id="degrees-to-radians" class="card" data-cat="trigonometry" data-search="degrees to radians angle-measure angles conversion radians">
+  <header><h3><a href="#degrees-to-radians">Degrees to Radians</a></h3><span class="badge">Angle Measure</span></header>
+  <div class="formula">\[\text{radians} = \text{degrees} \times \frac{\pi}{180^\circ}\]</div>
+  <p>Converts an angle from degrees to radians.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(\theta_{\text{deg}}\)</span> angle in degrees</li></ul>
+    <p class="ex"><strong>Example:</strong> deg = 180 → <strong>3.141592653589793</strong></p>
+    <p class="code"><code>deg * PI / 180</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/radians-and-degrees/">Degrees to Radians lesson</a><a href="https://mathovia.com/practice/radians-and-degrees-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="radians-to-degrees" class="card" data-cat="trigonometry" data-search="radians to degrees angle-measure angles conversion radians">
+  <header><h3><a href="#radians-to-degrees">Radians to Degrees</a></h3><span class="badge">Angle Measure</span></header>
+  <div class="formula">\[\text{degrees} = \text{radians} \times \frac{180^\circ}{\pi}\]</div>
+  <p>Converts an angle from radians to degrees.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(\theta_{\text{rad}}\)</span> angle in radians</li></ul>
+    <p class="ex"><strong>Example:</strong> rad = 3.141592653589793 → <strong>180</strong></p>
+    <p class="code"><code>rad * 180 / PI</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/radians-and-degrees/">Radians to Degrees lesson</a><a href="https://mathovia.com/practice/radians-and-degrees-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="pythagorean-identity" class="card" data-cat="trigonometry" data-search="pythagorean identity identities trigonometry identities unit-circle">
+  <header><h3><a href="#pythagorean-identity">Pythagorean Identity</a></h3><span class="badge">Identities</span></header>
+  <div class="formula">\[\sin^2\theta + \cos^2\theta = 1\]</div>
+  <p>Holds for every angle θ; follows from the unit circle and the Pythagorean theorem.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(\theta\)</span> angle in radians</li></ul>
+    <p class="ex"><strong>Example:</strong> theta = 0.7 → <strong>1</strong></p>
+    <p class="code"><code>sin(theta)**2 + cos(theta)**2</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/math/calculus/trigonometric-functions/">Pythagorean Identity lesson</a><a href="https://mathovia.com/practice/trigonometric-functions-practice-problems/">Practice problems</a></nav>
+</article>
+<article id="pythagorean-theorem" class="card" data-cat="trigonometry" data-search="pythagorean theorem right-triangles right-triangle geometry pythagorean">
+  <header><h3><a href="#pythagorean-theorem">Pythagorean Theorem</a></h3><span class="badge">Right Triangles</span></header>
+  <div class="formula">\[c = \sqrt{a^2 + b^2}\]</div>
+  <p>In a right triangle, the square of the hypotenuse equals the sum of the squares of the legs.</p>
+  <details><summary>Variables &amp; example</summary>
+    <ul class="vars"><li><span class="tex">\(a\)</span> leg</li><li><span class="tex">\(b\)</span> leg</li></ul><p class="conds"><strong>Conditions:</strong> Right triangle only; a &gt; 0, b &gt; 0</p>
+    <p class="ex"><strong>Example:</strong> a = 3, b = 4 → <strong>5</strong></p>
+    <p class="code"><code>sqrt(a**2 + b**2)</code></p>
+  </details>
+  <nav class="links"><a href="https://mathovia.com/calculators/right-triangle-calculator/">Calculator</a></nav>
+</article>
+</div>
+
+<h2>Use it in your project</h2>
+<pre><code>const res = await fetch("https://cdn.jsdelivr.net/gh/zohaib99k/math-formulas-dataset@main/dist/formulas.min.json");
+const { formulas } = await res.json();
+const q = formulas.find(f =&gt; f.id === "quadratic-formula");
+console.log(q.latex, q.links.learn);</code></pre>
+
+<footer>
+  <p>Data licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; please credit “Formula data from <a href="https://mathovia.com/">Mathovia</a>”. Code under MIT.
+  Version 1.0.0. <a href="https://github.com/zohaib99k/math-formulas-dataset/issues">Report an error or suggest a formula</a>.</p>
+</footer>
+</div>
+<script>
+(function(){
+  var q=document.getElementById("q"),cards=[].slice.call(document.querySelectorAll(".card")),btns=[].slice.call(document.querySelectorAll("[data-filter]")),cat="all";
+  function apply(){var t=q.value.trim().toLowerCase();cards.forEach(function(c){var ok=(cat==="all"||c.dataset.cat===cat)&&(!t||c.dataset.search.indexOf(t)>-1);c.hidden=!ok;});}
+  btns.forEach(function(b){b.addEventListener("click",function(){cat=b.dataset.filter;btns.forEach(function(x){x.classList.toggle("on",x===b);});apply();});});
+  q.addEventListener("input",apply);
+})();
+</script>
+</body>
+</html>

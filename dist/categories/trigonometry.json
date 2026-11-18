@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "name": "Math Formulas Dataset",
+    "version": "1.0.0",
+    "description": "Machine-readable math formulas with LaTeX, variables, computable expressions and verified worked examples.",
+    "source": "https://mathovia.com/",
+    "repository": "https://github.com/zohaib99k/math-formulas-dataset",
+    "license": "CC-BY-4.0",
+    "attribution": "Formula data from Mathovia (https://mathovia.com)",
+    "count": 4,
+    "category": "trigonometry"
+  },
+  "formulas": [
+    {
+      "id": "degrees-to-radians",
+      "name": "Degrees to Radians",
+      "category": "trigonometry",
+      "topic": "angle-measure",
+      "latex": "\\text{radians} = \\text{degrees} \\times \\frac{\\pi}{180^\\circ}",
+      "plain": "radians = degrees × π / 180",
+      "description": "Converts an angle from degrees to radians.",
+      "variables": [
+        {
+          "key": "deg",
+          "symbol": "\\theta_{\\text{deg}}",
+          "name": "angle in degrees"
+        }
+      ],
+      "output": {
+        "key": "rad",
+        "symbol": "\\theta_{\\text{rad}}",
+        "name": "angle in radians"
+      },
+      "compute": "deg * PI / 180",
+      "conditions": [],
+      "examples": [
+        {
+          "inputs": {
+            "deg": 180
+          },
+          "output": 3.141592653589793
+        },
+        {
+          "inputs": {
+            "deg": 90
+          },
+          "output": 1.5707963267948966
+        }
+      ],
+      "tags": [
+        "angles",
+        "conversion",
+        "radians"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/calculus/radians-and-degrees/",
+        "practice": "https://mathovia.com/practice/radians-and-degrees-practice-problems/"
+      }
+    },
+    {
+      "id": "radians-to-degrees",
+      "name": "Radians to Degrees",
+      "category": "trigonometry",
+      "topic": "angle-measure",
+      "latex": "\\text{degrees} = \\text{radians} \\times \\frac{180^\\circ}{\\pi}",
+      "plain": "degrees = radians × 180 / π",
+      "description": "Converts an angle from radians to degrees.",
+      "variables": [
+        {
+          "key": "rad",
+          "symbol": "\\theta_{\\text{rad}}",
+          "name": "angle in radians"
+        }
+      ],
+      "output": {
+        "key": "deg",
+        "symbol": "\\theta_{\\text{deg}}",
+        "name": "angle in degrees"
+      },
+      "compute": "rad * 180 / PI",
+      "conditions": [],
+      "examples": [
+        {
+          "inputs": {
+            "rad": 3.141592653589793
+          },
+          "output": 180
+        },
+        {
+          "inputs": {
+            "rad": 1
+          },
+          "output": 57.29577951308232
+        }
+      ],
+      "tags": [
+        "angles",
+        "conversion",
+        "radians"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/calculus/radians-and-degrees/",
+        "practice": "https://mathovia.com/practice/radians-and-degrees-practice-problems/"
+      }
+    },
+    {
+      "id": "pythagorean-identity",
+      "name": "Pythagorean Identity",
+      "category": "trigonometry",
+      "topic": "identities",
+      "latex": "\\sin^2\\theta + \\cos^2\\theta = 1",
+      "plain": "sin²θ + cos²θ = 1",
+      "description": "Holds for every angle θ; follows from the unit circle and the Pythagorean theorem.",
+      "variables": [
+        {
+          "key": "theta",
+          "symbol": "\\theta",
+          "name": "angle in radians"
+        }
+      ],
+      "output": {
+        "key": "one",
+        "symbol": "1",
+        "name": "identity value (always 1)"
+      },
+      "compute": "sin(theta)**2 + cos(theta)**2",
+      "conditions": [],
+      "examples": [
+        {
+          "inputs": {
+            "theta": 0.7
+          },
+          "output": 1
+        },
+        {
+          "inputs": {
+            "theta": 2.5
+          },
+          "output": 1
+        }
+      ],
+      "tags": [
+        "trigonometry",
+        "identities",
+        "unit-circle"
+      ],
+      "links": {
+        "learn": "https://mathovia.com/math/calculus/trigonometric-functions/",
+        "practice": "https://mathovia.com/practice/trigonometric-functions-practice-problems/"
+      }
+    },
+    {
+      "id": "pythagorean-theorem",
+      "name": "Pythagorean Theorem",
+      "category": "trigonometry",
+      "topic": "right-triangles",
+      "latex": "c = \\sqrt{a^2 + b^2}",
+      "plain": "a² + b² = c²",
+      "description": "In a right triangle, the square of the hypotenuse equals the sum of the squares of the legs.",
+      "variables": [
+        {
+          "key": "a",
+          "symbol": "a",
+          "name": "leg"
+        },
+        {
+          "key": "b",
+          "symbol": "b",
+          "name": "leg"
+        }
+      ],
+      "output": {
+        "key": "c",
+        "symbol": "c",
+        "name": "hypotenuse"
+      },
+      "compute": "sqrt(a**2 + b**2)",
+      "conditions": [
+        "Right triangle only",
+        "a > 0, b > 0"
+      ],
+      "examples": [
+        {
+          "inputs": {
+            "a": 3,
+            "b": 4
+          },
+          "output": 5
+        },
+        {
+          "inputs": {
+            "a": 5,
+            "b": 12
+          },
+          "output": 13
+        }
+      ],
+      "tags": [
+        "right-triangle",
+        "geometry",
+        "pythagorean"
+      ],
+      "links": {
+        "calculate": "https://mathovia.com/calculators/right-triangle-calculator/"
+      }
+    }
+  ]
+}
